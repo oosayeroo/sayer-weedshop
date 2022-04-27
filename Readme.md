@@ -1,6 +1,7 @@
 # A WeedShop Job for QBCore Framework
 
  -- First of all, i would like to thank DrB1ackBeard for his amazing burgershot script which helped me understand alot as im learning still.
+ --Complete Rewrite of DrB1ackBeard's amazing burgershot job. run your own weedshop where you collect, dry, grind weed to make joints and sell them to players. other features included
  
 ## Please note
 
@@ -22,6 +23,9 @@ qb-input - https://github.com/qbcore-framework/qb-input
 qb-menu - https://github.com/qbcore-framework/qb-menu
 
 qb-shops - https://github.com/qbcore-framework/qb-shops
+
+Legion Weed Clinic Interior MLO FREE - https://www.gta5-mods.com/maps/mlo-legion-weed-clinic
+--^^^ designed to work with this MLO but guess you could move it wherever you want if you know how.
 
 
 ## Credits : 
