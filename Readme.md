@@ -1,6 +1,7 @@
 # A WeedShop Job for QBCore Framework
 
  -- First of all, i would like to thank DrB1ackBeard for his amazing burgershot script which helped me understand alot as im learning still and this took me a few days to finish.
+-- Thank you to Bamboozled for the MLO Gret Work There
  -- Major rework of burgershot job to work as a player run weed shop using legion weed clinic MLO
  -- Will Work fine alongside qb-burgershot. 
 
