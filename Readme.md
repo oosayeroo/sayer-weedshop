@@ -96,7 +96,7 @@ QBShared.Items = {
 
 ```
 
-## Inset Contents of @weedshop/Images into @qb-inventory/HTML/Images
+## Insert Contents of @weedshop/Images into @qb-inventory/HTML/Images
 
 
 ## Insert into @qb-core/shared/jobs.lua 
