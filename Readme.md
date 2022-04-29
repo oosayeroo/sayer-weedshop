@@ -1,3 +1,6 @@
+Updated 29/4/22 - Fixed error in ordering items when using both burgershot job and wedshop at same time
+
+
 # A WeedShop Job for QBCore Framework
 
  -- First of all, i would like to thank DrB1ackBeard for his amazing burgershot script which helped me understand alot as im learning still and this took me a few days to finish.
