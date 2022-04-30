@@ -31,7 +31,7 @@ qb-shops - https://github.com/qbcore-framework/qb-shops (not a dependecy but i u
 
 Legion Weed Clinic Interior MLO FREE - https://www.gta5-mods.com/maps/mlo-legion-weed-clinic -- designed to work with this MLO but guess you could move it wherever you want if you know how.
 
-
+NH context - thanks to andyaUk for letting me know. Will convert to qb menu soon as I can.
 
 ## Credits : 
 
