@@ -1,4 +1,4 @@
-Updated 29/4/22 - Fixed error in ordering items when using both burgershot job and wedshop at same time
+Updated 01/05/22 - Updated parts for the updated qb-shops, removed nh-context dependency, updated images
 
 
 # A WeedShop Job for QBCore Framework
@@ -30,8 +30,6 @@ qb-menu - https://github.com/qbcore-framework/qb-menu
 qb-shops - https://github.com/qbcore-framework/qb-shops (not a dependecy but i use that to get the wet weed, you could use any other method you like)
 
 Legion Weed Clinic Interior MLO FREE - https://www.gta5-mods.com/maps/mlo-legion-weed-clinic -- designed to work with this MLO but guess you could move it wherever you want if you know how.
-
-NH context - thanks to andyaUk for letting me know. Will convert to qb menu soon as I can.
 
 ## Credits : 
 
