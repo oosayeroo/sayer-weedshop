@@ -18,6 +18,18 @@ function DrawText3Ds(x, y, z, text)
     ClearDrawOrigin()
 end
 
+Citizen.CreateThread(function()
+    WeedShop = AddBlipForCoord(377.39, -833.21, 29.29)
+    SetBlipSprite (WeedShop, 469)
+    SetBlipDisplay(WeedShop, 4)
+    SetBlipScale  (WeedShop, 0.7)
+    SetBlipAsShortRange(WeedShop, true)
+    SetBlipColour(WeedShop, 2)
+    BeginTextCommandSetBlipName("STRING")
+    AddTextComponentSubstringPlayerName("WeedShop")
+    EndTextCommandSetBlipName(WeedShop)
+end) 
+
 
 RegisterNetEvent('QBCore:Client:OnPlayerLoaded')
 AddEventHandler('QBCore:Client:OnPlayerLoaded', function()
