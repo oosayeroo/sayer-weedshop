@@ -34,7 +34,7 @@ Legion Weed Clinic Interior MLO FREE - https://www.gta5-mods.com/maps/mlo-legion
 ## Credits : 
 
 - BerkieB for his qb-target.
-- Andyauk for his help cleaning up some issues. true king
+- Andyauk for helping me make this as great as it is now. 
 
 
 ## If you had my old version you can delete this out of small resources as not needed anymore. 
