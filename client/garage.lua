@@ -24,7 +24,7 @@ end)
 Citizen.CreateThread(function()
 	while true do
 		Citizen.Wait(1000)
-		for k, v in pairs(Config.GaragePedLocations) do
+		for k, v in pairs(Config.WeedGaragePedLocations) do
 			local pos = GetEntityCoords(PlayerPedId())	
 			local dist = #(pos - vector3(v.coords.x, v.coords.y, v.coords.z))
 			
