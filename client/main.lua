@@ -534,7 +534,7 @@ AddEventHandler("qb-weedshop:DryBloomer", function()
     if onDuty then
     QBCore.Functions.TriggerCallback('QBCore:HasItem', function(HasItem)
         if HasItem then
-           DryWeed()
+           DryBloomer()
         else
             QBCore.Functions.Notify("You don't have the right stuff..", "error")
         end
