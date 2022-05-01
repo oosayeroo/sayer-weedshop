@@ -36,6 +36,7 @@ NH context - thanks to andyaUk for letting me know. Will convert to qb menu soon
 ## Credits : 
 
 - BerkieB for his qb-target.
+- Andyauk for his help cleaning up some issues. true king
 
 
 ## Insert into @qb-smallresources --> server --> consumables.lua
