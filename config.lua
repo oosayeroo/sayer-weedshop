@@ -25,7 +25,7 @@ label = "weedshop",
             slot = 2,
         },
         [3] = {
-            name = "rolling-paper",
+            name = "rolling_paper",
             price = 2,
             amount = 50,
             info = {},
