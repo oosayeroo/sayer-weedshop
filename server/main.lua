@@ -37,7 +37,7 @@ QBCore.Functions.CreateCallback('qb-weedshop:server:get:ingredientjoint', functi
     local src = source
     local Ply = QBCore.Functions.GetPlayer(src)
     local lettuce = Ply.Functions.GetItemByName("streetweed")
-    local meat = Ply.Functions.GetItemByName("rolling-paper")
+    local meat = Ply.Functions.GetItemByName("rolling_paper")
     if lettuce ~= nil and meat ~= nil then
         cb(true)
     else
