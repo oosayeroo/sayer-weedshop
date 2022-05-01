@@ -172,7 +172,7 @@ AddEventHandler("qb-weedshop:joint", function()
 					flags = 8,
 				}, {}, {}, function() -- Done
 					TriggerServerEvent('QBCore:Server:RemoveItem', "streetweed", 1)
-					TriggerServerEvent('QBCore:Server:RemoveItem', "rolling-paper", 1)
+					TriggerServerEvent('QBCore:Server:RemoveItem', "rolling_paper", 1)
 					TriggerServerEvent('QBCore:Server:AddItem', "joint", 1)
                     			TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["joint"], "add")
                     			QBCore.Functions.Notify("You made a Joint", "success")
