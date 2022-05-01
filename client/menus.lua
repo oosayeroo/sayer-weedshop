@@ -8,12 +8,12 @@ local onDuty = false
 -- target
 
 Citizen.CreateThread(function()
-	exports['qb-target']:AddBoxZone("WeedShopDuty", vector3(375.74, -824.5, 30.09), 1, 1.2, {
+	exports['qb-target']:AddBoxZone("WeedShopDuty", vector3(375.65, -824.95, 29.3), 0.30, 1.2, {
 		name = "WeedShopDuty",
-		heading = 32,
+		heading = 177.88,
 		debugPoly = false,
-		minZ=29.0,
-		maxZ=31.0,
+		minZ=29.6,
+		maxZ=30.5,
 	}, {
 		options = {
 		    {  
