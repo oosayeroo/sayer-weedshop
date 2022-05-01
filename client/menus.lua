@@ -91,7 +91,7 @@ Citizen.CreateThread(function()
         }, {
                 options = {
                     {
-                        event = "nh-context:WeedMenu",
+                        event = "qb-menu:WeedMenu",
                         icon = "fas fa-cannabis",
                         label = "Order Ingredients!",
                         job = "weedshop",
@@ -129,7 +129,7 @@ Citizen.CreateThread(function()
         }, {
                 options = {
                     {
-                        event = "nh-context:Weed",
+                        event = "qb-menu:Weed",
                         icon = "fas fa-cannabis",
                         label = "Weed Craft Station",
                         job = "weedshop",
@@ -163,7 +163,7 @@ end)
 
 -- QB-MENU --
 
-RegisterNetEvent('nh-context:Weed', function(data)
+RegisterNetEvent('qb-menu:Weed', function(data)
     exports['qb-menu']:openMenu({
         {
             
@@ -211,7 +211,7 @@ RegisterNetEvent('nh-context:Weed', function(data)
 end)
 
 
-RegisterNetEvent('nh-context:WeedMenu', function(data)
+RegisterNetEvent('qb-menu:WeedMenu', function(data)
     exports['qb-menu']:openMenu({
         {
             
