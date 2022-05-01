@@ -140,14 +140,18 @@ Config.Products = {
 }
 
 Config.Locations = {
-["wetbud"] = {
+ ["wetbud"] = {
         ["label"] = "Wet Weed Dealer",
         ["coords"] = vector4(3688.22, 4562.83, 25.18, 274.53),
         ["ped"] = 'g_m_m_chigoon_01',
+        ["scenario"] = "WORLD_HUMAN_AA_SMOKE",
         ["radius"] = 1.5,
+        ["targetIcon"] = "fas fa-cannabis",
+        ["targetLabel"] = "Open Wet Weed Shop",
         ["products"] = Config.Products["wetbud"],
         ["showblip"] = false,
-        ["blipsprite"] = 617
+        ["blipsprite"] = 617,
+        ["blipcolor"] = 2
     },
 }
 ```
@@ -158,7 +162,7 @@ Config.Locations = {
     },
 ```
 
-## Insert into @qb-target - config.lua - config.targetmodels
+## Insert into @qb-target - init.lua - config.targetmodels
 ``` 
 ["weedshopgarage"] = {
 		models = {
