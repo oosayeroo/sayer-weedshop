@@ -12,7 +12,7 @@ IF UPDATING = better to do a fresh install so as not to cause overlaps and issue
 
 - Please make sure u use the latest dependencies aswell as core for this in order to work.
 
-- This Job has been tested on the latest build as of 28/4/2022.
+- This Job has been tested on the latest build as of 01/05/2022.
 
 
 ## Dependencies :
