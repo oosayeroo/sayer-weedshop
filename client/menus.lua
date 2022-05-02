@@ -229,7 +229,7 @@ RegisterNetEvent('qb-menu:Weed', function(data)
         {
             
             header = "• Weed Gift Set",
-            txt = "Joint x5, Gift Box x1 , streetweed x1 ",
+            txt = "1 of each joint ",
             params = {
                 event = "qb-weedshop:creategiftset"
             }
