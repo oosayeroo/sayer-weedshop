@@ -111,8 +111,11 @@ QBCore.Functions.CreateCallback('qb-weedshop:server:get:ingredientgiftset', func
     local Ply = QBCore.Functions.GetPlayer(src)
     local fries = Ply.Functions.GetItemByName("joint")
     local heartstopper = Ply.Functions.GetItemByName("gift-box")
-    local software = Ply.Functions.GetItemByName("streetweed")
-    if fries ~= nil and heartstopper ~= nil and software ~= nil then
+    local dream = Ply.Functions.GetItemByName("dream-joint")
+    local hazy = Ply.Functions.GetItemByName("hazy-joint")
+    local crush = Ply.Functions.GetItemByName("crush-joint")
+    local bloomer = Ply.Functions.GetItemByName("bloomer-joint")
+    if fries ~= nil and heartstopper ~= nil and dream ~= nil and hazy ~= nil and crush ~= nil and bloomer ~= nil then
         cb(true)
     else
         cb(false)
