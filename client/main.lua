@@ -111,9 +111,11 @@ AddEventHandler("qb-weedshop:giftset", function()
 		--remove box
 		TriggerServerEvent('QBCore:Server:RemoveItem', "weed-gift-set", 1)
 		--add items from box
-		TriggerServerEvent('QBCore:Server:AddItem', "joint", 5)
-		TriggerServerEvent('QBCore:Server:AddItem', "lighter", 1)
-		TriggerServerEvent('QBCore:Server:AddItem', "weed_white-widow_seed", 1)
+		TriggerServerEvent('QBCore:Server:AddItem', "joint", 1)
+		TriggerServerEvent('QBCore:Server:AddItem', "dream-joint", 1)
+		TriggerServerEvent('QBCore:Server:AddItem', "hazy-joint", 1)
+                TriggerServerEvent('QBCore:Server:AddItem', "crush-joint", 1)
+                TriggerServerEvent('QBCore:Server:AddItem', "bloomer-joint", 1)
 
 		if randomGift < 4 then
 					TriggerServerEvent('QBCore:Server:AddItem', "casinochips", 10)
@@ -150,9 +152,12 @@ AddEventHandler("qb-weedshop:creategiftset", function()
 					anim = "givetake1_a",
 					flags = 8,
 				}, {}, {}, function() -- Done
-					TriggerServerEvent('QBCore:Server:RemoveItem', "joint", 5)
+					TriggerServerEvent('QBCore:Server:RemoveItem', "joint", 1)
                     			TriggerServerEvent('QBCore:Server:RemoveItem', "gift-box", 1)
-					TriggerServerEvent('QBCore:Server:RemoveItem', "streetweed", 1)
+					TriggerServerEvent('QBCore:Server:RemoveItem', "dream-joint", 1)
+                                        TriggerServerEvent('QBCore:Server:RemoveItem', "hazy-joint", 1)
+                                        TriggerServerEvent('QBCore:Server:RemoveItem', "crush-joint", 1)
+                                        TriggerServerEvent('QBCore:Server:RemoveItem', "bloomer-joint", 1)
 					TriggerServerEvent('QBCore:Server:AddItem', "weed-gift-set", 1)
                     			TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["weed-gift-set"], "add")
                     			QBCore.Functions.Notify("You made a A Gift Set", "success")
