@@ -66,7 +66,7 @@ end
 
 RegisterNetEvent('qb-weedshop:garage')
 AddEventHandler('qb-weedshop:garage', function(bs)
-    local vehicle = bs.vehicle
+    local vehicle = ws.vehicle
     local coords = vector4(368.15, -827.12, 29.29, 182.61)
         if PlayerData.job.name == "weedshop" then
             if vehicle == 'paradise' then		
