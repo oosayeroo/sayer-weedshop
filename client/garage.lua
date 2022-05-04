@@ -65,7 +65,7 @@ function loadAnimDict(dict)
 end
 
 RegisterNetEvent('qb-weedshop:garage')
-AddEventHandler('qb-weedshop:garage', function(bs)
+AddEventHandler('qb-weedshop:garage', function(ws)
     local vehicle = ws.vehicle
     local coords = vector4(368.15, -827.12, 29.29, 182.61)
         if PlayerData.job.name == "weedshop" then
