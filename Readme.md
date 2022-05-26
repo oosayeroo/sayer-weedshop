@@ -1,7 +1,7 @@
 Updated 01/05/22 - Major update, added different strains, localised parts of the script, joints now give effect apart from basic street weed. 
 IF UPDATING = better to do a fresh install so as not to cause overlaps and issues
 
-Discord - https://discord.gg/XPuqBVtyqX
+Discord - https://discord.gg/3WYz3zaqG5
 
 # A WeedShop Job for QBCore Framework
 
