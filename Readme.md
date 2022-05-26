@@ -1,6 +1,8 @@
 Updated 01/05/22 - Major update, added different strains, localised parts of the script, joints now give effect apart from basic street weed. 
 IF UPDATING = better to do a fresh install so as not to cause overlaps and issues
 
+Discord - https://discord.gg/XPuqBVtyqX
+
 # A WeedShop Job for QBCore Framework
 
  -- First of all, i would like to thank DrB1ackBeard for his amazing burgershot script which helped me understand alot as im learning still and this took me a few days to finish.
