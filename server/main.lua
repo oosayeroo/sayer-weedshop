@@ -134,6 +134,11 @@ QBCore.Functions.CreateCallback('qb-weedshop:server:get:ingredientweedbrownie', 
     end
 end)
 
+QBCore.Functions.CreateUseableItem("weed-grinder", function(source, item)
+    local Player = QBCore.Functions.GetPlayer(source)
+    TriggerClientEvent("qb-menu:GrindWeed", source, item.name)
+end)
+
 QBCore.Functions.CreateUseableItem("weed-gift-set", function(source, item)
     local Player = QBCore.Functions.GetPlayer(source)
     TriggerClientEvent("qb-weedshop:giftset", source, item.name)
