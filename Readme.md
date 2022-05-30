@@ -105,6 +105,8 @@ QBShared.Items = {
 	['crush-weed'] 				     = {['name'] = 'crush-weed', 			  	  	['label'] = "Crush Weed", 				['weight'] = 500, 		['type'] = 'item', 		['image'] = 'crush-weed.png', 			['unique'] = false, 	['useable'] = true, 	['shouldClose'] = true,    ['combinable'] = nil,   ['description'] = 'Ground Crush Weed'},
 	['bloomer-weed'] 				 = {['name'] = 'bloomer-weed', 		  	    	['label'] = "Bloomer Weed", 			['weight'] = 500, 		['type'] = 'item', 		['image'] = 'bloomer-weed.png', 		['unique'] = false, 	['useable'] = true, 	['shouldClose'] = true,    ['combinable'] = nil,   ['description'] = 'Ground Bloomer Weed'},
 	['weed-grinder']                   = {['name'] = 'weed-grinder',                     ['label'] = 'Grinder',                     ['weight'] = 1500,         ['type'] = 'item',         ["image"] = "weed-grinder.png",         ["unique"] = true,         ["useable"] = true,     ["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "A Portable Grinder"},
+	['chill-pills'] 		 	     = {['name'] = 'chill-pills', 		        	['label'] = 'Chill Pills', 		       	['weight'] = 1000, 		['type'] = 'item', 		["image"] = "chill-pills.png", 	        ["unique"] = false,     ["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "Some Chill Pills"},
+	['customer-receipt'] 		     = {['name'] = 'customer-receipt', 		       	['label'] = 'Receipt', 		        	['weight'] = 500, 		['type'] = 'item', 		["image"] = "customer-receipt.png",     ["unique"] = false,     ["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "A Receipt that needs filing"},
 }
 
 ```
