@@ -1,3 +1,5 @@
+Update 30/5/22 - Delivery Update - now employees can make money when RP is low. introducing the new delivery update. you can start this by using the register where ou order items etc. hope you all enjoy
+
 Updated 30/5/22 - Added portable working grinders as another alternative to the grinding table. - credit to Mynames<hutch> for the idea 
 IF UPDATING = better to do a fresh install so as not to cause overlaps and issues
 
