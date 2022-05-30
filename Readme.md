@@ -1,4 +1,4 @@
-Updated 01/05/22 - Major update, added different strains, localised parts of the script, joints now give effect apart from basic street weed. 
+Updated 30/5/22 - Added portable working grinders as another alternative to the grinding table. - credit to Mynames<hutch> for the idea 
 IF UPDATING = better to do a fresh install so as not to cause overlaps and issues
 
 Discord - https://discord.gg/3WYz3zaqG5
