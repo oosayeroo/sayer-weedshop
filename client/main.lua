@@ -1,6 +1,6 @@
 local QBCore = exports['qb-core']:GetCoreObject()
 isLoggedIn = false
-local onDuty = false
+local onDuty = true
 PlayerJob = {}
 
 function DrawText3Ds(x, y, z, text)
