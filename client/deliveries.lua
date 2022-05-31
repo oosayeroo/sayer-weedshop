@@ -51,8 +51,6 @@ RegisterNetEvent('qb-weedshop:deliveries:ReceivePayment', function()
     end)
 end)
 
--- Funções
-
 function startdropoff()
     local prob = math.random(1, 10)
 
