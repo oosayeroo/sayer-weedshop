@@ -3,7 +3,7 @@ local QBCore = exports['qb-core']:GetCoreObject()
 isLoggedIn = true
 PlayerJob = {}
 
-local onDuty = false
+local onDuty = true
 
 -- target
 
