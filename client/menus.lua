@@ -93,7 +93,7 @@ Citizen.CreateThread(function()
                     {
                         event = "qb-menu:WeedMenu",
                         icon = "fas fa-cannabis",
-                        label = "Order Ingredients!",
+                        label = "Access Register!",
                         job = "weedshop",
                     },
                 },
@@ -297,6 +297,7 @@ RegisterNetEvent('qb-menu:GrindWeed', function(data)
     })
 end)
 
+
 RegisterNetEvent('qb-menu:DryWeed', function(data)
     exports['qb-menu']:openMenu({
         {
@@ -373,6 +374,22 @@ RegisterNetEvent('qb-menu:WeedMenu', function(data)
             txt = "See what you have in storage",
             params = {
                 event = "qb-weedshop:Storage2"
+            }
+        },
+        {
+           
+            header = "• Accept Delivery",
+            txt = "Send delivery to personal email",
+            params = {
+                event = "qb-weedshop:deliveries:DeliverWeed"
+            }
+        },
+        {
+           
+            header = "• File Invoice",
+            txt = "Complete to get paid for each Receipt",
+            params = {
+                event = "qb-weedshop:deliveries:ReceivePayment"
             }
         },
         {
