@@ -1,5 +1,7 @@
 local QBCore = exports['qb-core']:GetCoreObject()
-
+isLoggedIn = false
+local onDuty = true
+PlayerJob = {}
 
 RegisterNetEvent('qb-weedshop:deliveries:DeliverWeed', function()
     TriggerEvent('animations:client:EmoteCommandStart', {"type"})
@@ -38,18 +40,36 @@ RegisterNetEvent('qb-weedshop:deliveries:KnockDoor', function()
     end)
 end)
 
-RegisterNetEvent('qb-weedshop:deliveries:ReceivePayment', function()
-    TriggerEvent('animations:client:EmoteCommandStart', {"type"})
-    QBCore.Functions.Progressbar('falar_empregada', 'Filing Invoice...', 5000, false, true, {
-        disableMovement = true,
-        disableCarMovement = true,
-        disableMouse = false,
-        disableCombat = true,
-    }, {}, {}, {}, function()
-
-        TriggerServerEvent('qb-weedshop:server:ReceivePayment')
-    end)
+RegisterNetEvent("qb-weedshop:deliveries:ReceivePayment")
+AddEventHandler("qb-weedshop:deliveries:ReceivePayment", function()
+    if onDuty then
+    	QBCore.Functions.TriggerCallback('qb-weedshop:server:get:ReceiptChecker', function(HasItems)  
+    		if HasItems then
+				QBCore.Functions.Progressbar("pickup_sla", "Filing Receipt..", 4000, false, true, {
+					disableMovement = true,
+					disableCarMovement = true,
+					disableMouse = false,
+					disableCombat = true,
+				}, {
+					animDict = "mp_common",
+					anim = "givetake1_a",
+					flags = 8,
+				}, {}, {}, function() -- Done
+					TriggerServerEvent('qb-weedshop:server:ReceivePayment')
+					TriggerServerEvent('QBCore:Server:RemoveItem', "customer-receipt", 1)
+							QBCore.Functions.Notify("You Filed a Receipt", "success")
+				end, function()
+					QBCore.Functions.Notify("Cancelled..", "error")
+				end)
+			else
+   				QBCore.Functions.Notify("You dont have the right stuff to make this", "error")
+			end
+		end)
+	else 
+		QBCore.Functions.Notify("You must be Clocked into work", "error")
+	end
 end)
+
 
 function startdropoff()
     local prob = math.random(1, 10)
