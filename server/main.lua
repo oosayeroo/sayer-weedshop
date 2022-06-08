@@ -135,6 +135,8 @@ QBCore.Functions.CreateCallback('qb-weedshop:server:get:ingredientweedbrownie', 
 end)
 
 
+
+
 QBCore.Functions.CreateUseableItem("weed-grinder", function(source, item)
     local Player = QBCore.Functions.GetPlayer(source)
     TriggerClientEvent("qb-menu:GrindWeed", source, item.name)
@@ -213,6 +215,17 @@ RegisterNetEvent('qb-weedshop:server:KnockDoor', function()
 
     Player.Functions.RemoveItem(item1, quantity)
     Player.Functions.AddItem(item2, quantity)
+end)
+
+QBCore.Functions.CreateCallback('qb-weedshop:server:get:ReceiptChecker', function(source, cb)
+    local src = source
+    local Ply = QBCore.Functions.GetPlayer(src)
+    local wreceipt = Ply.Functions.GetItemByName("customer-receipt")
+    if wreceipt ~= nil then
+        cb(true)
+    else
+        cb(false)
+    end
 end)
 
 RegisterNetEvent('qb-weedshop:server:ReceivePayment', function()
