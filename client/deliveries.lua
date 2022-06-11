@@ -26,6 +26,43 @@ RegisterNetEvent('qb-weedshop:deliveries:DeliverWeed', function()
     end)
 end)
 
+RegisterNetEvent('qb-weedshop:deliveries:PickUpWeed', function()
+    TriggerEvent('animations:client:EmoteCommandStart', {"type"})
+    QBCore.Functions.Progressbar('falar_empregada', 'Getting Weed Order...', 5000, false, true, {
+        disableMovement = true,
+        disableCarMovement = true,
+        disableMouse = false,
+        disableCombat = true,
+    }, {}, {}, {}, function()
+    TriggerEvent('animations:client:EmoteCommandStart', {"c"})
+    QBCore.Functions.Notify('You need to go to pick up some Wet Weed!', 'primary', 7500)
+    
+    Wait(Config.DeliveryWait)
+
+    TriggerServerEvent('qb-phone:server:sendNewMail', {
+        sender = 'Mr Mexicans',
+        subject = 'Pick up Wet Weed...',
+        message = 'Yo man, i received your payment, i got some wet weed here for you. freshly grown. Come pick it up',
+        })
+    TriggerServerEvent('qb-weedshop:server:WetWeedPickUp')
+    startwetweedpickup()
+    end)
+end)
+
+RegisterNetEvent('qb-weedshop:deliveries:PickupWetWeed', function()
+    TriggerEvent('animations:client:EmoteCommandStart', {"knock"})
+    QBCore.Functions.Progressbar('falar_empregada', 'Picking up Wet Weed...', 5000, false, true, {
+        disableMovement = true,
+        disableCarMovement = true,
+        disableMouse = false,
+        disableCombat = true,
+    }, {}, {}, {}, function()
+    QBCore.Functions.Notify('You got the Wet Weed, take it back to the shop', 'primary', 7500)
+
+    TriggerServerEvent('qb-weedshop:server:PickupWetWeed')
+    end)
+end)
+
 RegisterNetEvent('qb-weedshop:deliveries:KnockDoor', function()
     TriggerEvent('animations:client:EmoteCommandStart', {"knock"})
     QBCore.Functions.Progressbar('falar_empregada', 'Knocking Door...', 5000, false, true, {
@@ -70,6 +107,32 @@ AddEventHandler("qb-weedshop:deliveries:ReceivePayment", function()
 	end
 end)
 
+function startwetweedpickup()
+    local prob = math.random(1, 1)
+
+    if prob == 1 then
+        SetNewWaypoint(Config.WetWeedLocation)
+        startwetweedpickup1()
+    end
+end
+    
+
+function startwetweedpickup1()
+    exports['qb-target']:AddBoxZone("wet-pickup", Config.WetWeedLocation, 1, 1, {
+        name="wet-pickup",
+        heading=0,
+        debugpoly = false,
+    }, {
+        options = {
+            {
+            event = "qb-weedshop:deliveries:PickupWetWeed",
+            icon = "far fa-cannabis",
+            label = "Pick Up Wet Weed",
+            },
+        },
+        distance = 2.5
+    })
+end
 
 function startdropoff()
     local prob = math.random(1, 10)
