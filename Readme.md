@@ -1,7 +1,9 @@
-Update 08-06-22 - fixed the delivery payments duplicating and not needing the receipt.  
+Updated 11/06/22 - Added collecting of wet weed within script rather than exporting to qb-shops. 
+
+Updated 01/05/22 - Major update, added different strains, localised parts of the script, joints now give effect apart from basic street weed. 
 IF UPDATING = better to do a fresh install so as not to cause overlaps and issues
 
-Discord - https://discord.gg/3WYz3zaqG5
+Discord - https://discord.gg/XPuqBVtyqX
 
 # A WeedShop Job for QBCore Framework
 
@@ -29,51 +31,14 @@ qb-input - https://github.com/qbcore-framework/qb-input
 
 qb-menu - https://github.com/qbcore-framework/qb-menu
 
-qb-shops - https://github.com/qbcore-framework/qb-shops (not a dependecy but i use that to get the wet weed, you could use any other method you like)
-
+qb-shops - https://github.com/qbcore-framework/qb-shops --no longer a dependency for collecting wet weed
 Legion Weed Clinic Interior MLO FREE - https://www.gta5-mods.com/maps/mlo-legion-weed-clinic -- designed to work with this MLO but guess you could move it wherever you want if you know how.
 
 ## Credits : 
 
 - BerkieB for his qb-target.
 - Andyauk for helping me make this as great as it is now. 
-
-
-## If you had my old version you can delete this out of small resources as not needed anymore. 
-```
---weedshop
-
-QBCore.Functions.CreateUseableItem("weed-brownie", function(source, item)
-    local src = source
-    local Player = QBCore.Functions.GetPlayer(src)
-	if Player.Functions.RemoveItem(item.name, 1, item.slot) then
-        TriggerClientEvent("consumables:client:Eat", src)
-    end
-end)
-
-QBCore.Functions.CreateUseableItem("weed-drink", function(source, item)
-    local src = source
-    local Player = QBCore.Functions.GetPlayer(src)
-	if Player.Functions.RemoveItem(item.name, 1, item.slot) then
-        TriggerClientEvent("consumables:client:Drink", src, item.name)
-    end
-end)
-
-```
-
-
-
-## delete this out of small resources too if your updating from old version.
-```
-Consumeables = {
---drink
-    ["weed-drink"] = math.random(35, 54),
-
---food
-    ["weed-brownie"] = math.random(35, 54),
-  
-
-```
+- Mexicans for his idea about collecting wet weed
 
 ## Insert into @qb-core/shared/items.lua 
 
@@ -83,7 +48,7 @@ QBShared.Items = {
 ['streetweed'] 			    	 = {['name'] = 'streetweed', 			    	['label'] = 'Street Weed', 		    	['weight'] = 500, 		['type'] = 'item', 		["image"] = "weed_baggy.png",       	["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "To make into Joints."},
 	['weedbud'] 			    	 = {['name'] = 'weedbud', 			        	['label'] = 'Weed Bud', 		    	['weight'] = 500, 		['type'] = 'item', 		["image"] = "weedbud.png",           	["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "Grind into Useable Form."},
 	['empty_weed_bag'] 				 = {['name'] = 'empty_weed_bag', 			    ['label'] = 'Empty Weed Bag', 			['weight'] = 200, 		['type'] = 'item', 		['image'] = 'weed_baggy_empty.png', 	['unique'] = false, 	['useable'] = true, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'A small empty bag'},
-	['wet_weed'] 		 	 	 	 = {['name'] = 'wet_weed',           			['label'] = 'Wet Weed',	 		    	['weight'] = 2000, 		['type'] = 'item', 		["image"] = "wet.png", 		        	["unique"] = false, 	["useable"] = false, 	["shouldClose"] = false,   ["combinable"] = nil,   ["description"] = "Wet weed that needs to be treated!"},
+	['wet_weed'] 		 	 	 	 = {['name'] = 'wet_weed',           			['label'] = 'Wet Weed',	 		    	['weight'] = 200, 		['type'] = 'item', 		["image"] = "wet.png", 		        	["unique"] = false, 	["useable"] = false, 	["shouldClose"] = false,   ["combinable"] = nil,   ["description"] = "Wet weed that needs to be treated!"},
     ['rolling_paper'] 			 	 = {['name'] = 'rolling_paper', 			  	['label'] = 'Rolling Paper', 			['weight'] = 500, 		['type'] = 'item', 		['image'] = 'rolling_paper.png', 		['unique'] = false, 	['useable'] = false, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'Paper made specifically for encasing and smoking tobacco or cannabis.'},
 	['weed-gift-set'] 		 	     = {['name'] = 'weed-gift-set', 		    	['label'] = 'Gift Set', 		    	['weight'] = 1500, 		['type'] = 'item', 		["image"] = "weed-gift-set.png", 	    ["unique"] = true, 	    ["useable"] = true, 	["shouldClose"] = true,   ["combinable"] = nil,   ["description"] = "An Amazing Gift Set For 420 Lovers. Now with a random surprise"},
 	['gift-box'] 			     	 = {['name'] = 'gift-box', 			        	['label'] = 'Empty Gift Box', 		   	['weight'] = 1000, 		['type'] = 'item', 		["image"] = "gift-box.png",          	["unique"] = true, 	    ["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "Empty Box to Add Items to."},
@@ -104,9 +69,7 @@ QBShared.Items = {
 	['hazy-weed'] 					 = {['name'] = 'hazy-weed', 			  	  	['label'] = "Hazy Weed", 				['weight'] = 500, 		['type'] = 'item', 		['image'] = 'hazy-weed.png', 			['unique'] = false, 	['useable'] = true, 	['shouldClose'] = true,    ['combinable'] = nil,   ['description'] = 'Ground Hazy Weed'},
 	['crush-weed'] 				     = {['name'] = 'crush-weed', 			  	  	['label'] = "Crush Weed", 				['weight'] = 500, 		['type'] = 'item', 		['image'] = 'crush-weed.png', 			['unique'] = false, 	['useable'] = true, 	['shouldClose'] = true,    ['combinable'] = nil,   ['description'] = 'Ground Crush Weed'},
 	['bloomer-weed'] 				 = {['name'] = 'bloomer-weed', 		  	    	['label'] = "Bloomer Weed", 			['weight'] = 500, 		['type'] = 'item', 		['image'] = 'bloomer-weed.png', 		['unique'] = false, 	['useable'] = true, 	['shouldClose'] = true,    ['combinable'] = nil,   ['description'] = 'Ground Bloomer Weed'},
-	['weed-grinder']                   = {['name'] = 'weed-grinder',                     ['label'] = 'Grinder',                     ['weight'] = 1500,         ['type'] = 'item',         ["image"] = "weed-grinder.png",         ["unique"] = true,         ["useable"] = true,     ["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "A Portable Grinder"},
-	['chill-pills'] 		 	     = {['name'] = 'chill-pills', 		        	['label'] = 'Chill Pills', 		       	['weight'] = 1000, 		['type'] = 'item', 		["image"] = "chill-pills.png", 	        ["unique"] = false,     ["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "Some Chill Pills"},
-	['customer-receipt'] 		     = {['name'] = 'customer-receipt', 		       	['label'] = 'Receipt', 		        	['weight'] = 500, 		['type'] = 'item', 		["image"] = "customer-receipt.png",     ["unique"] = false,     ["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "A Receipt that needs filing"},
+	
 }
 
 ```
@@ -139,7 +102,7 @@ QBShared.Jobs = {
 }		
 ```
 
-## Insert into @qb-shops - config.lua
+## Remove From  @qb-shops - config.lua if updating from old version
 ```
 Config.Products = {
     ["wetbud"] = {
