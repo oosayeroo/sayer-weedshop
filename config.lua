@@ -6,6 +6,9 @@ Config.WeedGaragePedLocations = {
 
 Config.DeliveryWait = 10000
 Config.DeliveryPayment = math.random(500, 700)
+Config.WetWeedCost = math.random(1000, 1200)   -- amount you pay for a pickup of wet weed
+Config.WetWeedAmount = math.random(100,150)   --amount of wet weed you get from a pickup
+Config.WetWeedLocation = vector3(3688.24, 4563.43, 25.18)   -- location to pick up wet weed
 
 Config.DropOffPoint1 = vector3(-297.74, 379.84, 112.1)
 Config.DropOffPoint2 = vector3(119.37, 564.19, 183.96)
