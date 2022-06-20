@@ -393,6 +393,14 @@ RegisterNetEvent('qb-menu:WeedMenu', function(data)
             }
         },
         {
+           
+            header = "• Order Wet Weed",
+            txt = "Order some wet weed to pick up",
+            params = {
+                event = "qb-weedshop:deliveries:PickUpWeed"
+            }
+        },
+        {
             
             header = "Close (ESC)",
             isMenuHeader = true, -- Set to true to make a nonclickable title
