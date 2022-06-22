@@ -348,9 +348,9 @@ AddEventHandler("qb-weedshop:weedbrownie", function()
 					anim = "givetake1_a",
 					flags = 8,
 				}, {}, {}, function() -- Done
-					TriggerServerEvent('QBCore:Server:RemoveItem', "brownie-mix", 3)
-					TriggerServerEvent('QBCore:Server:RemoveItem', "streetweed", 6)
-					TriggerServerEvent('QBCore:Server:AddItem', "weed-brownie", 10)
+					TriggerServerEvent('QBCore:Server:RemoveItem', "brownie-mix", 1)
+					TriggerServerEvent('QBCore:Server:RemoveItem', "streetweed", 1)
+					TriggerServerEvent('QBCore:Server:AddItem', "weed-brownie", 5)
                     			TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["weed-brownie"], "add")
                     			QBCore.Functions.Notify("You made a Weed Brownie", "success")
 				end, function()
@@ -380,10 +380,10 @@ AddEventHandler("qb-weedshop:weed-drink", function()
 					anim = "givetake1_a",
 					flags = 8,
 				}, {}, {}, function() -- Done
-					TriggerServerEvent('QBCore:Server:RemoveItem', "aluminumcan", 5)
+					TriggerServerEvent('QBCore:Server:RemoveItem', "aluminumcan", 1)
                 	TriggerServerEvent('QBCore:Server:RemoveItem', "drink-mix", 1)
-					TriggerServerEvent('QBCore:Server:RemoveItem', "streetweed", 2)
-					TriggerServerEvent('QBCore:Server:AddItem', "weed-drink", 5)
+					TriggerServerEvent('QBCore:Server:RemoveItem', "streetweed", 1)
+					TriggerServerEvent('QBCore:Server:AddItem', "weed-drink", 1)
                     			TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["weed-drink"], "add")
                    			QBCore.Functions.Notify("You made an Energy Drink", "success")
 				end, function()
