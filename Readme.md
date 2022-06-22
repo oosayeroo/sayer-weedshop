@@ -69,6 +69,7 @@ QBShared.Items = {
 	['hazy-weed'] 					 = {['name'] = 'hazy-weed', 			  	  	['label'] = "Hazy Weed", 				['weight'] = 500, 		['type'] = 'item', 		['image'] = 'hazy-weed.png', 			['unique'] = false, 	['useable'] = true, 	['shouldClose'] = true,    ['combinable'] = nil,   ['description'] = 'Ground Hazy Weed'},
 	['crush-weed'] 				     = {['name'] = 'crush-weed', 			  	  	['label'] = "Crush Weed", 				['weight'] = 500, 		['type'] = 'item', 		['image'] = 'crush-weed.png', 			['unique'] = false, 	['useable'] = true, 	['shouldClose'] = true,    ['combinable'] = nil,   ['description'] = 'Ground Crush Weed'},
 	['bloomer-weed'] 				 = {['name'] = 'bloomer-weed', 		  	    	['label'] = "Bloomer Weed", 			['weight'] = 500, 		['type'] = 'item', 		['image'] = 'bloomer-weed.png', 		['unique'] = false, 	['useable'] = true, 	['shouldClose'] = true,    ['combinable'] = nil,   ['description'] = 'Ground Bloomer Weed'},
+	['chill-pill'] 			    	 = {['name'] = 'chill-pill', 		  	    	['label'] = "Chill Pill", 			['weight'] = 200, 	    	['type'] = 'item', 		['image'] = 'chill-pill.png', 		['unique'] = false, 	['useable'] = true, 	['shouldClose'] = true,    ['combinable'] = nil,   ['description'] = 'THC pills to help you relax'},
 	
 }
 
