@@ -173,7 +173,7 @@ RegisterNetEvent('qb-menu:Weed', function(data)
         {
             
             header = "• Weed Brownie",
-            txt = "Brownie Mix x3 , streetweed x6",
+            txt = "Brownie Mix , streetweed",
             params = {
                 event = "qb-weedshop:weedbrownie"
             }
@@ -181,7 +181,7 @@ RegisterNetEvent('qb-menu:Weed', function(data)
         {
             
             header = "• Stoned Energy Drink",
-            txt = "Aluminum Can x5 , Drink-mix x1 , Streetweed x2",
+            txt = "Aluminum Can , Drink-mix , Streetweed",
             params = {
                 event = "qb-weedshop:weed-drink"
             }
