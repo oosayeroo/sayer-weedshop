@@ -4,6 +4,38 @@ Config.WeedGaragePedLocations = {
     {coords = vector4(372.18, -827.04, 29.29, 90.12)},
 }
 
+Config.WSDrawText = "enabled"
+Config.JobName = "weedshop"
+Config.WeedshopLocations = {
+    ["weedshop-duty"] = {
+        [1] = vector3(375.97, -823.74, 29.3),
+    },
+    ["weed-tray1"] = {
+        [1] = vector3(377.0, -827.34, 29.3),
+    },
+    ["weedshop-dryer"] = {
+        [1] = vector3(380.44, -813.94, 29.3),
+    },
+    ["weedshop-grind"] = {
+        [1] = vector3(382.31, -816.57, 29.3),
+    },
+    ["weedshop-menu"] = {
+        [1] = vector3(375.32, -827.69, 29.3),
+    },
+    ["weedshop-storage"] = {
+        [1] = vector3(382.54, -819.79, 29.3),
+    },
+    ["weedshop-craft"] = {
+        [1] = vector3(374.54, -816.8, 29.3),
+    },
+    ["weedshop-register"] = {
+        [1] = vector3(380.37, -826.66, 29.3),
+    },
+    ["weedshop-garage"] = {
+        [1] = vector3(371.39, -826.98, 29.29),
+    },
+}
+
 Config.DeliveryWait = 10000
 Config.DeliveryPayment = math.random(500, 700)
 Config.WetWeedCost = math.random(1000, 1200)   -- amount you pay for a pickup of wet weed

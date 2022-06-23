@@ -1,9 +1,9 @@
 fx_version 'cerulean'
 game 'gta5'
 
-author 'DrB1ackBeard'   --rewritten by oosayeroo
-description 'qb-burgershot for QBCore Created By DrB1ackBeard & Rewritten as qb-weedshop by oosayeroo'
-version '3.1.2'
+author 'oosayeroo'   --rewritten by oosayeroo
+description 'qb-weedshop by oosayeroo'
+version '3.2.2'
 
 shared_scripts {
     'config.lua'

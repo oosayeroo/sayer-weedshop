@@ -70,7 +70,8 @@ QBShared.Items = {
 	['crush-weed'] 				     = {['name'] = 'crush-weed', 			  	  	['label'] = "Crush Weed", 				['weight'] = 500, 		['type'] = 'item', 		['image'] = 'crush-weed.png', 			['unique'] = false, 	['useable'] = true, 	['shouldClose'] = true,    ['combinable'] = nil,   ['description'] = 'Ground Crush Weed'},
 	['bloomer-weed'] 				 = {['name'] = 'bloomer-weed', 		  	    	['label'] = "Bloomer Weed", 			['weight'] = 500, 		['type'] = 'item', 		['image'] = 'bloomer-weed.png', 		['unique'] = false, 	['useable'] = true, 	['shouldClose'] = true,    ['combinable'] = nil,   ['description'] = 'Ground Bloomer Weed'},
 	['chill-pill'] 			    	 = {['name'] = 'chill-pill', 		  	    	['label'] = "Chill Pill", 			['weight'] = 200, 	    	['type'] = 'item', 		['image'] = 'chill-pill.png', 		['unique'] = false, 	['useable'] = true, 	['shouldClose'] = true,    ['combinable'] = nil,   ['description'] = 'THC pills to help you relax'},
-	
+	['customer-receipt'] 		 	 = {['name'] = 'customer-receipt', 		  	 	['label'] = "Customer Receipt", 	   	['weight'] = 200, 	   	['type'] = 'item',   	['image'] = 'customer-receipt.png',    	['unique'] = false, 	['useable'] = true, 	['shouldClose'] = true,    ['combinable'] = nil,   ['description'] = 'A receipt from selling something'},
+
 }
 
 ```
@@ -103,37 +104,6 @@ QBShared.Jobs = {
 }		
 ```
 
-## Remove From  @qb-shops - config.lua if updating from old version
-```
-Config.Products = {
-    ["wetbud"] = {
-        [1] = {
-            name = 'wet_weed',
-            price = 5,
-            amount = 100,
-            info = {},
-            type = 'item',
-            slot = 1,
-        }
-    },
-}
-
-Config.Locations = {
- ["wetbud"] = {
-        ["label"] = "Wet Weed Dealer",
-        ["coords"] = vector4(3688.22, 4562.83, 25.18, 274.53),
-        ["ped"] = 'g_m_m_chigoon_01',
-        ["scenario"] = "WORLD_HUMAN_AA_SMOKE",
-        ["radius"] = 1.5,
-        ["targetIcon"] = "fas fa-cannabis",
-        ["targetLabel"] = "Open Wet Weed Shop",
-        ["products"] = Config.Products["wetbud"],
-        ["showblip"] = false,
-        ["blipsprite"] = 617,
-        ["blipcolor"] = 2
-    },
-}
-```
 ## Insert into @qb-management - Client - cl config.lua
 ```
 ['weedshop'] = {
