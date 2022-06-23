@@ -173,7 +173,7 @@ RegisterNetEvent('qb-menu:Weed', function(data)
         {
             
             header = "• Weed Brownie",
-            txt = "Brownie Mix , streetweed",
+            txt = "Brownie Mix x3 , streetweed x6",
             params = {
                 event = "qb-weedshop:weedbrownie"
             }
@@ -181,7 +181,7 @@ RegisterNetEvent('qb-menu:Weed', function(data)
         {
             
             header = "• Stoned Energy Drink",
-            txt = "Aluminum Can , Drink-mix , Streetweed",
+            txt = "Aluminum Can x5 , Drink-mix x1 , Streetweed x2",
             params = {
                 event = "qb-weedshop:weed-drink"
             }
@@ -378,6 +378,14 @@ RegisterNetEvent('qb-menu:WeedMenu', function(data)
         },
         {
            
+            header = "• Order Wet Weed",
+            txt = "Order some more Wet Weed",
+            params = {
+                event = "qb-weedshop:deliveries:PickUpWeed"
+            }
+        },
+        {
+           
             header = "• Accept Delivery",
             txt = "Send delivery to personal email",
             params = {
@@ -390,14 +398,6 @@ RegisterNetEvent('qb-menu:WeedMenu', function(data)
             txt = "Complete to get paid for each Receipt",
             params = {
                 event = "qb-weedshop:deliveries:ReceivePayment"
-            }
-        },
-        {
-           
-            header = "• Order Wet Weed",
-            txt = "Order some wet weed to pick up",
-            params = {
-                event = "qb-weedshop:deliveries:PickUpWeed"
             }
         },
         {

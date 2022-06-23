@@ -104,6 +104,148 @@ AddEventHandler("qb-weedshop:Storage2", function()
     })
 end)
 
+CreateThread(function()
+    if Config.WSDrawText == "enabled" then 
+        while true do
+            sleep = 100
+            local pos = GetEntityCoords(PlayerPedId())
+            local PlayerData = QBCore.Functions.GetPlayerData()
+  
+                if PlayerJob.name == Config.JobName then
+                    for k, v in pairs(Config.WeedshopLocations["weedshop-duty"]) do
+                        local dist = #(pos - v)
+                            if dist < 1.8 then
+                              DrawMarker(2, v.x, v.y, v.z, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.3, 0.2, 0.15, 16, 227, 86, 86, false, false, false, true, false, false, false)                              if dist < 1.8 then
+                                    sleep = 5
+                                    if not onDuty then
+                                        QBCore.Functions.DrawText3D(v.x, v.y, v.z +0.2, "~g~E~w~ - Go on duty")
+                                        --QBCore.Functions.DrawText3D(v.x, v.y, v.z, "~r~E~w~ - Go off duty")
+                                    else
+                                        QBCore.Functions.DrawText3D(v.x, v.y, v.z +0.2, "~r~E~w~ - Go off duty")
+                                        --QBCore.Functions.DrawText3D(v.x, v.y, v.z, "~g~E~w~ - Go on duty")
+                                    end
+                                    if IsControlJustReleased(0, 38) then
+                                        onDuty = not onDuty
+                                        TriggerServerEvent("QBCore:ToggleDuty")
+                                    end
+                                end
+                            elseif #(pos - v) < 1.5 then
+                                sleep = false
+                                QBCore.Functions.DrawText3D(v.x, v.y, v.z, "Time Clock")
+                            end
+                        end
+                    end
+  
+                  for k, v in pairs(Config.WeedshopLocations["weed-tray1"]) do
+                  if #(pos - vector3(v.x, v.y, v.z)) < 0.9 then
+                      sleep = 5
+                      QBCore.Functions.DrawText3D(v.x, v.y, v.z, "~g~[E]~w~ - Access Tray")
+                      if IsControlJustReleased(0, 38) then
+                          TriggerEvent("qb-weedshop:Tray1")
+                      end
+                  elseif #(pos - vector3(v.x, v.y, v.z)) < 1.5 then
+                      sleep = 5
+                      QBCore.Functions.DrawText3D(v.x, v.y, v.z, "Access Tray")
+                  end
+              end
+  
+                if PlayerJob.name == Config.JobName and QBCore.Functions.GetPlayerData().job.onduty then
+                for k, v in pairs(Config.WeedshopLocations["weedshop-dryer"]) do
+                    if #(pos - vector3(v.x, v.y, v.z)) < 0.8 then
+                      sleep = 5
+                      QBCore.Functions.DrawText3D(v.x, v.y, v.z, "~g~[E]~w~ - Dry Weed")
+                        if IsControlJustReleased(0, 38) then
+                            TriggerEvent("qb-menu:DryWeed")
+                        end
+                    elseif #(pos - vector3(v.x, v.y, v.z)) < 2.5 then
+                        sleep = 5
+                        QBCore.Functions.DrawText3D(v.x, v.y, v.z, "Dry Weed")
+                    end
+                  end
+  
+                for k, v in pairs(Config.WeedshopLocations["weedshop-grind"]) do
+                    if #(pos - vector3(v.x, v.y, v.z)) < 0.9 then
+                        sleep = 5
+                        QBCore.Functions.DrawText3D(v.x, v.y, v.z, "~g~[E]~w~ - Grind Weed")
+                        if IsControlJustReleased(0, 38) then
+                            TriggerEvent("qb-menu:GrindWeed")
+                        end
+                    elseif #(pos - vector3(v.x, v.y, v.z)) < 1.5 then
+                        sleep = 5
+                        QBCore.Functions.DrawText3D(v.x, v.y, v.z, "Grind Weed")
+                    end
+                end
+  
+                for k, v in pairs(Config.WeedshopLocations["weedshop-menu"]) do
+                    if #(pos - vector3(v.x, v.y, v.z)) < 1.5 then
+                        sleep = 5
+                        QBCore.Functions.DrawText3D(v.x, v.y, v.z, "~g~[E]~w~ - Open Menu")
+                        if IsControlJustReleased(0, 38) then
+                            TriggerEvent("qb-menu:WeedMenu")
+                        end
+                    elseif #(pos - vector3(v.x, v.y, v.z)) < 1.5 then
+                        sleep = 5
+                        QBCore.Functions.DrawText3D(v.x, v.y, v.z, "Open Menu")
+                    end
+                end
+  
+                for k, v in pairs(Config.WeedshopLocations["weedshop-storage"]) do
+                    if #(pos - vector3(v.x, v.y, v.z)) < 1.5 then
+                        sleep = 5
+                        QBCore.Functions.DrawText3D(v.x, v.y, v.z, "~g~[E]~w~ - Access Storage")
+                        if IsControlJustReleased(0, 38) then
+                            TriggerEvent("qb-weedshop:Storage")
+                        end
+                    elseif #(pos - vector3(v.x, v.y, v.z)) < 1.5 then
+                        sleep = 5
+                        QBCore.Functions.DrawText3D(v.x, v.y, v.z, "Access Storage")
+                    end
+                end
+  
+                  for k, v in pairs(Config.WeedshopLocations["weedshop-craft"]) do
+                      if #(pos - vector3(v.x, v.y, v.z)) < 1.5 then
+                          sleep = 5
+                          QBCore.Functions.DrawText3D(v.x, v.y, v.z, "~g~[E]~w~ - Craft Products")
+                          if IsControlJustReleased(0, 38) then
+                              TriggerEvent("qb-menu:Weed")
+                          end
+                      elseif #(pos - vector3(v.x, v.y, v.z)) < 1.5 then
+                          sleep = 5
+                          QBCore.Functions.DrawText3D(v.x, v.y, v.z, "Craft Products")
+                      end
+                  end
+  
+                  for k, v in pairs(Config.WeedshopLocations["weedshop-register"]) do
+                      if #(pos - vector3(v.x, v.y, v.z)) < 1.5 then
+                          sleep = 5
+                          QBCore.Functions.DrawText3D(v.x, v.y, v.z, "~g~[E]~w~ - Bill")
+                          if IsControlJustReleased(0, 38) then
+                              TriggerEvent("qb-weedshop:bill")
+                          end
+                      elseif #(pos - vector3(v.x, v.y, v.z)) < 1.5 then
+                          sleep = 5
+                          QBCore.Functions.DrawText3D(v.x, v.y, v.z, "Bill")
+                      end
+                  end
+ 
+                for k, v in pairs(Config.WeedshopLocations["weedshop-garage"]) do
+                    if #(pos - vector3(v.x, v.y, v.z)) < 1.0 then
+                        sleep = 5
+                        QBCore.Functions.DrawText3D(v.x, v.y, v.z, "~g~[E]~w~ - Access Garage")
+                        if IsControlJustReleased(0, 38) then
+                          TriggerEvent("garage:WeedShopGarage")
+                        end
+                    elseif #(pos - vector3(v.x, v.y, v.z)) < 1.5 then
+                        sleep = 5
+                        QBCore.Functions.DrawText3D(v.x, v.y, v.z, "Access Garage")
+                    end
+                end
+            end
+        Wait(sleep)
+    end
+    end
+  end)
+
 --Weed Creations
 RegisterNetEvent("qb-weedshop:giftset")
 AddEventHandler("qb-weedshop:giftset", function()
@@ -380,10 +522,10 @@ AddEventHandler("qb-weedshop:weed-drink", function()
 					anim = "givetake1_a",
 					flags = 8,
 				}, {}, {}, function() -- Done
-					TriggerServerEvent('QBCore:Server:RemoveItem', "aluminumcan", 1)
+					TriggerServerEvent('QBCore:Server:RemoveItem', "aluminumcan", 5)
                 	TriggerServerEvent('QBCore:Server:RemoveItem', "drink-mix", 1)
-					TriggerServerEvent('QBCore:Server:RemoveItem', "streetweed", 1)
-					TriggerServerEvent('QBCore:Server:AddItem', "weed-drink", 1)
+					TriggerServerEvent('QBCore:Server:RemoveItem', "streetweed", 2)
+					TriggerServerEvent('QBCore:Server:AddItem', "weed-drink", 5)
                     			TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["weed-drink"], "add")
                    			QBCore.Functions.Notify("You made an Energy Drink", "success")
 				end, function()
