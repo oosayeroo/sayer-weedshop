@@ -49,6 +49,28 @@ RegisterNetEvent('qb-weedshop:deliveries:PickUpWeed', function()
     end)
 end)
 
+RegisterNetEvent('qb-weedshop:deliveries:PickUpWeed2', function()
+    TriggerEvent('animations:client:EmoteCommandStart', {"knock"})
+    QBCore.Functions.Progressbar('falar_empregada', 'Buying Some Wet Bud...', 5000, false, true, {
+        disableMovement = true,
+        disableCarMovement = true,
+        disableMouse = false,
+        disableCombat = true,
+    }, {}, {}, {}, function()
+    TriggerEvent('animations:client:EmoteCommandStart', {"c"})
+    QBCore.Functions.Notify('You bought some wet bud!', 'primary', 7500)
+    
+    Wait(200)
+
+    TriggerServerEvent('qb-phone:server:sendNewMail', {
+        sender = 'Mr Mexicans',
+        subject = 'Enjoy it man...',
+        message = 'Always a pleasure doing business with you. come back anytime man',
+        })
+    TriggerServerEvent('qb-weedshop:server:WetWeedPickUp2')
+    end)
+end)
+
 RegisterNetEvent('qb-weedshop:deliveries:PickupWetWeed', function()
     TriggerEvent('animations:client:EmoteCommandStart', {"knock"})
     QBCore.Functions.Progressbar('falar_empregada', 'Picking up Wet Weed...', 5000, false, true, {

@@ -240,11 +240,25 @@ CreateThread(function()
                         QBCore.Functions.DrawText3D(v.x, v.y, v.z, "Access Garage")
                     end
                 end
+
+                for k, v in pairs(Config.WeedshopLocations["wetbud-pickup"]) do
+                    if #(pos - vector3(v.x, v.y, v.z)) < 1.0 then
+                        sleep = 5
+                        QBCore.Functions.DrawText3D(v.x, v.y, v.z, "~g~[E]~w~ - Buy Wet Bud")
+                        if IsControlJustReleased(0, 38) then
+                          TriggerEvent("qb-weedshop:deliveries:PickUpWeed2")
+                        end
+                    elseif #(pos - vector3(v.x, v.y, v.z)) < 1.5 then
+                         sleep = 5
+                         QBCore.Functions.DrawText3D(v.x, v.y, v.z, "Buy Wet Bud")
+                    end
+                end
+
             end
-        Wait(sleep)
-    end
-    end
-  end)
+            Wait(sleep)
+        end
+        end
+      end)
 
 --Weed Creations
 RegisterNetEvent("qb-weedshop:giftset")
