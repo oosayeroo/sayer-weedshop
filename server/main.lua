@@ -214,6 +214,17 @@ RegisterNetEvent('qb-weedshop:server:WetWeedPickUp', function()
     Player.Functions.RemoveMoney('bank', wetcost)
 end)
 
+RegisterNetEvent('qb-weedshop:server:WetWeedPickUp2', function()
+    local src = source
+    local Player = QBCore.Functions.GetPlayer(src)
+    local wetcost = Config.WetWeedCost
+    local item2 = 'wet_weed'
+    local quantity = Config.WetWeedAmount
+
+    Player.Functions.RemoveMoney('cash', wetcost)
+    Player.Functions.AddItem(item2, quantity)
+end)
+
 RegisterNetEvent('qb-weedshop:server:PickupWetWeed', function()
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
