@@ -1,7 +1,4 @@
-Updated 11/06/22 - Added collecting of wet weed within script rather than exporting to qb-shops. 
-
-Updated 01/05/22 - Major update, added different strains, localised parts of the script, joints now give effect apart from basic street weed. 
-IF UPDATING = better to do a fresh install so as not to cause overlaps and issues
+Updated 25/6/22 - Drawtext options for around the shop aswell as picking up wet weed
 
 Discord - https://discord.gg/XPuqBVtyqX
 
