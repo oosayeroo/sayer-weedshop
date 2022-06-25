@@ -42,9 +42,8 @@ RegisterNetEvent('qb-weedshop:deliveries:PickUpWeed', function()
     TriggerServerEvent('qb-phone:server:sendNewMail', {
         sender = 'Mr Mexicans',
         subject = 'Pick up Wet Weed...',
-        message = 'Yo man, i received your payment, i got some wet weed here for you. freshly grown. Come pick it up',
+        message = 'Yo man, i got your order, i got some wet weed here for you. freshly grown. Come pick it up if you got the cash',
         })
-    TriggerServerEvent('qb-weedshop:server:WetWeedPickUp')
     startwetweedpickup()
     end)
 end)
@@ -68,20 +67,6 @@ RegisterNetEvent('qb-weedshop:deliveries:PickUpWeed2', function()
         message = 'Always a pleasure doing business with you. come back anytime man',
         })
     TriggerServerEvent('qb-weedshop:server:WetWeedPickUp2')
-    end)
-end)
-
-RegisterNetEvent('qb-weedshop:deliveries:PickupWetWeed', function()
-    TriggerEvent('animations:client:EmoteCommandStart', {"knock"})
-    QBCore.Functions.Progressbar('falar_empregada', 'Picking up Wet Weed...', 5000, false, true, {
-        disableMovement = true,
-        disableCarMovement = true,
-        disableMouse = false,
-        disableCombat = true,
-    }, {}, {}, {}, function()
-    QBCore.Functions.Notify('You got the Wet Weed, take it back to the shop', 'primary', 7500)
-
-    TriggerServerEvent('qb-weedshop:server:PickupWetWeed')
     end)
 end)
 
@@ -147,7 +132,7 @@ function startwetweedpickup1()
     }, {
         options = {
             {
-            event = "qb-weedshop:deliveries:PickupWetWeed",
+            event = "qb-weedshop:deliveries:PickUpWeed2",
             icon = "far fa-cannabis",
             label = "Pick Up Wet Weed",
             },
