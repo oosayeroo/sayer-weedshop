@@ -1,6 +1,6 @@
 Updated 25/6/22 - Drawtext options for around the shop aswell as picking up wet weed
 
-Discord - https://discord.gg/XPuqBVtyqX
+Discord - https://discord.gg/3WYz3zaqG5
 
 # A WeedShop Job for QBCore Framework
 
