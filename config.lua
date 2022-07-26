@@ -1,8 +1,11 @@
 Config = {}
 
-Config.WeedGaragePedLocations = {
-    {coords = vector4(372.18, -827.04, 29.29, 90.12)},
-}
+Config.DebugWeedPoly = false  --true for testing/false for live server
+
+Config.WeedGaragePedLocation = vector4(372.18, -827.04, 29.29, 90.12) --ped location
+Config.WeedGaragePedModel = "g_m_importexport_01"  --ped model
+Config.SpawnWeedVehicle = vector4(368.15, -827.12, 29.29, 182.61) --location car spawns
+Config.WeedVehicleModel = 'paradise'  --model of vehicle for easy swapping
 
 Config.WSDrawText = "enabled"
 Config.JobName = "weedshop"
@@ -127,3 +130,4 @@ label = "weedshop",
         },
     }
 }
+
