@@ -108,22 +108,4 @@ QBShared.Jobs = {
     },
 ```
 
-## Insert into @qb-target - init.lua - config.targetmodels
-``` 
-["weedshopgarage"] = {
-		models = {
-			"g_m_importexport_01"
-		},
-		options = {
-			{
-				type = "client",
-				event = "garage:WeedShopGarage",
-				icon = "fas fa-cannabis",
-				label = "WeedShop Garage",
-				job = "weedshop",
-			}
-		},
-		distance = 2.5,
-	},
-
-```
+## delete spawn weed ped from qb-target as now does within script
