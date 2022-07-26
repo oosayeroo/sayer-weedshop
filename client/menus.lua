@@ -5,13 +5,15 @@ PlayerJob = {}
 
 local onDuty = true
 
+
+
 -- target
 
 Citizen.CreateThread(function()
 	exports['qb-target']:AddBoxZone("WeedShopDuty", vector3(375.65, -824.95, 29.3), 0.30, 1.2, {
 		name = "WeedShopDuty",
 		heading = 177.88,
-		debugPoly = false,
+		debugPoly = Config.DebugWeedPoly,
 		minZ=29.6,
 		maxZ=30.5,
 	}, {
@@ -26,12 +28,12 @@ Citizen.CreateThread(function()
 		distance = 1.5
 	})
 
-		exports['qb-target']:AddBoxZone("weed_tray_1", vector3(377.0, -827.34, 29.3), 1.05, 1.0, {
+		exports['qb-target']:AddBoxZone("weed_tray_1", vector3(377.26, -827.42, 29.38), 0.3, 0.5, {
 			name = "weed_tray_1",
-			heading = 35.0,
-			debugPoly = false,
-			minZ=28.0,
-			maxZ=30.0,
+			heading = 180,
+			debugPoly = Config.DebugWeedPoly,
+			minZ=29.3,
+			maxZ=29.7,
 		}, {
 			options = {
 			    {
@@ -44,10 +46,10 @@ Citizen.CreateThread(function()
 		})
 
 
-	exports['qb-target']:AddBoxZone("weedshopdryer", vector3(380.44, -813.94, 29.3), 1.8, 1.0, {
-		name="weedshopdryer",
-		heading=34,
-		debugPoly=false,
+	exports['qb-target']:AddBoxZone("weedshopplant1", vector3(380.5, -812.59, 28.43), 2.8, 4.5, {
+		name="weedshopplant1",
+		heading=180,
+		debugPoly=Config.DebugWeedPoly,
 		minZ=28.0,
 		maxZ=30.0,
 	}, {
@@ -63,10 +65,10 @@ Citizen.CreateThread(function()
 	})
 
 
-		exports['qb-target']:AddBoxZone("weedshopGrind", vector3(382.31, -816.57, 29.3), 2.5, 1.5, {
+		exports['qb-target']:AddBoxZone("weedshopGrind", vector3(382.49, -817.43, 28.3), 1.0, 1.8, {
 		name="weedshopgrind",
-		heading=35,
-		debugPoly=false,
+		heading=0,
+		debugPoly= Config.DebugWeedPoly,
 		minZ=28.0,
 		maxZ=30.0,
 		}, {
@@ -82,12 +84,12 @@ Citizen.CreateThread(function()
 		})
 
 
-         exports['qb-target']:AddBoxZone("orderweed", vector3(375.9, -827.25, 30.44), 1.6, 1, {
+         exports['qb-target']:AddBoxZone("orderweed", vector3(375.55, -827.33, 29.29), 0.4, 0.3, {
             name="orderweed",
-            heading=35,
-            debugPoly=false,
-            minZ=29.0,
-            maxZ=31.0,
+            heading=180,
+            debugPoly=Config.DebugWeedPoly,
+            minZ=29.3,
+            maxZ=29.7,
         }, {
                 options = {
                     {
@@ -101,10 +103,10 @@ Citizen.CreateThread(function()
             })
 
 
-        exports['qb-target']:AddBoxZone("weedshopdisplay", vector3(382.54, -819.79, 29.3), 4.6, 1.2, {
+        exports['qb-target']:AddBoxZone("weedshopdisplay", vector3(383.71, -819.8, 29.29), 0.5, 2.0, {
             name="weedshopdisplay",
-            heading=34,
-            debugPoly=false,
+            heading=90,
+            debugPoly=Config.DebugWeedPoly,
             minZ=28.0,
             maxZ=30.0,
         }, {
@@ -120,12 +122,12 @@ Citizen.CreateThread(function()
             })
 
 
-        exports['qb-target']:AddBoxZone("weedcraft", vector3(374.54, -816.8, 29.3), 1.8, 0.7, {
+        exports['qb-target']:AddBoxZone("weedcraft", vector3(374.23, -816.06, 29.35), 1.0, 1.0, {
             name="weedcraft",
             heading=1,
-            debugPoly=false,
+            debugPoly=Config.DebugWeedPoly,
             minZ=28.0,
-            maxZ=30.0,
+            maxZ=29.5,
         }, {
                 options = {
                     {
@@ -139,12 +141,12 @@ Citizen.CreateThread(function()
             })
 
 
-        exports['qb-target']:AddBoxZone("weedshop_register_1", vector3(380.16, -827.43, 30.64), 0.5, 0.4, {
+        exports['qb-target']:AddBoxZone("weedshop_register_1", vector3(380.24, -827.33, 29.29), 0.4, 0.3, {
             name="WeedShop_register_1",
-            debugPoly=false,
-            heading=125,
-            minZ=29.0,
-            maxZ=31.0,
+            debugPoly=Config.DebugWeedPoly,
+            heading=180,
+            minZ=29.3,
+            maxZ=29.7,
         }, {
                 options = {
                     {
