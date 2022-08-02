@@ -151,7 +151,7 @@ QBCore.Functions.CreateUseableItem("weed-grinder", function(source, item)
         print('Player succeeded!')
     end, function()
         print('Player cancelled the skillbar!')
-    end)
+    end
 end)
 
 QBCore.Functions.CreateUseableItem("weed-gift-set", function(source, item)
