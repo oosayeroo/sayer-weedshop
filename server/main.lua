@@ -45,6 +45,7 @@ QBCore.Functions.CreateCallback('qb-weedshop:server:get:ingredientjoint', functi
     end
 end)
 
+
 QBCore.Functions.CreateCallback('qb-weedshop:server:get:ingredientdream', function(source, cb)
     local src = source
     local Ply = QBCore.Functions.GetPlayer(src)
@@ -140,6 +141,17 @@ end)
 QBCore.Functions.CreateUseableItem("weed-grinder", function(source, item)
     local Player = QBCore.Functions.GetPlayer(source)
     TriggerClientEvent("qb-menu:GrindWeed", source, item.name)
+    RegisterCommand('skillbar', function()
+    local Skillbar = exports['qb-skillbar']:GetSkillbarObject()
+    Skillbar.Start({
+        duration = math.random(7500, 15000), -- how long the skillbar runs for
+        pos = math.random(10, 30), -- how far to the right the static box is
+        width = math.random(10, 20), -- how wide the static box is
+    }, function()
+        print('Player succeeded!')
+    end, function()
+        print('Player cancelled the skillbar!')
+    end)
 end)
 
 QBCore.Functions.CreateUseableItem("weed-gift-set", function(source, item)
