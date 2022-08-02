@@ -1,4 +1,4 @@
-Updated 8/2/2022 - Skillbar / lighter req.
+Updated 8/2/2022 - lighter req.
 
 Discord - https://discord.gg/3WYz3zaqG5
 
@@ -27,8 +27,6 @@ qb-target - https://github.com/BerkieBb/qb-target
 qb-input - https://github.com/qbcore-framework/qb-input
 
 qb-menu - https://github.com/qbcore-framework/qb-menu
-
-qb-skillbar
 
 qb-shops - https://github.com/qbcore-framework/qb-shops --no longer a dependency for collecting wet weed
 Legion Weed Clinic Interior MLO FREE - https://www.gta5-mods.com/maps/mlo-legion-weed-clinic -- designed to work with this MLO but guess you could move it wherever you want if you know how.
