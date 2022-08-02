@@ -45,6 +45,7 @@ QBCore.Functions.CreateCallback('qb-weedshop:server:get:ingredientjoint', functi
     end
 end)
 
+
 QBCore.Functions.CreateCallback('qb-weedshop:server:get:ingredientdream', function(source, cb)
     local src = source
     local Ply = QBCore.Functions.GetPlayer(src)
@@ -140,6 +141,17 @@ end)
 QBCore.Functions.CreateUseableItem("weed-grinder", function(source, item)
     local Player = QBCore.Functions.GetPlayer(source)
     TriggerClientEvent("qb-menu:GrindWeed", source, item.name)
+    RegisterCommand('skillbar', function()
+    local Skillbar = exports['qb-skillbar']:GetSkillbarObject()
+    Skillbar.Start({
+        duration = math.random(7500, 15000), -- how long the skillbar runs for
+        pos = math.random(10, 30), -- how far to the right the static box is
+        width = math.random(10, 20), -- how wide the static box is
+    }, function()
+        print('Player succeeded!')
+    end, function()
+        print('Player cancelled the skillbar!')
+    end
 end)
 
 QBCore.Functions.CreateUseableItem("weed-gift-set", function(source, item)
@@ -150,34 +162,51 @@ end)
 QBCore.Functions.CreateUseableItem("dream-joint", function(source, item)
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
-	if Player.Functions.RemoveItem(item.name, 1, item.slot) then
-        TriggerClientEvent("qb-weedshop:use-dream-joint", src, item.name)
+    if Player.Functions.GetItemByName(Config.LighterItemName) then
+			if Player.Functions.RemoveItem(item.name, 1, item.slot) then
+				TriggerClientEvent("qb-weedshop:use-dream-joint", src)
+			end
+    else
+       	TriggerClientEvent("QBCore:Notify", source, "You don't have a lighter", "error")
     end
 end)
 
 QBCore.Functions.CreateUseableItem("hazy-joint", function(source, item)
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
-	if Player.Functions.RemoveItem(item.name, 1, item.slot) then
-        TriggerClientEvent("qb-weedshop:use-hazy-joint", src, item.name)
+    if Player.Functions.GetItemByName(Config.LighterItemName) then
+			if Player.Functions.RemoveItem(item.name, 1, item.slot) then
+				TriggerClientEvent("qb-weedshop:use-hazy-joint", src)
+			end
+    else
+       	TriggerClientEvent("QBCore:Notify", source, "You don't have a lighter", "error")
     end
 end)
 
 QBCore.Functions.CreateUseableItem("crush-joint", function(source, item)
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
-	if Player.Functions.RemoveItem(item.name, 1, item.slot) then
-        TriggerClientEvent("qb-weedshop:use-crush-joint", src, item.name)
+    if Player.Functions.GetItemByName(Config.LighterItemName) then
+			if Player.Functions.RemoveItem(item.name, 1, item.slot) then
+				TriggerClientEvent("qb-weedshop:use-crush-joint", src)
+			end
+    else
+       	TriggerClientEvent("QBCore:Notify", source, "You don't have a lighter", "error")
     end
 end)
 
 QBCore.Functions.CreateUseableItem("bloomer-joint", function(source, item)
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
-	if Player.Functions.RemoveItem(item.name, 1, item.slot) then
-        TriggerClientEvent("qb-weedshop:use-bloomer-joint", src, item.name)
+    if Player.Functions.GetItemByName(Config.LighterItemName) then
+			if Player.Functions.RemoveItem(item.name, 1, item.slot) then
+				TriggerClientEvent("qb-weedshop:use-bloomer-joint", src)
+			end
+    else
+       	TriggerClientEvent("QBCore:Notify", source, "You don't have a lighter", "error")
     end
 end)
+
 
 QBCore.Functions.CreateUseableItem("weed-drink", function(source, item)
     local src = source

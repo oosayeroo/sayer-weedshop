@@ -1,4 +1,4 @@
-Updated 25/6/22 - Drawtext options for around the shop aswell as picking up wet weed
+Updated 8/2/2022 - lighter req.
 
 Discord - https://discord.gg/3WYz3zaqG5
 

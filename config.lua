@@ -1,5 +1,7 @@
 Config = {}
 
+Config.LighterItemName = "lighter" --enter your lighter item name (default = lighter)
+
 Config.DebugWeedPoly = false  --true for testing/false for live server
 
 Config.WeedGaragePedLocation = vector4(372.18, -827.04, 29.29, 90.12) --ped location
