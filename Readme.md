@@ -1,4 +1,6 @@
-Updated 8/2/2022 - lighter req.
+Updated 13/9/2022 - inventory update and fixed exploits with deliveries, weed pickup
+
+Recommend doing a fresh install and have the latest versions of qb-core, inventory etc to avoid any bugs
 
 Discord - https://discord.gg/3WYz3zaqG5
 
@@ -13,7 +15,7 @@ Discord - https://discord.gg/3WYz3zaqG5
 
 - Please make sure u use the latest dependencies aswell as core for this in order to work.
 
-- This Job has been tested on the latest build as of 01/05/2022.
+- This Job has been tested on the latest build as of 13/9/2022.
 
 
 ## Dependencies :
