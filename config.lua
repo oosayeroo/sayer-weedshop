@@ -1,7 +1,5 @@
 Config = {}
 
-Config.LighterItemName = "lighter" --enter your lighter item name (default = lighter)
-
 Config.DebugWeedPoly = false  --true for testing/false for live server
 
 Config.WeedGaragePedLocation = vector4(372.18, -827.04, 29.29, 90.12) --ped location
@@ -48,7 +46,14 @@ Config.DeliveryWait = 10000
 Config.DeliveryPayment = math.random(500, 700)
 Config.WetWeedCost = math.random(1000, 1200)   -- amount you pay for a pickup of wet weed
 Config.WetWeedAmount = math.random(100,150)   --amount of wet weed you get from a pickup
-Config.WetWeedLocation = vector3(3688.24, 4563.43, 25.18)   -- location to pick up wet weed with target
+Config.WetWeedLocation = vector3(3688.24, 4563.43, 25.18)   -- location to pick up wet weed with target when on a pickup
+
+----/////Item Amounts//////----
+Config.BrownieMixAmount = 5 --amount of weed brownies to get from 1 mix
+Config.WeedDrinkAmount = 5 --amount of weed drinks to get from 1 crafting
+Config.GrindingAmount = 2 --amount of ground weed to get from grinding 1
+Config.DryingAmount = 2 --amount of dried weed to get back when drying 1
+
 
 --delivery locations
 Config.DropOffPoint1 = vector3(-297.74, 379.84, 112.1)
