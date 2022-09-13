@@ -2,6 +2,8 @@ local QBCore = exports['qb-core']:GetCoreObject()
 isLoggedIn = false
 local onDuty = true
 PlayerJob = {}
+local onPickup = false
+local finishedPickup = true
 
 RegisterNetEvent('qb-weedshop:deliveries:DeliverWeed', function()
     TriggerEvent('animations:client:EmoteCommandStart', {"type"})
@@ -27,6 +29,7 @@ RegisterNetEvent('qb-weedshop:deliveries:DeliverWeed', function()
 end)
 
 RegisterNetEvent('qb-weedshop:deliveries:PickUpWeed', function()
+    if not onPickup then
     TriggerEvent('animations:client:EmoteCommandStart', {"type"})
     QBCore.Functions.Progressbar('falar_empregada', 'Getting Weed Order...', 5000, false, true, {
         disableMovement = true,
@@ -44,20 +47,25 @@ RegisterNetEvent('qb-weedshop:deliveries:PickUpWeed', function()
         subject = 'Pick up Wet Weed...',
         message = 'Yo man, i got your order, i got some wet weed here for you. freshly grown. Come pick it up if you got the cash',
         })
-    startwetweedpickup()
+        startwetweedpickup()
+    onPickup = true
+    finishedPickup = false
     end)
+end
 end)
 
 RegisterNetEvent('qb-weedshop:deliveries:PickUpWeed2', function()
+    if not finishedPickup and onPickup then
     TriggerEvent('animations:client:EmoteCommandStart', {"knock"})
-    QBCore.Functions.Progressbar('falar_empregada', 'Buying Some Wet Bud...', 5000, false, true, {
+    QBCore.Functions.Progressbar('falar_empregada', 'Picking Up Some Wet Bud...', 5000, false, true, {
         disableMovement = true,
         disableCarMovement = true,
         disableMouse = false,
         disableCombat = true,
     }, {}, {}, {}, function()
     TriggerEvent('animations:client:EmoteCommandStart', {"c"})
-    QBCore.Functions.Notify('You bought some wet bud!', 'primary', 7500)
+    TriggerServerEvent('qb-weedshop:server:pickupfinished')
+    QBCore.Functions.Notify('You got some wet bud!', 'primary', 7500)
     
     Wait(200)
 
@@ -66,8 +74,14 @@ RegisterNetEvent('qb-weedshop:deliveries:PickUpWeed2', function()
         subject = 'Enjoy it man...',
         message = 'Always a pleasure doing business with you. come back anytime man',
         })
-    TriggerServerEvent('qb-weedshop:server:WetWeedPickUp2')
+    onPickup = false
+    finishedPickup = true
+end, function()
+    QBCore.Functions.Notify('Cancelled', 'error', 7500)
+    onPickup = false
+    finishedPickup = true
     end)
+ end
 end)
 
 RegisterNetEvent('qb-weedshop:deliveries:KnockDoor', function()
