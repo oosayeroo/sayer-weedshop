@@ -380,7 +380,7 @@ end)
 RegisterNetEvent('qb-weedshop:server:DeliveryItem', function()
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
-    local item = 'chill-pills'
+    local item = 'chill-pill'
     local quantity = 1
 
     Player.Functions.AddItem(item, quantity)
@@ -404,7 +404,7 @@ end)
 RegisterNetEvent('qb-weedshop:server:KnockDoor', function()
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
-    local item1 = 'chill-pills'
+    local item1 = 'chill-pill'
     local item2 = 'customer-receipt'
     local quantity = 1
 
