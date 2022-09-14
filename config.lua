@@ -69,7 +69,7 @@ Config.DropOffPoint10 = vector3(1193.52, -1622.37, 45.22)
 
 Config.Items = {
 label = "weedshop",
-    slots = 8,
+    slots = 9,
     items = {
         [1] = {
             name = "lighter",
@@ -134,6 +134,14 @@ label = "weedshop",
             info = {},
             type = "item",
             slot = 8,
+        },
+        [9] = {
+            name = "weed-grinder",
+            price = 30,
+            amount = 20,
+            info = {},
+            type = "item",
+            slot = 9,
         },
     }
 }
