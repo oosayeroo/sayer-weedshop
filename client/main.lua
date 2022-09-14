@@ -530,7 +530,7 @@ end)
 RegisterNetEvent("qb-weedshop:Grind")
 AddEventHandler("qb-weedshop:Grind", function()
     if onDuty then
-        if QBCore.Functions.HasItem("weedbud") then
+        if QBCore.Functions.HasItem("weedbud", "weed-grinder) then
            GrindWeed()
         else
             QBCore.Functions.Notify("You don't have the right stuff..", "error")
@@ -543,7 +543,7 @@ end)
 RegisterNetEvent("qb-weedshop:GrindDream")
 AddEventHandler("qb-weedshop:GrindDream", function()
     if onDuty then
-        if QBCore.Functions.HasItem("dream-bud") then
+        if QBCore.Functions.HasItem("dream-bud", "weed-grinder") then
            GrindDream()
         else
             QBCore.Functions.Notify("You don't have the right stuff..", "error")
@@ -556,7 +556,7 @@ end)
 RegisterNetEvent("qb-weedshop:GrindHazy")
 AddEventHandler("qb-weedshop:GrindHazy", function()
     if onDuty then
-        if QBCore.Functions.HasItem("hazy-bud") then
+        if QBCore.Functions.HasItem("hazy-bud", "weed-grinder") then
            GrindHazy()
         else
             QBCore.Functions.Notify("You don't have the right stuff..", "error")
@@ -569,7 +569,7 @@ end)
 RegisterNetEvent("qb-weedshop:GrindCrush")
 AddEventHandler("qb-weedshop:GrindCrush", function()
     if onDuty then
-        if QBCore.Functions.HasItem("crush-bud") then
+        if QBCore.Functions.HasItem("crush-bud", "weed-grinder") then
            GrindCrush()
         else
             QBCore.Functions.Notify("You don't have the right stuff..", "error")
@@ -582,7 +582,7 @@ end)
 RegisterNetEvent("qb-weedshop:GrindBloomer")
 AddEventHandler("qb-weedshop:GrindBloomer", function()   ----///////////////////this is correct copy this jack
     if onDuty then
-        if QBCore.Functions.HasItem("bloomer-bud") then
+        if QBCore.Functions.HasItem("bloomer-bud", "weed-grinder") then
            GrindBloomer()
         else
             QBCore.Functions.Notify("You don't have the right stuff..", "error")
