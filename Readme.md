@@ -1,4 +1,4 @@
-Updated 13/9/2022 - inventory update and fixed exploits with deliveries, weed pickup
+Updated 14/9/2022 - updated read me
 
 Recommend doing a fresh install and have the latest versions of qb-core, inventory etc to avoid any bugs
 
@@ -70,7 +70,8 @@ QBShared.Items = {
 	['bloomer-weed'] 				 = {['name'] = 'bloomer-weed', 		  	    	['label'] = "Bloomer Weed", 			['weight'] = 500, 		['type'] = 'item', 		['image'] = 'bloomer-weed.png', 		['unique'] = false, 	['useable'] = true, 	['shouldClose'] = true,    ['combinable'] = nil,   ['description'] = 'Ground Bloomer Weed'},
 	['chill-pill'] 			    	 = {['name'] = 'chill-pill', 		  	    	['label'] = "Chill Pill", 			['weight'] = 200, 	    	['type'] = 'item', 		['image'] = 'chill-pill.png', 		['unique'] = false, 	['useable'] = true, 	['shouldClose'] = true,    ['combinable'] = nil,   ['description'] = 'THC pills to help you relax'},
 	['customer-receipt'] 		 	 = {['name'] = 'customer-receipt', 		  	 	['label'] = "Customer Receipt", 	   	['weight'] = 200, 	   	['type'] = 'item',   	['image'] = 'customer-receipt.png',    	['unique'] = false, 	['useable'] = true, 	['shouldClose'] = true,    ['combinable'] = nil,   ['description'] = 'A receipt from selling something'},
-
+        ['weed-grinder'] 			    	 = {['name'] = 'weed-grinder', 			        	['label'] = 'Grinder', 		    	['weight'] = 500, 		['type'] = 'item', 		["image"] = "weed-grinder.png",           	["unique"] = true, 	["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "Grind weed up."},
+	
 }
 
 ```
