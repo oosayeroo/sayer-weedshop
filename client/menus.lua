@@ -6,7 +6,6 @@ PlayerJob = {}
 local onDuty = true
 
 
-
 -- target
 
 Citizen.CreateThread(function()
@@ -168,12 +167,10 @@ end)
 RegisterNetEvent('qb-menu:Weed', function(data)
     exports['qb-menu']:openMenu({
         {
-            
             header = "| Available Products |",
             isMenuHeader = true, -- Set to true to make a nonclickable title
         },
         {
-            
             header = "• Weed Brownie",
             txt = "Brownie Mix x3 , streetweed x6",
             params = {
@@ -181,15 +178,13 @@ RegisterNetEvent('qb-menu:Weed', function(data)
             }
         },
         {
-            
             header = "• Stoned Energy Drink",
             txt = "Aluminum Can x5 , Drink-mix x1 , Streetweed x2",
             params = {
                 event = "qb-weedshop:weed-drink"
             }
-        },  
+        },
         {
-            
             header = "• Joint",
             txt = "Rolling Paper , Street Weed",
             params = {
@@ -197,7 +192,6 @@ RegisterNetEvent('qb-menu:Weed', function(data)
             }
         },
         {
-            
             header = "• Dream Joint",
             txt = "Rolling Paper , Dream Weed",
             params = {
@@ -205,7 +199,6 @@ RegisterNetEvent('qb-menu:Weed', function(data)
             }
         },
         {
-            
             header = "• Hazy Joint",
             txt = "Rolling Paper , Hazy Weed",
             params = {
@@ -213,7 +206,6 @@ RegisterNetEvent('qb-menu:Weed', function(data)
             }
         },
         {
-            
             header = "• Crush Joint",
             txt = "Rolling Paper , Crush Weed",
             params = {
@@ -221,7 +213,6 @@ RegisterNetEvent('qb-menu:Weed', function(data)
             }
         },
         {
-            
             header = "• Bloomer Joint",
             txt = "Rolling Paper , Bloomer Weed",
             params = {
@@ -229,7 +220,6 @@ RegisterNetEvent('qb-menu:Weed', function(data)
             }
         },
         {
-            
             header = "• Weed Gift Set",
             txt = "1 of each joint ",
             params = {
@@ -247,12 +237,10 @@ end)
 RegisterNetEvent('qb-menu:GrindWeed', function(data)
     exports['qb-menu']:openMenu({
         {
-            
             header = "| Grind Weed |",
             isMenuHeader = true, -- Set to true to make a nonclickable title
         },
         {
-            
             header = "• Street Weed",
             txt = "Weed Bud",
             params = {
@@ -260,7 +248,6 @@ RegisterNetEvent('qb-menu:GrindWeed', function(data)
             }
         },
         {
-            
             header = "• Dream Weed",
             txt = "Dream Bud",
             params = {
@@ -268,15 +255,13 @@ RegisterNetEvent('qb-menu:GrindWeed', function(data)
             }
         },
         {
-            
             header = "• Hazy Weed",
             txt = "Hazy Bud",
             params = {
                 event = "qb-weedshop:GrindHazy"
             }
-        },  
+        },
         {
-            
             header = "• Crush Weed",
             txt = "Crush Bud",
             params = {
@@ -284,7 +269,6 @@ RegisterNetEvent('qb-menu:GrindWeed', function(data)
             }
         },
         {
-            
             header = "• Bloomer Weed",
             txt = "Bloomer Bud",
             params = {
@@ -303,12 +287,10 @@ end)
 RegisterNetEvent('qb-menu:DryWeed', function(data)
     exports['qb-menu']:openMenu({
         {
-            
             header = "| Dry Weed |",
             isMenuHeader = true, -- Set to true to make a nonclickable title
         },
         {
-            
             header = "• Weed Bud",
             txt = "Wet Weed",
             params = {
@@ -316,7 +298,6 @@ RegisterNetEvent('qb-menu:DryWeed', function(data)
             }
         },
         {
-            
             header = "• Dream Bud",
             txt = "Wet Dream",
             params = {
@@ -324,15 +305,13 @@ RegisterNetEvent('qb-menu:DryWeed', function(data)
             }
         },
         {
-            
             header = "• Hazy Bud",
             txt = "Wet Hazy",
             params = {
                 event = "qb-weedshop:DryHazy"
             }
-        },  
+        },
         {
-            
             header = "• Crush Bud",
             txt = "Wet Crush",
             params = {
@@ -340,7 +319,6 @@ RegisterNetEvent('qb-menu:DryWeed', function(data)
             }
         },
         {
-            
             header = "• Bloomer Bud",
             txt = "Wet Bloomer",
             params = {
@@ -358,12 +336,10 @@ end)
 RegisterNetEvent('qb-menu:WeedMenu', function(data)
     exports['qb-menu']:openMenu({
         {
-            
             header = "| Products |",
             isMenuHeader = true, -- Set to true to make a nonclickable title
         },
         {
-            
             header = "• Order Items",
             txt = "Order New Ingredients!",
             params = {
@@ -371,7 +347,6 @@ RegisterNetEvent('qb-menu:WeedMenu', function(data)
             }
         },
         {
-           
             header = "• Open Storage",
             txt = "See what you have in storage",
             params = {
@@ -379,7 +354,6 @@ RegisterNetEvent('qb-menu:WeedMenu', function(data)
             }
         },
         {
-           
             header = "• Order Wet Weed",
             txt = "Order some more Wet Weed",
             params = {
@@ -387,7 +361,6 @@ RegisterNetEvent('qb-menu:WeedMenu', function(data)
             }
         },
         {
-           
             header = "• Accept Delivery",
             txt = "Send delivery to personal email",
             params = {
@@ -395,7 +368,6 @@ RegisterNetEvent('qb-menu:WeedMenu', function(data)
             }
         },
         {
-           
             header = "• File Invoice",
             txt = "Complete to get paid for each Receipt",
             params = {
@@ -403,7 +375,6 @@ RegisterNetEvent('qb-menu:WeedMenu', function(data)
             }
         },
         {
-            
             header = "Close (ESC)",
             isMenuHeader = true, -- Set to true to make a nonclickable title
         },
@@ -430,7 +401,6 @@ AddEventHandler("qb-weedshop:bill", function()
                 type = "number", -- type of the input - number will not allow non-number characters in the field so only accepts 0-9
                 isRequired = false -- Optional [accepted values: true | false] but will submit the form if no value is inputted
             }
-			
         }
     })
     if bill ~= nil then
