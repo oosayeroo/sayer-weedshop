@@ -192,7 +192,7 @@ function startdropoff()
 end
 
 function startdropoff1()
-    exports['qb-target']:AddBoxZone("chill-pills", Config.DropOffPoint1, 1, 1, {
+    exports['qb-target']:AddBoxZone("chill-pills", Config.DropOffPoint1, 2, 2, {
         name="chill-pills",
         heading=0,
         debugpoly = false,
@@ -202,7 +202,7 @@ function startdropoff1()
             event = "qb-weedshop:deliveries:KnockDoor",
             icon = "far fa-box",
             label = "Knock Door",
-            item = "chill-pills",
+            item = "chill-pill",
             },
         },
         distance = 2.5
@@ -210,7 +210,7 @@ function startdropoff1()
 end
 
 function startdropoff2()
-    exports['qb-target']:AddBoxZone("chill-pills", Config.DropOffPoint2, 1, 1, {
+    exports['qb-target']:AddBoxZone("chill-pills", Config.DropOffPoint2, 2, 2, {
         name="chill-pills",
         heading=0,
         debugpoly = false,
@@ -220,7 +220,7 @@ function startdropoff2()
             event = "qb-weedshop:deliveries:KnockDoor",
             icon = "far fa-box",
             label = "Knock Door",
-            item = "chill-pills",
+            item = "chill-pill",
             },
         },
         distance = 2.5
@@ -228,7 +228,7 @@ function startdropoff2()
 end
 
 function startdropoff3()
-    exports['qb-target']:AddBoxZone("chill-pills", Config.DropOffPoint3, 1, 1, {
+    exports['qb-target']:AddBoxZone("chill-pills", Config.DropOffPoint3, 2, 2, {
         name="chill-pills",
         heading=0,
         debugpoly = false,
@@ -238,7 +238,7 @@ function startdropoff3()
             event = "qb-weedshop:deliveries:KnockDoor",
             icon = "far fa-box",
             label = "Knock Door",
-            item = "chill-pills",
+            item = "chill-pill",
             },
         },
         distance = 2.5
@@ -246,7 +246,7 @@ function startdropoff3()
 end
 
 function startdropoff4()
-    exports['qb-target']:AddBoxZone("chill-pills", Config.DropOffPoint4, 1, 1, {
+    exports['qb-target']:AddBoxZone("chill-pills", Config.DropOffPoint4, 2, 2, {
         name="chill-pills",
         heading=0,
         debugpoly = false,
@@ -256,7 +256,7 @@ function startdropoff4()
             event = "qb-weedshop:deliveries:KnockDoor",
             icon = "far fa-box",
             label = "Knock Door",
-            item = "chill-pills",
+            item = "chill-pill",
             },
         },
         distance = 2.5
@@ -264,7 +264,7 @@ function startdropoff4()
 end
 
 function startdropoff5()
-    exports['qb-target']:AddBoxZone("chill-pills", Config.DropOffPoint5, 1, 1, {
+    exports['qb-target']:AddBoxZone("chill-pills", Config.DropOffPoint5, 2, 2, {
         name="chill-pills",
         heading=0,
         debugpoly = false,
@@ -274,7 +274,7 @@ function startdropoff5()
             event = "qb-weedshop:deliveries:KnockDoor",
             icon = "far fa-box",
             label = "Knock Door",
-            item = "chill-pills",
+            item = "chill-pill",
             },
         },
         distance = 2.5
@@ -282,7 +282,7 @@ function startdropoff5()
 end
 
 function startdropoff6()
-    exports['qb-target']:AddBoxZone("chill-pills", Config.DropOffPoint6, 1, 1, {
+    exports['qb-target']:AddBoxZone("chill-pills", Config.DropOffPoint6, 2, 2, {
         name="chill-pills",
         heading=0,
         debugpoly = false,
@@ -292,7 +292,7 @@ function startdropoff6()
             event = "qb-weedshop:deliveries:KnockDoor",
             icon = "far fa-box",
             label = "Knock Door",
-            item = "chill-pills",
+            item = "chill-pill",
             },
         },
         distance = 2.5
@@ -300,7 +300,7 @@ function startdropoff6()
 end
 
 function startdropoff7()
-    exports['qb-target']:AddBoxZone("chill-pills", Config.DropOffPoint7, 1, 1, {
+    exports['qb-target']:AddBoxZone("chill-pills", Config.DropOffPoint7, 2, 2, {
         name="chill-pills",
         heading=0,
         debugpoly = false,
@@ -310,7 +310,7 @@ function startdropoff7()
             event = "qb-weedshop:deliveries:KnockDoor",
             icon = "far fa-box",
             label = "Knock Door",
-            item = "chill-pills",
+            item = "chill-pill",
             },
         },
         distance = 2.5
@@ -318,7 +318,7 @@ function startdropoff7()
 end
 
 function startdropoff8()
-    exports['qb-target']:AddBoxZone("chill-pills", Config.DropOffPoint8, 1, 1, {
+    exports['qb-target']:AddBoxZone("chill-pills", Config.DropOffPoint8, 2, 2, {
         name="chill-pills",
         heading=0,
         debugpoly = false,
@@ -328,7 +328,7 @@ function startdropoff8()
             event = "qb-weedshop:deliveries:KnockDoor",
             icon = "far fa-box",
             label = "Knock Door",
-            item = "chill-pills",
+            item = "chill-pill",
             },
         },
         distance = 2.5
@@ -336,7 +336,7 @@ function startdropoff8()
 end
 
 function startdropoff9()
-    exports['qb-target']:AddBoxZone("chill-pills", Config.DropOffPoint9, 1, 1, {
+    exports['qb-target']:AddBoxZone("chill-pills", Config.DropOffPoint9, 2, 2, {
         name="chill-pills",
         heading=0,
         debugpoly = false,
@@ -346,7 +346,7 @@ function startdropoff9()
             event = "qb-weedshop:deliveries:KnockDoor",
             icon = "far fa-box",
             label = "Knock Door",
-            item = "chill-pills",
+            item = "chill-pill",
             },
         },
         distance = 2.5
@@ -354,7 +354,7 @@ function startdropoff9()
 end
 
 function startdropoff10()
-    exports['qb-target']:AddBoxZone("chill-pills", Config.DropOffPoint10, 1, 1, {
+    exports['qb-target']:AddBoxZone("chill-pills", Config.DropOffPoint10, 2, 2, {
         name="chill-pills",
         heading=0,
         debugpoly = false,
@@ -364,7 +364,7 @@ function startdropoff10()
             event = "qb-weedshop:deliveries:KnockDoor",
             icon = "far fa-box",
             label = "Knock Door",
-            item = "chill-pills",
+            item = "chill-pill",
             },
         },
         distance = 2.5
