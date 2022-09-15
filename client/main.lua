@@ -28,7 +28,7 @@ Citizen.CreateThread(function()
     BeginTextCommandSetBlipName("STRING")
     AddTextComponentSubstringPlayerName("WeedShop")
     EndTextCommandSetBlipName(WeedShop)
-end) 
+end)
 
 
 RegisterNetEvent('QBCore:Client:OnPlayerLoaded')
@@ -110,7 +110,7 @@ CreateThread(function()
             sleep = 100
             local pos = GetEntityCoords(PlayerPedId())
             local PlayerData = QBCore.Functions.GetPlayerData()
-  
+
                 if PlayerJob.name == Config.JobName then
                     for k, v in pairs(Config.WeedshopLocations["weedshop-duty"]) do
                         local dist = #(pos - v)
@@ -135,7 +135,7 @@ CreateThread(function()
                             end
                         end
                     end
-  
+
                   for k, v in pairs(Config.WeedshopLocations["weed-tray1"]) do
                   if #(pos - vector3(v.x, v.y, v.z)) < 0.9 then
                       sleep = 5
@@ -148,7 +148,7 @@ CreateThread(function()
                       QBCore.Functions.DrawText3D(v.x, v.y, v.z, "Access Tray")
                   end
               end
-  
+
                 if PlayerJob.name == Config.JobName and QBCore.Functions.GetPlayerData().job.onduty then
                 for k, v in pairs(Config.WeedshopLocations["weedshop-dryer"]) do
                     if #(pos - vector3(v.x, v.y, v.z)) < 0.8 then
@@ -162,7 +162,7 @@ CreateThread(function()
                         QBCore.Functions.DrawText3D(v.x, v.y, v.z, "Dry Weed")
                     end
                   end
-  
+
                 for k, v in pairs(Config.WeedshopLocations["weedshop-grind"]) do
                     if #(pos - vector3(v.x, v.y, v.z)) < 0.9 then
                         sleep = 5
@@ -175,7 +175,7 @@ CreateThread(function()
                         QBCore.Functions.DrawText3D(v.x, v.y, v.z, "Grind Weed")
                     end
                 end
-  
+
                 for k, v in pairs(Config.WeedshopLocations["weedshop-menu"]) do
                     if #(pos - vector3(v.x, v.y, v.z)) < 1.5 then
                         sleep = 5
@@ -188,7 +188,7 @@ CreateThread(function()
                         QBCore.Functions.DrawText3D(v.x, v.y, v.z, "Open Menu")
                     end
                 end
-  
+
                 for k, v in pairs(Config.WeedshopLocations["weedshop-storage"]) do
                     if #(pos - vector3(v.x, v.y, v.z)) < 1.5 then
                         sleep = 5
@@ -201,7 +201,7 @@ CreateThread(function()
                         QBCore.Functions.DrawText3D(v.x, v.y, v.z, "Access Storage")
                     end
                 end
-  
+
                   for k, v in pairs(Config.WeedshopLocations["weedshop-craft"]) do
                       if #(pos - vector3(v.x, v.y, v.z)) < 1.5 then
                           sleep = 5
@@ -214,7 +214,7 @@ CreateThread(function()
                           QBCore.Functions.DrawText3D(v.x, v.y, v.z, "Craft Products")
                       end
                   end
-  
+
                   for k, v in pairs(Config.WeedshopLocations["weedshop-register"]) do
                       if #(pos - vector3(v.x, v.y, v.z)) < 1.5 then
                           sleep = 5
@@ -227,7 +227,7 @@ CreateThread(function()
                           QBCore.Functions.DrawText3D(v.x, v.y, v.z, "Bill")
                       end
                   end
- 
+
                 for k, v in pairs(Config.WeedshopLocations["weedshop-garage"]) do
                     if #(pos - vector3(v.x, v.y, v.z)) < 1.0 then
                         sleep = 5
@@ -269,21 +269,20 @@ AddEventHandler("qb-weedshop:usegiftset", function()
 
 		if randomGift < 4 then
 					TriggerServerEvent('qb-weedshop:server:addrandomgift1')
-					
+
 		elseif randomGift == 4 then
 					TriggerServerEvent('qb-weedshop:server:addrandomgift2')
-            		
+
 		elseif randomGift < 10 and randomGift > 4 then
 					TriggerServerEvent('qb-weedshop:server:addrandomgift3')
-					
+
 		elseif randomGift == 10 then
 					TriggerServerEvent('qb-weedshop:server:addrandomgift4')
-            		
+
 		elseif randomGift > 10 and randomGift < 15 then
             		QBCore.Functions.Notify("No surprise in Box Looool", "error")
 		elseif randomGift == 15 then
 					TriggerServerEvent('qb-weedshop:server:addrandomgift5')
-            					
         end
 end)
 
@@ -312,9 +311,9 @@ AddEventHandler("qb-weedshop:creategiftset", function()
    				QBCore.Functions.Notify("You dont have the items to make this", "error")
 			end
 		end)
-	else 
+	else
 		QBCore.Functions.Notify("You must be Clocked into work", "error")
-	end  
+	end
 end)
 
 RegisterNetEvent("qb-weedshop:joint")
@@ -342,7 +341,7 @@ AddEventHandler("qb-weedshop:joint", function()
    				QBCore.Functions.Notify("You dont have the right stuff to make this", "error")
 			end
 		end)
-	else 
+	else
 		QBCore.Functions.Notify("You must be Clocked into work", "error")
 	end
 end)
@@ -372,7 +371,7 @@ AddEventHandler("qb-weedshop:CreateDream", function()
    				QBCore.Functions.Notify("You dont have the right stuff to make this", "error")
 			end
 		end)
-	else 
+	else
 		QBCore.Functions.Notify("You must be Clocked into work", "error")
 	end
 end)
@@ -402,7 +401,7 @@ AddEventHandler("qb-weedshop:CreateHazy", function()
    				QBCore.Functions.Notify("You dont have the right stuff to make this", "error")
 			end
 		end)
-	else 
+	else
 		QBCore.Functions.Notify("You must be Clocked into work", "error")
 	end
 end)
@@ -432,7 +431,7 @@ AddEventHandler("qb-weedshop:CreateCrush", function()
    				QBCore.Functions.Notify("You dont have the right stuff to make this", "error")
 			end
 		end)
-	else 
+	else
 		QBCore.Functions.Notify("You must be Clocked into work", "error")
 	end
 end)
@@ -492,7 +491,7 @@ AddEventHandler("qb-weedshop:weedbrownie", function()
    				QBCore.Functions.Notify("You dont have the ingredients to make this", "error")
 			end
 		end)
-	else 
+	else
 		QBCore.Functions.Notify("You must be Clocked into work", "error")
 	end
 end)
@@ -522,15 +521,15 @@ AddEventHandler("qb-weedshop:weed-drink", function()
    				QBCore.Functions.Notify("You dont have the ingredients to make this", "error")
 			end
 		end)
-	else 
+	else
 		QBCore.Functions.Notify("You must be Clocked into work", "error")
-	end  
+	end
 end)
 
 RegisterNetEvent("qb-weedshop:Grind")
 AddEventHandler("qb-weedshop:Grind", function()
     if onDuty then
-        if QBCore.Functions.HasItem("weedbud", "weed-grinder) then
+        if QBCore.Functions.HasItem("weedbud", "weed-grinder") then
            GrindWeed()
         else
             QBCore.Functions.Notify("You don't have the right stuff..", "error")
@@ -753,7 +752,6 @@ function GrindBloomer()
 	QBCore.Functions.Notify("You Grind The Weed", "success")
 	StopAnimTask(PlayerPedId(), "amb@prop_human_bbq@male@base", "base", 1.0)
 end
-
 
 function DryWeed()
     QBCore.Functions.Progressbar("pickup", "Drying The Weed..", 4000, false, true, {
