@@ -530,7 +530,7 @@ end)
 RegisterNetEvent("qb-weedshop:Grind")
 AddEventHandler("qb-weedshop:Grind", function()
     if onDuty then
-        if QBCore.Functions.HasItem("weedbud", "weed-grinder) then
+        if QBCore.Functions.HasItem("weedbud", "weed-grinder") then
            GrindWeed()
         else
             QBCore.Functions.Notify("You don't have the right stuff..", "error")
