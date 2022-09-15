@@ -1,4 +1,4 @@
-Updated 14/9/2022 - updated read me
+Updated 9/15/2022 - updated read me
 
 Recommend doing a fresh install and have the latest versions of qb-core, inventory etc to avoid any bugs
 
@@ -7,7 +7,7 @@ Discord - https://discord.gg/3WYz3zaqG5
 # A WeedShop Job for QBCore Framework
 
  -- First of all, i would like to thank DrB1ackBeard for his amazing burgershot script which helped me understand alot as im learning still and this took me a few days to finish.
--- Thank you to Bamboozled for the MLO Gret Work There
+ -- Thank you to Bamboozled for the MLO Gret Work There
  -- Major rework of burgershot job to work as a player run weed shop using legion weed clinic MLO
  -- Will Work fine alongside qb-burgershot. 
 
@@ -30,8 +30,8 @@ qb-input - https://github.com/qbcore-framework/qb-input
 
 qb-menu - https://github.com/qbcore-framework/qb-menu
 
-qb-shops - https://github.com/qbcore-framework/qb-shops --no longer a dependency for collecting wet weed
-Legion Weed Clinic Interior MLO FREE - https://www.gta5-mods.com/maps/mlo-legion-weed-clinic -- designed to work with this MLO but guess you could move it wherever you want if you know how.
+qb-shops - https://github.com/qbcore-framework/qb-shops -- no longer a dependency for collecting wet weed
+Legion Weed Clinic Interior MLO FREE - https://www.gta5-mods.com/maps/mlo-legion-weed-clinic -- designed to work with this MLO, it can be moved around to any MLO if needed.
 
 ## Credits : 
 
@@ -71,7 +71,6 @@ QBShared.Items = {
 	['chill-pill'] 			    	 = {['name'] = 'chill-pill', 		  	    	['label'] = "Chill Pill", 			['weight'] = 200, 	    	['type'] = 'item', 		['image'] = 'chill-pill.png', 		['unique'] = false, 	['useable'] = true, 	['shouldClose'] = true,    ['combinable'] = nil,   ['description'] = 'THC pills to help you relax'},
 	['customer-receipt'] 		 	 = {['name'] = 'customer-receipt', 		  	 	['label'] = "Customer Receipt", 	   	['weight'] = 200, 	   	['type'] = 'item',   	['image'] = 'customer-receipt.png',    	['unique'] = false, 	['useable'] = true, 	['shouldClose'] = true,    ['combinable'] = nil,   ['description'] = 'A receipt from selling something'},
         ['weed-grinder'] 			    	 = {['name'] = 'weed-grinder', 			        	['label'] = 'Grinder', 		    	['weight'] = 500, 		['type'] = 'item', 		["image"] = "weed-grinder.png",           	["unique"] = true, 	["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "Grind weed up."},
-	
 }
 
 ```
@@ -94,14 +93,18 @@ QBShared.Jobs = {
                 name = "Employee",
                 payment = 75
             },
-			['2'] = {
+			['3'] = {
+                name = "Manager",
+                payment = 100
+            },
+			['4'] = {
                 name = "Owner",
                 isboss = true,
                 payment = 100
             },
         },
 	},
-}		
+}
 ```
 
 ## Insert into @qb-management - Client - cl config.lua
