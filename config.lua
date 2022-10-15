@@ -7,7 +7,7 @@ Config.WeedGaragePedModel = "g_m_importexport_01"  --ped model
 Config.SpawnWeedVehicle = vector4(368.15, -827.12, 29.29, 182.61) --location car spawns
 Config.WeedVehicleModel = 'paradise'  --model of vehicle for easy swapping
 
-Config.WSDrawText = "enabled"
+Config.WSDrawText = "enabled"   --enabled or disabled
 Config.JobName = "weedshop"
 Config.WeedshopLocations = {
     ["weedshop-duty"] = {
@@ -48,6 +48,12 @@ Config.WetWeedCost = math.random(1000, 1200)   -- amount you pay for a pickup of
 Config.WetWeedAmount = math.random(100,150)   --amount of wet weed you get from a pickup
 Config.WetWeedLocation = vector3(3688.24, 4563.43, 25.18)   -- location to pick up wet weed with target when on a pickup
 
+----/////NEW BREAKAGE SYSTEM/////----
+Config.GrinderCanBreak = true --whether or not grinder can break after grinding
+Config.GrinderBreakChance = 5 -- in % (5 = 5% chance of a break)
+Config.InfusionCanBreak = true --whether or not infusion kit can break after drying something
+Config.InfusionBreakChance = 5 --in % (5 = 5% chance of a break)
+
 ----/////Item Amounts//////----
 Config.BrownieMixAmount = 5 --amount of weed brownies to get from 1 mix
 Config.WeedDrinkAmount = 5 --amount of weed drinks to get from 1 crafting
@@ -69,7 +75,7 @@ Config.DropOffPoint10 = vector3(1193.52, -1622.37, 45.22)
 
 Config.Items = {
 label = "weedshop",
-    slots = 9,
+    slots = 10,
     items = {
         [1] = {
             name = "lighter",
@@ -142,6 +148,14 @@ label = "weedshop",
             info = {},
             type = "item",
             slot = 9,
+        },
+        [10] = {
+            name = "infusion-kit",  --new item used with drying to create different strands. (does not get removed, is only a requirement)
+            price = 50,
+            amount = 50,
+            info = {},
+            type = "item",
+            slot = 10,
         },
     }
 }
