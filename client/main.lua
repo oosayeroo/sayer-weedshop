@@ -609,10 +609,14 @@ end)
 RegisterNetEvent("qb-weedshop:DryDream")
 AddEventHandler("qb-weedshop:DryDream", function()
     if onDuty then
-        if QBCore.Functions.HasItem("wet_weed") then
-           DryDream()
+        if QBCore.Functions.HasItem('infusion-kit') then
+            if QBCore.Functions.HasItem("wet_weed") then
+                DryDream()
+            else
+                QBCore.Functions.Notify("You don't have the right stuff..", "error")
+            end
         else
-            QBCore.Functions.Notify("You don't have the right stuff..", "error")
+            QBCore.Functions.Notify('You Need an Infusion Kit', 'error')
         end
     else
         QBCore.Functions.Notify("You must be Clocked into work", "error")
@@ -622,10 +626,14 @@ end)
 RegisterNetEvent("qb-weedshop:DryHazy")
 AddEventHandler("qb-weedshop:DryHazy", function()
     if onDuty then
-        if QBCore.Functions.HasItem("wet_weed") then
-           DryHazy()
+        if QBCore.Functions.HasItem('infusion-kit') then
+            if QBCore.Functions.HasItem("wet_weed") then
+                DryHazy()
+            else
+                QBCore.Functions.Notify("You don't have the right stuff..", "error")
+            end
         else
-            QBCore.Functions.Notify("You don't have the right stuff..", "error")
+            QBCore.Functions.Notify('You Need an Infusion Kit', 'error')
         end
     else
         QBCore.Functions.Notify("You must be Clocked into work", "error")
@@ -635,10 +643,14 @@ end)
 RegisterNetEvent("qb-weedshop:DryCrush")
 AddEventHandler("qb-weedshop:DryCrush", function()
     if onDuty then
-        if QBCore.Functions.HasItem("wet_weed") then
-           DryCrush()
+        if QBCore.Functions.HasItem('infusion-kit') then
+            if QBCore.Functions.HasItem("wet_weed") then
+                DryCrush()
+            else
+                QBCore.Functions.Notify("You don't have the right stuff..", "error")
+            end
         else
-            QBCore.Functions.Notify("You don't have the right stuff..", "error")
+            QBCore.Functions.Notify('You Need an Infusion Kit', 'error')
         end
     else
         QBCore.Functions.Notify("You must be Clocked into work", "error")
@@ -648,10 +660,14 @@ end)
 RegisterNetEvent("qb-weedshop:DryBloomer")
 AddEventHandler("qb-weedshop:DryBloomer", function()
     if onDuty then
-        if QBCore.Functions.HasItem("wet_weed") then
-           DryBloomer()
+        if QBCore.Functions.HasItem('infusion-kit') then
+            if QBCore.Functions.HasItem("wet_weed") then
+                DryBloomer()
+            else
+                QBCore.Functions.Notify("You don't have the right stuff..", "error")
+            end
         else
-            QBCore.Functions.Notify("You don't have the right stuff..", "error")
+            QBCore.Functions.Notify('You Need an Infusion Kit', 'error')
         end
     else
         QBCore.Functions.Notify("You must be Clocked into work", "error")
@@ -676,6 +692,13 @@ function GrindWeed()
 	TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["streetweed"], "add")
 	QBCore.Functions.Notify("You Grind The Weed", "success")
 	StopAnimTask(PlayerPedId(), "amb@prop_human_bbq@male@base", "base", 1.0)
+    if Config.GrinderCanBreak then
+        local chance = math.random(0, 100)
+        if chance < Config.GrinderBreakChance then
+            TriggerServerEvent('qb-weedshop:GrinderBroke')
+            QBCore.Functions.Notify('Your Grinder Broke', 'error')
+        end
+    end
 end
 
 function GrindDream()
@@ -695,6 +718,13 @@ function GrindDream()
 	TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["dream-weed"], "add")
 	QBCore.Functions.Notify("You Grind The Weed", "success")
 	StopAnimTask(PlayerPedId(), "amb@prop_human_bbq@male@base", "base", 1.0)
+    if Config.GrinderCanBreak then
+        local chance = math.random(0, 100)
+        if chance < Config.GrinderBreakChance then
+            TriggerServerEvent('qb-weedshop:GrinderBroke')
+            QBCore.Functions.Notify('Your Grinder Broke', 'error')
+        end
+    end
 end
 
 function GrindHazy()
@@ -714,6 +744,13 @@ function GrindHazy()
 	TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["hazy-weed"], "add")
 	QBCore.Functions.Notify("You Grind The Weed", "success")
 	StopAnimTask(PlayerPedId(), "amb@prop_human_bbq@male@base", "base", 1.0)
+    if Config.GrinderCanBreak then
+        local chance = math.random(0, 100)
+        if chance < Config.GrinderBreakChance then
+            TriggerServerEvent('qb-weedshop:GrinderBroke')
+            QBCore.Functions.Notify('Your Grinder Broke', 'error')
+        end
+    end
 end
 
 function GrindCrush()
@@ -733,6 +770,13 @@ function GrindCrush()
 	TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["crush-weed"], "add")
 	QBCore.Functions.Notify("You Grind The Weed", "success")
 	StopAnimTask(PlayerPedId(), "amb@prop_human_bbq@male@base", "base", 1.0)
+    if Config.GrinderCanBreak then
+        local chance = math.random(0, 100)
+        if chance < Config.GrinderBreakChance then
+            TriggerServerEvent('qb-weedshop:GrinderBroke')
+            QBCore.Functions.Notify('Your Grinder Broke', 'error')
+        end
+    end
 end
 
 function GrindBloomer()
@@ -752,6 +796,13 @@ function GrindBloomer()
 	TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["bloomer-weed"], "add")
 	QBCore.Functions.Notify("You Grind The Weed", "success")
 	StopAnimTask(PlayerPedId(), "amb@prop_human_bbq@male@base", "base", 1.0)
+    if Config.GrinderCanBreak then
+        local chance = math.random(0, 100)
+        if chance < Config.GrinderBreakChance then
+            TriggerServerEvent('qb-weedshop:GrinderBroke')
+            QBCore.Functions.Notify('Your Grinder Broke', 'error')
+        end
+    end
 end
 
 
@@ -789,8 +840,15 @@ function DryDream()
     Citizen.Wait(4000)
     TriggerServerEvent('qb-weedshop:server:drydream')
     TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["dream-bud"], "add")
-    QBCore.Functions.Notify("You dried the weed", "success")
+    QBCore.Functions.Notify("You Infused Some Dream Weed", "success")
     StopAnimTask(PlayerPedId(), "amb@prop_human_bbq@male@base", "base", 1.0)
+    if Config.InfusionCanBreak then
+        local chance = math.random(0, 100)
+        if chance < Config.InfusionBreakChance then
+            TriggerServerEvent('qb-weedshop:InfusionBroke')
+            QBCore.Functions.Notify('Your Kit Broke', 'error')
+        end
+    end
 end
 
 function DryHazy()
@@ -808,8 +866,15 @@ function DryHazy()
     Citizen.Wait(4000)
     TriggerServerEvent('qb-weedshop:server:dryhazy')
     TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["hazy-bud"], "add")
-    QBCore.Functions.Notify("You dried the weed", "success")
+    QBCore.Functions.Notify("You Infused Some Hazy Weed", "success")
     StopAnimTask(PlayerPedId(), "amb@prop_human_bbq@male@base", "base", 1.0)
+    if Config.InfusionCanBreak then
+        local chance = math.random(0, 100)
+        if chance < Config.InfusionBreakChance then
+            TriggerServerEvent('qb-weedshop:InfusionBroke')
+            QBCore.Functions.Notify('Your Kit Broke', 'error')
+        end
+    end
 end
 
 function DryCrush()
@@ -827,8 +892,15 @@ function DryCrush()
     Citizen.Wait(4000)
     TriggerServerEvent('qb-weedshop:server:drycrush')
     TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["crush-bud"], "add")
-    QBCore.Functions.Notify("You dried the weed", "success")
+    QBCore.Functions.Notify("You Infused Some Crush Weed", "success")
     StopAnimTask(PlayerPedId(), "amb@prop_human_bbq@male@base", "base", 1.0)
+    if Config.InfusionCanBreak then
+        local chance = math.random(0, 100)
+        if chance < Config.InfusionBreakChance then
+            TriggerServerEvent('qb-weedshop:InfusionBroke')
+            QBCore.Functions.Notify('Your Kit Broke', 'error')
+        end
+    end
 end
 
 function DryBloomer()
@@ -846,9 +918,17 @@ function DryBloomer()
     Citizen.Wait(4000)
     TriggerServerEvent('qb-weedshop:server:drybloomer')
     TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["bloomer-bud"], "add")
-    QBCore.Functions.Notify("You dried the weed", "success")
+    QBCore.Functions.Notify("You Infused Some Bloomer Weed", "success")
     StopAnimTask(PlayerPedId(), "amb@prop_human_bbq@male@base", "base", 1.0)
+    if Config.InfusionCanBreak then
+        local chance = math.random(0, 100)
+        if chance < Config.InfusionBreakChance then
+            TriggerServerEvent('qb-weedshop:InfusionBroke')
+            QBCore.Functions.Notify('Your Kit Broke', 'error')
+        end
+    end
 end
+
 
 
 
