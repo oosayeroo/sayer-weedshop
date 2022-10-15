@@ -313,6 +313,18 @@ RegisterNetEvent('qb-weedshop:server:drybloomer', function()
     Player.Functions.AddItem('bloomer-bud', Config.DryingAmount)
 end)
 
+RegisterNetEvent('qb-weedshop:GrinderBroke', function()
+    local src = source
+    local Player = QBCore.Functions.GetPlayer(src)
+    Player.Functions.RemoveItem('weed-grinder', 1)
+end)
+
+RegisterNetEvent('qb-weedshop:InfusionBroke', function()
+    local src = source
+    local Player = QBCore.Functions.GetPlayer(src)
+    Player.Functions.RemoveItem('infusion-kit', 1)
+end)
+
 
 ----//////useables/////------
 
