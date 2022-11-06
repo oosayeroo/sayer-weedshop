@@ -1,6 +1,4 @@
-Updated 14/9/2022 - updated read me
-
-Recommend doing a fresh install and have the latest versions of qb-core, inventory etc to avoid any bugs
+Updated 06/11/22
 
 Discord - https://discord.gg/3WYz3zaqG5
 
