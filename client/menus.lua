@@ -403,6 +403,14 @@ RegisterNetEvent('qb-menu:WeedMenu', function(data)
             }
         },
         {
+           
+            header = "• Manage Business",
+            txt = "Access the business menu",
+            params = {
+                event = "qb-bossmenu:client:OpenMenu"
+            }
+        },
+        {
             
             header = "Close (ESC)",
             isMenuHeader = true, -- Set to true to make a nonclickable title
