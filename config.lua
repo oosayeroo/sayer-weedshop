@@ -2,6 +2,8 @@ Config = {}
 
 Config.DebugWeedPoly = false  --true for testing/false for live server
 
+Config.JimShops = false --set true if using jimshops
+
 Config.WeedGaragePedLocation = vector4(372.18, -827.04, 29.29, 90.12) --ped location
 Config.WeedGaragePedModel = "g_m_importexport_01"  --ped model
 Config.SpawnWeedVehicle = vector4(368.15, -827.12, 29.29, 182.61) --location car spawns
@@ -42,11 +44,7 @@ Config.WeedshopLocations = {
     },
 }
 
-Config.DeliveryWait = 10000
-Config.DeliveryPayment = math.random(500, 700)
-Config.WetWeedCost = math.random(1000, 1200)   -- amount you pay for a pickup of wet weed
-Config.WetWeedAmount = math.random(100,150)   --amount of wet weed you get from a pickup
-Config.WetWeedLocation = vector3(3688.24, 4563.43, 25.18)   -- location to pick up wet weed with target when on a pickup
+Config.CraftingTime = 5 --in seconds (5 = 5 seconds)
 
 ----/////NEW BREAKAGE SYSTEM/////----
 Config.GrinderCanBreak = true --whether or not grinder can break after grinding
@@ -60,18 +58,28 @@ Config.WeedDrinkAmount = 5 --amount of weed drinks to get from 1 crafting
 Config.GrindingAmount = 2 --amount of ground weed to get from grinding 1
 Config.DryingAmount = 2 --amount of dried weed to get back when drying 1
 
+----////DELIVERIES////----
+Config.DeliveryWait = 10 --now in seconds
+Config.DeliveryPayment = math.random(500, 700)
+Config.WetWeedCost = math.random(1000, 1200)   -- amount you pay for a pickup of wet weed
+Config.WetWeedAmount = math.random(100,150)   --amount of wet weed you get from a pickup
+Config.WetWeedLocation = vector3(3688.24, 4563.43, 25.18)   -- location to pick up wet weed with target when on a pickup
 
---delivery locations
-Config.DropOffPoint1 = vector3(-297.74, 379.84, 112.1)
-Config.DropOffPoint2 = vector3(119.37, 564.19, 183.96)
-Config.DropOffPoint3 = vector3(808.72, -163.69, 75.88)
-Config.DropOffPoint4 = vector3(1060.41, -378.3, 68.23)
-Config.DropOffPoint5 = vector3(850.27, -532.63, 57.93)
-Config.DropOffPoint6 = vector3(281.96, -1694.96, 29.65)
-Config.DropOffPoint7 = vector3(39.02, -1911.58, 21.95)
-Config.DropOffPoint8 = vector3(256.43, -2023.4, 19.27)
-Config.DropOffPoint9 = vector3(512.51, -1790.77, 28.92)
-Config.DropOffPoint10 = vector3(1193.52, -1622.37, 45.22)
+--delivery locations -- you can now have s many locations as you want
+Config.DropOffPoints = {
+    vector3(-297.74, 379.84, 112.1),
+    vector3(119.37, 564.19, 183.96),
+    vector3(808.72, -163.69, 75.88),
+    vector3(1060.41, -378.3, 68.23),
+    vector3(850.27, -532.63, 57.93),
+    vector3(281.96, -1694.96, 29.65),
+    vector3(39.02, -1911.58, 21.95),
+    vector3(256.43, -2023.4, 19.27),
+    vector3(512.51, -1790.77, 28.92),
+    vector3(1193.52, -1622.37, 45.22)
+}
+
+
 
 Config.Items = {
 label = "weedshop",
@@ -150,7 +158,7 @@ label = "weedshop",
             slot = 9,
         },
         [10] = {
-            name = "infusion-kit",  --new item used with drying to create different strands. (does not get removed, is only a requirement)
+            name = "infusion-kit",  
             price = 50,
             amount = 50,
             info = {},

@@ -1,7 +1,7 @@
 fx_version 'cerulean'
 game 'gta5'
 
-author 'oosayeroo'   --rewritten by oosayeroo
+author 'oosayeroo'  
 description 'qb-weedshop by oosayeroo'
 version '3.2.2'
 
@@ -13,7 +13,8 @@ client_scripts {
 	'client/main.lua',
 	'client/garage.lua',
 	'client/menus.lua',
-	'client/deliveries.lua'
+	'client/deliveries.lua',
+	'client/crafting.lua'
 }
 
 server_scripts {

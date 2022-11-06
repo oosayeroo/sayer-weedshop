@@ -105,11 +105,4 @@ QBShared.Jobs = {
 }		
 ```
 
-## Insert into @qb-management - Client - cl config.lua
-```
-['weedshop'] = {
-        vector3(374.04, -823.91, 29.3),
-    },
-```
 
-## delete spawn weed ped from qb-target as now does within script
