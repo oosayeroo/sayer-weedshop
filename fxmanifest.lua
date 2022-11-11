@@ -3,7 +3,7 @@ game 'gta5'
 
 author 'oosayeroo'  
 description 'qb-weedshop by oosayeroo'
-version '3.2.2'
+version '3.3.1'
 
 shared_scripts {
     'config.lua'
