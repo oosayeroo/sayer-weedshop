@@ -138,7 +138,7 @@ end
     
 
 function startwetweedpickup1()
-    exports['qb-target']:AddBoxZone("wet-pickup", Config.WetWeedLocation, 1, 1, {
+    exports['qb-target']:AddBoxZone("wet-pickup", Config.WetWeedLocation, 3, 3, {
         name="wet-pickup",
         heading=0,
         debugpoly = false,
