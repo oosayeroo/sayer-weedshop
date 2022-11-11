@@ -27,7 +27,7 @@ RegisterNetEvent('qb-weedshop:server:pickupfinished', function()
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
     local amount = Config.WetWeedAmount
-    local price = Config.WedWeedCost
+    local price = Config.WetWeedCost
 
     Player.Functions.RemoveMoney('cash', price)
     Player.Functions.AddItem('wet_weed', amount)
