@@ -2,70 +2,63 @@ Config = {}
 
 Config.DebugWeedPoly = false  --true for testing/false for live server
 
-Config.JimShops = false --set true if using jimshops
+Config.MLO = 'blazeit'
+-- 'legion' = https://www.gta5-mods.com/maps/mlo-legion-weed-clinic
+-- 'blazeit' = https://fiv3devs.tebex.io/package/5046942
+-- 'widow' = https://mosbaekdesign.com/vare/white-widow-cannabis-cafe-shop-mlo-v2-update/
+Config.Phone = 'qb' --supports qb = qb-Phone/qs = quasar Phone/gk = GK Phone
+Config.JimShops = false
 
-Config.WeedGaragePedLocation = vector4(372.18, -827.04, 29.29, 90.12) --ped location
+Config.JobName = 'weedshop' --jobcode used in shared/jobs
+Config.PaySociety = true --uses qb-management for everything related to money (delivery receipts, ordering wet weed.) does not work for Shop items as thats a seperate script(for now)
+Config.SocietyName = 'weedshop' --society name in database of qb-management
+
 Config.WeedGaragePedModel = "g_m_importexport_01"  --ped model
-Config.SpawnWeedVehicle = vector4(368.15, -827.12, 29.29, 182.61) --location car spawns
-Config.WeedVehicleModel = 'paradise'  --model of vehicle for easy swapping
-
-Config.WSDrawText = "enabled"   --enabled or disabled
-Config.JobName = "weedshop"
-Config.WeedshopLocations = {
-    ["weedshop-duty"] = {
-        [1] = vector3(375.97, -823.74, 29.3),
-    },
-    ["weed-tray1"] = {
-        [1] = vector3(377.0, -827.34, 29.3),
-    },
-    ["weedshop-dryer"] = {
-        [1] = vector3(380.44, -813.94, 29.3),
-    },
-    ["weedshop-grind"] = {
-        [1] = vector3(382.31, -816.57, 29.3),
-    },
-    ["weedshop-menu"] = {
-        [1] = vector3(375.32, -827.69, 29.3),
-    },
-    ["weedshop-storage"] = {
-        [1] = vector3(382.54, -819.79, 29.3),
-    },
-    ["weedshop-craft"] = {
-        [1] = vector3(374.54, -816.8, 29.3),
-    },
-    ["weedshop-register"] = {
-        [1] = vector3(380.37, -826.66, 29.3),
-    },
-    ["weedshop-garage"] = {
-        [1] = vector3(371.39, -826.98, 29.29),
-    },
-    ["wetbud-pickup"] = {
-        [1] = vector3(3688.24, 4563.43, 25.18),
-    },
+Config.WeedVehicles = { 
+    --Label = how you see the name in menu/ 
+    --Model = spawncode of vehicle/ 
+    --Livery = number that corresponds to the livery you want it to have. if vehicle has no livery then put 0
+    {Label = "Paradise", Model = 'paradise', Livery = 1},
+    {Label = "Burrito", Model = 'burrito', Livery = 2},
 }
+-- https://www.gtabase.com/grand-theft-auto-v/vehicles/#sort=attr.ct3.frontend_value&sortdir=desc
+--in case you want to check vehicle liveries
 
 Config.CraftingTime = 5 --in seconds (5 = 5 seconds)
-
-----/////NEW BREAKAGE SYSTEM/////----
+--Breakable Equipment
 Config.GrinderCanBreak = true --whether or not grinder can break after grinding
 Config.GrinderBreakChance = 5 -- in % (5 = 5% chance of a break)
 Config.InfusionCanBreak = true --whether or not infusion kit can break after drying something
 Config.InfusionBreakChance = 5 --in % (5 = 5% chance of a break)
 
-----/////Item Amounts//////----
+--Item Info
+Config.RandomGiftChance = 5 -- in % chance of recieving an item from the gift sets. items configured below
+Config.RandomGiftAmount = 1
+Config.GiftBoxRewards = { --change these to whatever you want to use. 
+    'lockpick',
+    'weapon_pistol',
+}
 Config.BrownieMixAmount = 5 --amount of weed brownies to get from 1 mix
 Config.WeedDrinkAmount = 5 --amount of weed drinks to get from 1 crafting
 Config.GrindingAmount = 2 --amount of ground weed to get from grinding 1
 Config.DryingAmount = 2 --amount of dried weed to get back when drying 1
 
-----////DELIVERIES////----
+--Delivery
 Config.DeliveryWait = 10 --now in seconds
-Config.DeliveryPayment = math.random(500, 700)
-Config.WetWeedCost = math.random(1000, 1200)   -- amount you pay for a pickup of wet weed
-Config.WetWeedAmount = math.random(100,150)   --amount of wet weed you get from a pickup
-Config.WetWeedLocation = vector3(3688.24, 4563.43, 25.18)   -- location to pick up wet weed with target when on a pickup
-
---delivery locations -- you can now have s many locations as you want
+Config.DeliveryPayment = math.random(50, 100)
+Config.SingleWetWeedCost = 1   -- amount you pay for a pickup of wet weed
+Config.WetWeedLocation = { -- location to pick up wet weed with target when on a pickup
+    vector3(3688.24, 4563.43, 25.18),
+    vector3(808.72, -163.69, 75.88),
+}   
+Config.DeliveryItems = {
+    'dream-joint',
+    'hazy-joint',
+    'crush-joint',
+    'bloomer-joint',
+}
+Config.MaxDeliveries = 10 --maximum deliveries before having to return to shop and cash receipts
+--delivery locations -- you can now have as many locations as you want
 Config.DropOffPoints = {
     vector3(-297.74, 379.84, 112.1),
     vector3(119.37, 564.19, 183.96),
@@ -79,92 +72,29 @@ Config.DropOffPoints = {
     vector3(1193.52, -1622.37, 45.22)
 }
 
-
-
 Config.Items = {
-label = "weedshop",
+label = "Weedshop",
     slots = 10,
     items = {
-        [1] = {
-            name = "lighter",
-            price = 10,
-            amount = 50,
-            info = {},
-            type = "item",
-            slot = 1,
-        },
-        [2] = {
-            name = "empty_weed_bag",
-            price = 3,
-            amount = 50,
-            info = {},
-            type = "item",
-            slot = 2,
-        },
-        [3] = {
-            name = "rolling_paper",
-            price = 2,
-            amount = 50,
-            info = {},
-            type = "item",
-            slot = 3,
-        },
-        [4] = {
-            name = "weed_nutrition",
-            price = 40,
-            amount = 50,
-            info = {},
-            type = "item",
-            slot = 4,
-        },
-        [5] = {
-            name = "gift-box",
-            price = 45,
-            amount = 50,
-            info = {},
-            type = "item",
-            slot = 5,
-        },
-        [6] = {
-            name = "brownie-mix",
-            price = 8,
-            amount = 50,
-            info = {},
-            type = "item",
-            slot = 6,
-        },
-        [7] = {
-            name = "aluminumcan",
-            price = 1,
-            amount = 50,
-            info = {},
-            type = "item",
-            slot = 7,
-        },
-        [8] = {
-            name = "drink-mix",
-            price = 15,
-            amount = 50,
-            info = {},
-            type = "item",
-            slot = 8,
-        },
-        [9] = {
-            name = "weed-grinder",
-            price = 30,
-            amount = 20,
-            info = {},
-            type = "item",
-            slot = 9,
-        },
-        [10] = {
-            name = "infusion-kit",  
-            price = 50,
-            amount = 50,
-            info = {},
-            type = "item",
-            slot = 10,
-        },
+        [1]  =  {name = "lighter",        price = 10,amount = 50,info = {},type = "item",slot = 1,},
+        [2]  =  {name = "empty_weed_bag", price = 3,amount = 50,info = {},type = "item",slot = 2,},
+        [3]  =  {name = "rolling_paper",  price = 2,amount = 50,info = {},type = "item",slot = 3,},
+        [4]  =  {name = "weed_nutrition", price = 40,amount = 50,info = {},type = "item",slot = 4,},
+        [5]  =  {name = "gift-box",       price = 45,amount = 50,info = {},type = "item",slot = 5,},
+        [6]  =  {name = "brownie-mix",    price = 8,amount = 50,info = {},type = "item",slot = 6,},
+        [7]  =  {name = "aluminumcan",    price = 1,amount = 50,info = {},type = "item",slot = 7,},
+        [8]  =  {name = "drink-mix",      price = 15,amount = 50,info = {},type = "item",slot = 8,},
+        [9]  =  {name = "weed-grinder",   price = 30,amount = 20,info = {},type = "item",slot = 9,},
+        [10] =  {name = "infusion-kit",   price = 50,amount = 50,info = {},type = "item",slot = 10,},
     }
 }
 
+--WIP (DO NOT USE)
+-- Config.JointEffects = {
+--     ["dream-joint"] = {
+--         type = 'joint',
+--         stressrelief = math.random(2,5),
+--         screen = 'blue',
+--         shake = true,
+--     },
+-- }

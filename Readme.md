@@ -1,4 +1,4 @@
-Updated 06/11/22
+Updated 25/2/23
 
 Discord - https://discord.gg/3WYz3zaqG5
 
@@ -28,8 +28,6 @@ qb-input - https://github.com/qbcore-framework/qb-input
 
 qb-menu - https://github.com/qbcore-framework/qb-menu
 
-qb-shops - https://github.com/qbcore-framework/qb-shops --no longer a dependency for collecting wet weed
-Legion Weed Clinic Interior MLO FREE - https://www.gta5-mods.com/maps/mlo-legion-weed-clinic -- designed to work with this MLO but guess you could move it wherever you want if you know how.
 
 ## Credits : 
 
@@ -66,9 +64,8 @@ QBShared.Items = {
 	['hazy-weed'] 					 = {['name'] = 'hazy-weed', 			  	  	['label'] = "Hazy Weed", 				['weight'] = 500, 		['type'] = 'item', 		['image'] = 'hazy-weed.png', 			['unique'] = false, 	['useable'] = true, 	['shouldClose'] = true,    ['combinable'] = nil,   ['description'] = 'Ground Hazy Weed'},
 	['crush-weed'] 				     = {['name'] = 'crush-weed', 			  	  	['label'] = "Crush Weed", 				['weight'] = 500, 		['type'] = 'item', 		['image'] = 'crush-weed.png', 			['unique'] = false, 	['useable'] = true, 	['shouldClose'] = true,    ['combinable'] = nil,   ['description'] = 'Ground Crush Weed'},
 	['bloomer-weed'] 				 = {['name'] = 'bloomer-weed', 		  	    	['label'] = "Bloomer Weed", 			['weight'] = 500, 		['type'] = 'item', 		['image'] = 'bloomer-weed.png', 		['unique'] = false, 	['useable'] = true, 	['shouldClose'] = true,    ['combinable'] = nil,   ['description'] = 'Ground Bloomer Weed'},
-	['chill-pill'] 			    	 = {['name'] = 'chill-pill', 		  	    	['label'] = "Chill Pill", 			['weight'] = 200, 	    	['type'] = 'item', 		['image'] = 'chill-pill.png', 		['unique'] = false, 	['useable'] = true, 	['shouldClose'] = true,    ['combinable'] = nil,   ['description'] = 'THC pills to help you relax'},
 	['customer-receipt'] 		 	 = {['name'] = 'customer-receipt', 		  	 	['label'] = "Customer Receipt", 	   	['weight'] = 200, 	   	['type'] = 'item',   	['image'] = 'customer-receipt.png',    	['unique'] = false, 	['useable'] = true, 	['shouldClose'] = true,    ['combinable'] = nil,   ['description'] = 'A receipt from selling something'},
-        ['weed-grinder'] 			    	 = {['name'] = 'weed-grinder', 			        	['label'] = 'Grinder', 		    	['weight'] = 500, 		['type'] = 'item', 		["image"] = "weed-grinder.png",           	["unique"] = true, 	["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "Grind weed up."},
+    ['weed-grinder'] 			    	 = {['name'] = 'weed-grinder', 			        	['label'] = 'Grinder', 		    	['weight'] = 500, 		['type'] = 'item', 		["image"] = "weed-grinder.png",           	["unique"] = true, 	["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "Grind weed up."},
 	['infusion-kit'] 			   	 = {['name'] = 'infusion-kit', 			    	['label'] = 'Infusion Kit', 		   	['weight'] = 1000, 		['type'] = 'item', 		["image"] = "infusion-kit.png",        	["unique"] = true, 	    ["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "Used with wet weed to create different strands."},
 	
 }

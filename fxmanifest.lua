@@ -2,8 +2,8 @@ fx_version 'cerulean'
 game 'gta5'
 
 author 'oosayeroo'  
-description 'qb-weedshop by oosayeroo'
-version '3.3.1'
+description 'sayer-weedshop by oosayeroo'
+version '4.1.5'
 
 shared_scripts {
     'config.lua'
