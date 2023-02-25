@@ -3,24 +3,17 @@ isLoggedIn = false
 local onDuty = true
 PlayerJob = {}
 
-RegisterNetEvent("qb-weedshop:creategiftset")
-AddEventHandler("qb-weedshop:creategiftset", function()
+RegisterNetEvent("sayer-weedshop:creategiftset")
+AddEventHandler("sayer-weedshop:creategiftset", function()
     if onDuty then
-    	QBCore.Functions.TriggerCallback('qb-weedshop:server:get:ingredientgiftset', function(HasItems)  
+    	QBCore.Functions.TriggerCallback('sayer-weedshop:server:get:ingredientgiftset', function(HasItems)  
     		if HasItems then
-				QBCore.Functions.Progressbar("pickup_sla", "Making A Gift Set..", Config.CraftingTime * 1000, false, true, {
-					disableMovement = true,
-					disableCarMovement = true,
-					disableMouse = false,
-					disableCombat = true,
-				}, {
-					animDict = "mp_common",
-					anim = "givetake1_a",
-					flags = 8,
-				}, {}, {}, function() -- Done
-					TriggerServerEvent('qb-weedshop:server:creategiftbox')
-                    			TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["weed-gift-set"], "add")
-                    			QBCore.Functions.Notify("You made a A Gift Set", "success")
+				QBCore.Functions.Progressbar("pickup_sla", "Making A Gift Set..", Config.CraftingTime * 1000, false, true, 
+				{disableMovement = true,disableCarMovement = true,disableMouse = false,disableCombat = true,}, 
+				{animDict = "mp_common",anim = "givetake1_a",flags = 8,}, {}, {}, function() -- Done
+					TriggerServerEvent('sayer-weedshop:server:creategiftbox')
+        			TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["weed-gift-set"], "add")
+        			QBCore.Functions.Notify("You made a A Gift Set", "success")
 				end, function()
 					QBCore.Functions.Notify("Cancelled..", "error")
 				end)
@@ -33,24 +26,17 @@ AddEventHandler("qb-weedshop:creategiftset", function()
 	end  
 end)
 
-RegisterNetEvent("qb-weedshop:joint")
-AddEventHandler("qb-weedshop:joint", function()
+RegisterNetEvent("sayer-weedshop:joint")
+AddEventHandler("sayer-weedshop:joint", function()
     if onDuty then
-    	QBCore.Functions.TriggerCallback('qb-weedshop:server:get:ingredientjoint', function(HasItems)  
+    	QBCore.Functions.TriggerCallback('sayer-weedshop:server:get:ingredientjoint', function(HasItems)  
     		if HasItems then
-				QBCore.Functions.Progressbar("pickup_sla", "Making Joints..", Config.CraftingTime * 1000, false, true, {
-					disableMovement = true,
-					disableCarMovement = true,
-					disableMouse = false,
-					disableCombat = true,
-				}, {
-					animDict = "mp_common",
-					anim = "givetake1_a",
-					flags = 8,
-				}, {}, {}, function() -- Done
-					TriggerServerEvent('qb-weedshop:server:makingjoint')
-                    			TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["joint"], "add")
-                    			QBCore.Functions.Notify("You made a Joint", "success")
+				QBCore.Functions.Progressbar("pickup_sla", "Making Joints..", Config.CraftingTime * 1000, false, true, 
+				{disableMovement = true,disableCarMovement = true,disableMouse = false,disableCombat = true,}, 
+				{animDict = "mp_common",anim = "givetake1_a",flags = 8,}, {}, {}, function() -- Done
+					TriggerServerEvent('sayer-weedshop:server:makingjoint')
+                    TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["joint"], "add")
+                    QBCore.Functions.Notify("You made a Joint", "success")
 				end, function()
 					QBCore.Functions.Notify("Cancelled..", "error")
 				end)
@@ -63,24 +49,17 @@ AddEventHandler("qb-weedshop:joint", function()
 	end
 end)
 
-RegisterNetEvent("qb-weedshop:CreateDream")
-AddEventHandler("qb-weedshop:CreateDream", function()
+RegisterNetEvent("sayer-weedshop:CreateDream")
+AddEventHandler("sayer-weedshop:CreateDream", function()
     if onDuty then
-    	QBCore.Functions.TriggerCallback('qb-weedshop:server:get:ingredientdream', function(HasItems)  
+    	QBCore.Functions.TriggerCallback('sayer-weedshop:server:get:ingredientdream', function(HasItems)  
     		if HasItems then
-				QBCore.Functions.Progressbar("pickup_sla", "Making Joints..", Config.CraftingTime * 1000, false, true, {
-					disableMovement = true,
-					disableCarMovement = true,
-					disableMouse = false,
-					disableCombat = true,
-				}, {
-					animDict = "mp_common",
-					anim = "givetake1_a",
-					flags = 8,
-				}, {}, {}, function() -- Done
-					TriggerServerEvent('qb-weedshop:server:makingdreamjoint')
-                    			TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["dream-joint"], "add")
-                    			QBCore.Functions.Notify("You made a Dream Joint", "success")
+				QBCore.Functions.Progressbar("pickup_sla", "Making Joints..", Config.CraftingTime * 1000, false, true, 
+				{disableMovement = true,disableCarMovement = true,disableMouse = false,disableCombat = true,}, 
+				{animDict = "mp_common",anim = "givetake1_a",flags = 8,}, {}, {}, function() -- Done
+					TriggerServerEvent('sayer-weedshop:server:makingdreamjoint')
+                    TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["dream-joint"], "add")
+                    QBCore.Functions.Notify("You made a Dream Joint", "success")
 				end, function()
 					QBCore.Functions.Notify("Cancelled..", "error")
 				end)
@@ -93,24 +72,17 @@ AddEventHandler("qb-weedshop:CreateDream", function()
 	end
 end)
 
-RegisterNetEvent("qb-weedshop:CreateHazy")
-AddEventHandler("qb-weedshop:CreateHazy", function()
+RegisterNetEvent("sayer-weedshop:CreateHazy")
+AddEventHandler("sayer-weedshop:CreateHazy", function()
     if onDuty then
-    	QBCore.Functions.TriggerCallback('qb-weedshop:server:get:ingredienthazy', function(HasItems)  
+    	QBCore.Functions.TriggerCallback('sayer-weedshop:server:get:ingredienthazy', function(HasItems)  
     		if HasItems then
-				QBCore.Functions.Progressbar("pickup_sla", "Making Joints..", Config.CraftingTime * 1000, false, true, {
-					disableMovement = true,
-					disableCarMovement = true,
-					disableMouse = false,
-					disableCombat = true,
-				}, {
-					animDict = "mp_common",
-					anim = "givetake1_a",
-					flags = 8,
-				}, {}, {}, function() -- Done
-					TriggerServerEvent('qb-weedshop:server:makinghazyjoint')
-                    			TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["hazy-joint"], "add")
-                    			QBCore.Functions.Notify("You made a Hazy Joint", "success")
+				QBCore.Functions.Progressbar("pickup_sla", "Making Joints..", Config.CraftingTime * 1000, false, true, 
+				{disableMovement = true,disableCarMovement = true,disableMouse = false,disableCombat = true,}, 
+				{animDict = "mp_common",anim = "givetake1_a",flags = 8,}, {}, {}, function() -- Done
+					TriggerServerEvent('sayer-weedshop:server:makinghazyjoint')
+                    TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["hazy-joint"], "add")
+                    QBCore.Functions.Notify("You made a Hazy Joint", "success")
 				end, function()
 					QBCore.Functions.Notify("Cancelled..", "error")
 				end)
@@ -123,24 +95,17 @@ AddEventHandler("qb-weedshop:CreateHazy", function()
 	end
 end)
 
-RegisterNetEvent("qb-weedshop:CreateCrush")
-AddEventHandler("qb-weedshop:CreateCrush", function()
+RegisterNetEvent("sayer-weedshop:CreateCrush")
+AddEventHandler("sayer-weedshop:CreateCrush", function()
     if onDuty then
-    	QBCore.Functions.TriggerCallback('qb-weedshop:server:get:ingredientcrush', function(HasItems)  
+    	QBCore.Functions.TriggerCallback('sayer-weedshop:server:get:ingredientcrush', function(HasItems)  
     		if HasItems then
-				QBCore.Functions.Progressbar("pickup_sla", "Making Joints..", Config.CraftingTime * 1000, false, true, {
-					disableMovement = true,
-					disableCarMovement = true,
-					disableMouse = false,
-					disableCombat = true,
-				}, {
-					animDict = "mp_common",
-					anim = "givetake1_a",
-					flags = 8,
-				}, {}, {}, function() -- Done
-					TriggerServerEvent('qb-weedshop:server:makingcrushjoint')
-                    			TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["crush-joint"], "add")
-                    			QBCore.Functions.Notify("You made a Crush Joint", "success")
+				QBCore.Functions.Progressbar("pickup_sla", "Making Joints..", Config.CraftingTime * 1000, false, true, 
+				{disableMovement = true,disableCarMovement = true,disableMouse = false,disableCombat = true,}, 
+				{animDict = "mp_common",anim = "givetake1_a",flags = 8,}, {}, {}, function() -- Done
+					TriggerServerEvent('sayer-weedshop:server:makingcrushjoint')
+                    TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["crush-joint"], "add")
+                    QBCore.Functions.Notify("You made a Crush Joint", "success")
 				end, function()
 					QBCore.Functions.Notify("Cancelled..", "error")
 				end)
@@ -153,24 +118,17 @@ AddEventHandler("qb-weedshop:CreateCrush", function()
 	end
 end)
 
-RegisterNetEvent("qb-weedshop:CreateBloomer")
-AddEventHandler("qb-weedshop:CreateBloomer", function()
+RegisterNetEvent("sayer-weedshop:CreateBloomer")
+AddEventHandler("sayer-weedshop:CreateBloomer", function()
     if onDuty then
-    	QBCore.Functions.TriggerCallback('qb-weedshop:server:get:ingredientbloomer', function(HasItems)  
+    	QBCore.Functions.TriggerCallback('sayer-weedshop:server:get:ingredientbloomer', function(HasItems)  
     		if HasItems then
-				QBCore.Functions.Progressbar("pickup_sla", "Making Joints..", Config.CraftingTime * 1000, false, true, {
-					disableMovement = true,
-					disableCarMovement = true,
-					disableMouse = false,
-					disableCombat = true,
-				}, {
-					animDict = "mp_common",
-					anim = "givetake1_a",
-					flags = 8,
-				}, {}, {}, function() -- Done
-					TriggerServerEvent('qb-weedshop:server:makingbloomerjoint')
-                    			TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["bloomer-joint"], "add")
-                    			QBCore.Functions.Notify("You made a Bloomer Joint", "success")
+				QBCore.Functions.Progressbar("pickup_sla", "Making Joints..", Config.CraftingTime * 1000, false, true, 
+				{disableMovement = true,disableCarMovement = true,disableMouse = false,disableCombat = true,}, 
+				{animDict = "mp_common",anim = "givetake1_a",flags = 8,}, {}, {}, function() -- Done
+					TriggerServerEvent('sayer-weedshop:server:makingbloomerjoint')
+                    TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["bloomer-joint"], "add")
+                    QBCore.Functions.Notify("You made a Bloomer Joint", "success")
 				end, function()
 					QBCore.Functions.Notify("Cancelled..", "error")
 				end)
@@ -183,24 +141,17 @@ AddEventHandler("qb-weedshop:CreateBloomer", function()
 	end
 end)
 
-RegisterNetEvent("qb-weedshop:weedbrownie")
-AddEventHandler("qb-weedshop:weedbrownie", function()
+RegisterNetEvent("sayer-weedshop:weedbrownie")
+AddEventHandler("sayer-weedshop:weedbrownie", function()
     if onDuty then
-    	QBCore.Functions.TriggerCallback('qb-weedshop:server:get:ingredientweedbrownie', function(HasItems)  
-    		if HasItems then
-				QBCore.Functions.Progressbar("pickup_sla", "Making Brownie..", Config.CraftingTime * 1000, false, true, {
-					disableMovement = true,
-					disableCarMovement = true,
-					disableMouse = false,
-					disableCombat = true,
-				}, {
-					animDict = "mp_common",
-					anim = "givetake1_a",
-					flags = 8,
-				}, {}, {}, function() -- Done
-					TriggerServerEvent('qb-weedshop:server:makingbrownie')
-                    			TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["weed-brownie"], "add")
-                    			QBCore.Functions.Notify("You made a Weed Brownie", "success")
+    	QBCore.Functions.TriggerCallback('sayer-weedshop:server:get:ingredientweedbrownie', function(HasItems)  
+    		if (HasItems) then
+				QBCore.Functions.Progressbar("pickup_sla", "Making Brownie..", Config.CraftingTime * 1000, false, true, 
+				{disableMovement = true,disableCarMovement = true,disableMouse = false,disableCombat = true,}, 
+				{animDict = "mp_common",anim = "givetake1_a",flags = 8,}, {}, {}, function() -- Done
+					TriggerServerEvent('sayer-weedshop:server:makingbrownie')
+                    TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["weed-brownie"], "add")
+                    QBCore.Functions.Notify("You made a Weed Brownie", "success")
 				end, function()
 					QBCore.Functions.Notify("Cancelled..", "error")
 				end)
@@ -213,24 +164,17 @@ AddEventHandler("qb-weedshop:weedbrownie", function()
 	end
 end)
 
-RegisterNetEvent("qb-weedshop:weed-drink")
-AddEventHandler("qb-weedshop:weed-drink", function()
+RegisterNetEvent("sayer-weedshop:weed-drink")
+AddEventHandler("sayer-weedshop:weed-drink", function()
     if onDuty then
-    	QBCore.Functions.TriggerCallback('qb-weedshop:server:get:ingredientweed-drink', function(HasItems)  
+    	QBCore.Functions.TriggerCallback('sayer-weedshop:server:get:ingredientweed-drink', function(HasItems)  
     		if HasItems then
-				QBCore.Functions.Progressbar("pickup_sla", "Mixing up an Energy Drink..", Config.CraftingTime * 1000, false, true, {
-					disableMovement = true,
-					disableCarMovement = true,
-					disableMouse = false,
-					disableCombat = true,
-				}, {
-					animDict = "mp_common",
-					anim = "givetake1_a",
-					flags = 8,
-				}, {}, {}, function() -- Done
-					TriggerServerEvent('qb-weedshop:server:makingweeddrink')
-                    			TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["weed-drink"], "add")
-                   			QBCore.Functions.Notify("You made an Energy Drink", "success")
+				QBCore.Functions.Progressbar("pickup_sla", "Mixing up an Energy Drink..", Config.CraftingTime * 1000, false, true, 
+				{disableMovement = true,disableCarMovement = true,disableMouse = false,disableCombat = true,}, 
+				{animDict = "mp_common",anim = "givetake1_a",flags = 8,}, {}, {}, function() -- Done
+					TriggerServerEvent('sayer-weedshop:server:makingweeddrink')
+                    TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["weed-drink"], "add")
+                   	QBCore.Functions.Notify("You made an Energy Drink", "success")
 				end, function()
 					QBCore.Functions.Notify("Cancelled..", "error")
 				end)
@@ -243,8 +187,8 @@ AddEventHandler("qb-weedshop:weed-drink", function()
 	end  
 end)
 
-RegisterNetEvent("qb-weedshop:Grind")
-AddEventHandler("qb-weedshop:Grind", function()
+RegisterNetEvent("sayer-weedshop:Grind")
+AddEventHandler("sayer-weedshop:Grind", function()
     if onDuty then
         if QBCore.Functions.HasItem("weedbud") and ("weed-grinder") then
            GrindWeed()
@@ -256,8 +200,8 @@ AddEventHandler("qb-weedshop:Grind", function()
     end
 end)
 
-RegisterNetEvent("qb-weedshop:GrindDream")
-AddEventHandler("qb-weedshop:GrindDream", function()
+RegisterNetEvent("sayer-weedshop:GrindDream")
+AddEventHandler("sayer-weedshop:GrindDream", function()
     if onDuty then
         if QBCore.Functions.HasItem("dream-bud") and ("weed-grinder") then
            GrindDream()
@@ -269,8 +213,8 @@ AddEventHandler("qb-weedshop:GrindDream", function()
     end
 end)
 
-RegisterNetEvent("qb-weedshop:GrindHazy")
-AddEventHandler("qb-weedshop:GrindHazy", function()
+RegisterNetEvent("sayer-weedshop:GrindHazy")
+AddEventHandler("sayer-weedshop:GrindHazy", function()
     if onDuty then
         if QBCore.Functions.HasItem("hazy-bud") and ("weed-grinder") then
            GrindHazy()
@@ -282,8 +226,8 @@ AddEventHandler("qb-weedshop:GrindHazy", function()
     end
 end)
 
-RegisterNetEvent("qb-weedshop:GrindCrush")
-AddEventHandler("qb-weedshop:GrindCrush", function()
+RegisterNetEvent("sayer-weedshop:GrindCrush")
+AddEventHandler("sayer-weedshop:GrindCrush", function()
     if onDuty then
         if QBCore.Functions.HasItem("crush-bud") and ("weed-grinder") then
            GrindCrush()
@@ -295,8 +239,8 @@ AddEventHandler("qb-weedshop:GrindCrush", function()
     end
 end)
 
-RegisterNetEvent("qb-weedshop:GrindBloomer")
-AddEventHandler("qb-weedshop:GrindBloomer", function()   ----///////////////////this is correct copy this jack
+RegisterNetEvent("sayer-weedshop:GrindBloomer")
+AddEventHandler("sayer-weedshop:GrindBloomer", function()   
     if onDuty then
         if QBCore.Functions.HasItem("bloomer-bud") and ("weed-grinder") then
            GrindBloomer()
@@ -309,8 +253,8 @@ AddEventHandler("qb-weedshop:GrindBloomer", function()   ----///////////////////
 end)
 
 
-RegisterNetEvent("qb-weedshop:DryWeed")
-AddEventHandler("qb-weedshop:DryWeed", function()
+RegisterNetEvent("sayer-weedshop:DryWeed")
+AddEventHandler("sayer-weedshop:DryWeed", function()
     if onDuty then
         if QBCore.Functions.HasItem("wet_weed") then
            DryWeed()
@@ -322,8 +266,8 @@ AddEventHandler("qb-weedshop:DryWeed", function()
     end
 end)
 
-RegisterNetEvent("qb-weedshop:DryDream")
-AddEventHandler("qb-weedshop:DryDream", function()
+RegisterNetEvent("sayer-weedshop:DryDream")
+AddEventHandler("sayer-weedshop:DryDream", function()
     if onDuty then
         if QBCore.Functions.HasItem('infusion-kit') then
             if QBCore.Functions.HasItem("wet_weed") then
@@ -339,8 +283,8 @@ AddEventHandler("qb-weedshop:DryDream", function()
     end
 end)
 
-RegisterNetEvent("qb-weedshop:DryHazy")
-AddEventHandler("qb-weedshop:DryHazy", function()
+RegisterNetEvent("sayer-weedshop:DryHazy")
+AddEventHandler("sayer-weedshop:DryHazy", function()
     if onDuty then
         if QBCore.Functions.HasItem('infusion-kit') then
             if QBCore.Functions.HasItem("wet_weed") then
@@ -356,8 +300,8 @@ AddEventHandler("qb-weedshop:DryHazy", function()
     end
 end)
 
-RegisterNetEvent("qb-weedshop:DryCrush")
-AddEventHandler("qb-weedshop:DryCrush", function()
+RegisterNetEvent("sayer-weedshop:DryCrush")
+AddEventHandler("sayer-weedshop:DryCrush", function()
     if onDuty then
         if QBCore.Functions.HasItem('infusion-kit') then
             if QBCore.Functions.HasItem("wet_weed") then
@@ -373,8 +317,8 @@ AddEventHandler("qb-weedshop:DryCrush", function()
     end
 end)
 
-RegisterNetEvent("qb-weedshop:DryBloomer")
-AddEventHandler("qb-weedshop:DryBloomer", function()
+RegisterNetEvent("sayer-weedshop:DryBloomer")
+AddEventHandler("sayer-weedshop:DryBloomer", function()
     if onDuty then
         if QBCore.Functions.HasItem('infusion-kit') then
             if QBCore.Functions.HasItem("wet_weed") then
@@ -392,130 +336,90 @@ end)
 
 -- Functions --
 function GrindWeed()
-	QBCore.Functions.Progressbar("pickup", "Grinding the Bud..", Config.CraftingTime * 1000, false, true, {
-	    disableMovement = true,
-	    disableCarMovement = true,
-	    disableMouse = false,
-	    disableCombat = true,
-	},{
-	    animDict = "amb@prop_human_bbq@male@base",
-	    anim = "base",
-	    flags = 8,
-	    }
-	)
+	QBCore.Functions.Progressbar("pickup", "Grinding the Bud..", Config.CraftingTime * 1000, false, true, 
+	{disableMovement = true,disableCarMovement = true,disableMouse = false,disableCombat = true,},
+	{animDict = "amb@prop_human_bbq@male@base",anim = "base",flags = 8,})
 	Citizen.Wait(4000)
-	TriggerServerEvent('qb-weedshop:server:grindstreet')
+	TriggerServerEvent('sayer-weedshop:server:grindstreet')
 	TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["streetweed"], "add")
 	QBCore.Functions.Notify("You Grind The Weed", "success")
 	StopAnimTask(PlayerPedId(), "amb@prop_human_bbq@male@base", "base", 1.0)
     if Config.GrinderCanBreak then
         local chance = math.random(0, 100)
         if chance < Config.GrinderBreakChance then
-            TriggerServerEvent('qb-weedshop:GrinderBroke')
+            TriggerServerEvent('sayer-weedshop:GrinderBroke')
             QBCore.Functions.Notify('Your Grinder Broke', 'error')
         end
     end
 end
 
 function GrindDream()
-	QBCore.Functions.Progressbar("pickup", "Grinding the Bud..", Config.CraftingTime * 1000, false, true, {
-	    disableMovement = true,
-	    disableCarMovement = true,
-	    disableMouse = false,
-	    disableCombat = true,
-	},{
-	    animDict = "amb@prop_human_bbq@male@base",
-	    anim = "base",
-	    flags = 8,
-	    }
-	)
+	QBCore.Functions.Progressbar("pickup", "Grinding the Bud..", Config.CraftingTime * 1000, false, true, 
+	{disableMovement = true,disableCarMovement = true,disableMouse = false,disableCombat = true,},
+	{animDict = "amb@prop_human_bbq@male@base",anim = "base",flags = 8,})
 	Citizen.Wait(4000)
-	TriggerServerEvent('qb-weedshop:server:grinddream')
+	TriggerServerEvent('sayer-weedshop:server:grinddream')
 	TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["dream-weed"], "add")
 	QBCore.Functions.Notify("You Grind The Weed", "success")
 	StopAnimTask(PlayerPedId(), "amb@prop_human_bbq@male@base", "base", 1.0)
     if Config.GrinderCanBreak then
         local chance = math.random(0, 100)
         if chance < Config.GrinderBreakChance then
-            TriggerServerEvent('qb-weedshop:GrinderBroke')
+            TriggerServerEvent('sayer-weedshop:GrinderBroke')
             QBCore.Functions.Notify('Your Grinder Broke', 'error')
         end
     end
 end
 
 function GrindHazy()
-	QBCore.Functions.Progressbar("pickup", "Grinding the Bud..", Config.CraftingTime * 1000, false, true, {
-	    disableMovement = true,
-	    disableCarMovement = true,
-	    disableMouse = false,
-	    disableCombat = true,
-	},{
-	    animDict = "amb@prop_human_bbq@male@base",
-	    anim = "base",
-	    flags = 8,
-	    }
-	)
+	QBCore.Functions.Progressbar("pickup", "Grinding the Bud..", Config.CraftingTime * 1000, false, true, 
+	{disableMovement = true,disableCarMovement = true,disableMouse = false,disableCombat = true,},
+	{animDict = "amb@prop_human_bbq@male@base",anim = "base",flags = 8,})
 	Citizen.Wait(4000)
-	TriggerServerEvent('qb-weedshop:server:grindhazy')
+	TriggerServerEvent('sayer-weedshop:server:grindhazy')
 	TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["hazy-weed"], "add")
 	QBCore.Functions.Notify("You Grind The Weed", "success")
 	StopAnimTask(PlayerPedId(), "amb@prop_human_bbq@male@base", "base", 1.0)
     if Config.GrinderCanBreak then
         local chance = math.random(0, 100)
         if chance < Config.GrinderBreakChance then
-            TriggerServerEvent('qb-weedshop:GrinderBroke')
+            TriggerServerEvent('sayer-weedshop:GrinderBroke')
             QBCore.Functions.Notify('Your Grinder Broke', 'error')
         end
     end
 end
 
 function GrindCrush()
-	QBCore.Functions.Progressbar("pickup", "Grinding the Bud..", Config.CraftingTime * 1000, false, true, {
-	    disableMovement = true,
-	    disableCarMovement = true,
-	    disableMouse = false,
-	    disableCombat = true,
-	},{
-	    animDict = "amb@prop_human_bbq@male@base",
-	    anim = "base",
-	    flags = 8,
-	    }
-	)
+	QBCore.Functions.Progressbar("pickup", "Grinding the Bud..", Config.CraftingTime * 1000, false, true, 
+	{disableMovement = true,disableCarMovement = true,disableMouse = false,disableCombat = true,},
+	{animDict = "amb@prop_human_bbq@male@base",anim = "base",flags = 8,})
 	Citizen.Wait(4000)
-	TriggerServerEvent('qb-weedshop:server:grindcrush')
+	TriggerServerEvent('sayer-weedshop:server:grindcrush')
 	TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["crush-weed"], "add")
 	QBCore.Functions.Notify("You Grind The Weed", "success")
 	StopAnimTask(PlayerPedId(), "amb@prop_human_bbq@male@base", "base", 1.0)
     if Config.GrinderCanBreak then
         local chance = math.random(0, 100)
         if chance < Config.GrinderBreakChance then
-            TriggerServerEvent('qb-weedshop:GrinderBroke')
+            TriggerServerEvent('sayer-weedshop:GrinderBroke')
             QBCore.Functions.Notify('Your Grinder Broke', 'error')
         end
     end
 end
 
 function GrindBloomer()
-	QBCore.Functions.Progressbar("pickup", "Grinding the Bud..", Config.CraftingTime * 1000, false, true, {
-	    disableMovement = true,
-	    disableCarMovement = true,
-	    disableMouse = false,
-	    disableCombat = true,
-	},{
-	    animDict = "amb@prop_human_bbq@male@base",
-	    anim = "base",
-	    flags = 8,
-	    }
-	)
+	QBCore.Functions.Progressbar("pickup", "Grinding the Bud..", Config.CraftingTime * 1000, false, true, 
+	{disableMovement = true,disableCarMovement = true,disableMouse = false,disableCombat = true,},
+	{animDict = "amb@prop_human_bbq@male@base",anim = "base",flags = 8,})
 	Citizen.Wait(4000)
-	TriggerServerEvent('qb-weedshop:server:grindbloomer')
+	TriggerServerEvent('sayer-weedshop:server:grindbloomer')
 	TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["bloomer-weed"], "add")
 	QBCore.Functions.Notify("You Grind The Weed", "success")
 	StopAnimTask(PlayerPedId(), "amb@prop_human_bbq@male@base", "base", 1.0)
     if Config.GrinderCanBreak then
         local chance = math.random(0, 100)
         if chance < Config.GrinderBreakChance then
-            TriggerServerEvent('qb-weedshop:GrinderBroke')
+            TriggerServerEvent('sayer-weedshop:GrinderBroke')
             QBCore.Functions.Notify('Your Grinder Broke', 'error')
         end
     end
@@ -523,123 +427,83 @@ end
 
 
 function DryWeed()
-    QBCore.Functions.Progressbar("pickup", "Drying The Weed..", Config.CraftingTime * 1000, false, true, {
-        disableMovement = true,
-        disableCarMovement = true,
-        disableMouse = false,
-        disableCombat = true,
-    },{
-        animDict = "amb@prop_human_bbq@male@base",
-        anim = "base",
-        flags = 8,
-    }    
-)
+    QBCore.Functions.Progressbar("pickup", "Drying The Weed..", Config.CraftingTime * 1000, false, true, 
+	{disableMovement = true,disableCarMovement = true,disableMouse = false,disableCombat = true,},
+	{animDict = "amb@prop_human_bbq@male@base",anim = "base",flags = 8,})
     Citizen.Wait(4000)
-    TriggerServerEvent('qb-weedshop:server:drystreet')
+    TriggerServerEvent('sayer-weedshop:server:drystreet')
     TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["weedbud"], "add")
     QBCore.Functions.Notify("You dried the weed", "success")
     StopAnimTask(PlayerPedId(), "amb@prop_human_bbq@male@base", "base", 1.0)
 end
 
 function DryDream()
-    QBCore.Functions.Progressbar("pickup", "Drying The Weed..", Config.CraftingTime * 1000, false, true, {
-        disableMovement = true,
-        disableCarMovement = true,
-        disableMouse = false,
-        disableCombat = true,
-    },{
-        animDict = "amb@prop_human_bbq@male@base",
-        anim = "base",
-        flags = 8,
-    }    
-)
+    QBCore.Functions.Progressbar("pickup", "Drying The Weed..", Config.CraftingTime * 1000, false, true, 
+	{disableMovement = true,disableCarMovement = true,disableMouse = false,disableCombat = true,},
+	{animDict = "amb@prop_human_bbq@male@base",anim = "base",flags = 8,})
     Citizen.Wait(4000)
-    TriggerServerEvent('qb-weedshop:server:drydream')
+    TriggerServerEvent('sayer-weedshop:server:drydream')
     TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["dream-bud"], "add")
     QBCore.Functions.Notify("You Infused Some Dream Weed", "success")
     StopAnimTask(PlayerPedId(), "amb@prop_human_bbq@male@base", "base", 1.0)
     if Config.InfusionCanBreak then
         local chance = math.random(0, 100)
         if chance < Config.InfusionBreakChance then
-            TriggerServerEvent('qb-weedshop:InfusionBroke')
+            TriggerServerEvent('sayer-weedshop:InfusionBroke')
             QBCore.Functions.Notify('Your Kit Broke', 'error')
         end
     end
 end
 
 function DryHazy()
-    QBCore.Functions.Progressbar("pickup", "Drying The Weed..", Config.CraftingTime * 1000, false, true, {
-        disableMovement = true,
-        disableCarMovement = true,
-        disableMouse = false,
-        disableCombat = true,
-    },{
-        animDict = "amb@prop_human_bbq@male@base",
-        anim = "base",
-        flags = 8,
-    }    
-)
+    QBCore.Functions.Progressbar("pickup", "Drying The Weed..", Config.CraftingTime * 1000, false, true, 
+	{disableMovement = true,disableCarMovement = true,disableMouse = false,disableCombat = true,},
+	{animDict = "amb@prop_human_bbq@male@base",anim = "base",flags = 8,})
     Citizen.Wait(4000)
-    TriggerServerEvent('qb-weedshop:server:dryhazy')
+    TriggerServerEvent('sayer-weedshop:server:dryhazy')
     TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["hazy-bud"], "add")
     QBCore.Functions.Notify("You Infused Some Hazy Weed", "success")
     StopAnimTask(PlayerPedId(), "amb@prop_human_bbq@male@base", "base", 1.0)
     if Config.InfusionCanBreak then
         local chance = math.random(0, 100)
         if chance < Config.InfusionBreakChance then
-            TriggerServerEvent('qb-weedshop:InfusionBroke')
+            TriggerServerEvent('sayer-weedshop:InfusionBroke')
             QBCore.Functions.Notify('Your Kit Broke', 'error')
         end
     end
 end
 
 function DryCrush()
-    QBCore.Functions.Progressbar("pickup", "Drying The Weed..", Config.CraftingTime * 1000, false, true, {
-        disableMovement = true,
-        disableCarMovement = true,
-        disableMouse = false,
-        disableCombat = true,
-    },{
-        animDict = "amb@prop_human_bbq@male@base",
-        anim = "base",
-        flags = 8,
-    }    
-)
+    QBCore.Functions.Progressbar("pickup", "Drying The Weed..", Config.CraftingTime * 1000, false, true, 
+	{disableMovement = true,disableCarMovement = true,disableMouse = false,disableCombat = true,},
+	{animDict = "amb@prop_human_bbq@male@base",anim = "base",flags = 8,})
     Citizen.Wait(4000)
-    TriggerServerEvent('qb-weedshop:server:drycrush')
+    TriggerServerEvent('sayer-weedshop:server:drycrush')
     TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["crush-bud"], "add")
     QBCore.Functions.Notify("You Infused Some Crush Weed", "success")
     StopAnimTask(PlayerPedId(), "amb@prop_human_bbq@male@base", "base", 1.0)
     if Config.InfusionCanBreak then
         local chance = math.random(0, 100)
         if chance < Config.InfusionBreakChance then
-            TriggerServerEvent('qb-weedshop:InfusionBroke')
+            TriggerServerEvent('sayer-weedshop:InfusionBroke')
             QBCore.Functions.Notify('Your Kit Broke', 'error')
         end
     end
 end
 
 function DryBloomer()
-    QBCore.Functions.Progressbar("pickup", "Drying The Weed..", Config.CraftingTime * 1000, false, true, {
-        disableMovement = true,
-        disableCarMovement = true,
-        disableMouse = false,
-        disableCombat = true,
-    },{
-        animDict = "amb@prop_human_bbq@male@base",
-        anim = "base",
-        flags = 8,
-    }    
-)
+    QBCore.Functions.Progressbar("pickup", "Drying The Weed..", Config.CraftingTime * 1000, false, true, 
+	{disableMovement = true,disableCarMovement = true,disableMouse = false,disableCombat = true,},
+	{animDict = "amb@prop_human_bbq@male@base",anim = "base",flags = 8,})
     Citizen.Wait(4000)
-    TriggerServerEvent('qb-weedshop:server:drybloomer')
+    TriggerServerEvent('sayer-weedshop:server:drybloomer')
     TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["bloomer-bud"], "add")
     QBCore.Functions.Notify("You Infused Some Bloomer Weed", "success")
     StopAnimTask(PlayerPedId(), "amb@prop_human_bbq@male@base", "base", 1.0)
     if Config.InfusionCanBreak then
         local chance = math.random(0, 100)
         if chance < Config.InfusionBreakChance then
-            TriggerServerEvent('qb-weedshop:InfusionBroke')
+            TriggerServerEvent('sayer-weedshop:InfusionBroke')
             QBCore.Functions.Notify('Your Kit Broke', 'error')
         end
     end

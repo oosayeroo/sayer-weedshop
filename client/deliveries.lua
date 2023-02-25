@@ -4,117 +4,173 @@ local onDuty = true
 PlayerJob = {}
 local onPickup = false
 local finishedPickup = true
+local DropOffDone = 0
+local amount = 0
+local number = 0
+local delitem = ''
+local wwamount = 0
 
 
-RegisterNetEvent('qb-weedshop:deliveries:DeliverWeed', function()
-    TriggerEvent('animations:client:EmoteCommandStart', {"type"})
-    QBCore.Functions.Progressbar('falar_empregada', 'Getting Delivery...', 5000, false, true, {
-        disableMovement = true,
-        disableCarMovement = true,
-        disableMouse = false,
-        disableCombat = true,
-    }, {}, {}, {}, function()
-    TriggerEvent('animations:client:EmoteCommandStart', {"c"})
-    QBCore.Functions.Notify('You Accepted a delivery! It should appear in your emails soon!', 'primary', 7500)
-    
-    Wait(Config.DeliveryWait * 1000)
-
-    TriggerServerEvent('qb-phone:server:sendNewMail', {
-        sender = 'Automated Assistance',
-        subject = 'Delivery of Chill Pills...',
-        message = 'Delivery has been accepted by company. please deliver the -- chill pills -- to the customer.',
-        })
-    TriggerServerEvent('qb-weedshop:server:DeliveryItem')
-    startdropoff()
-    end)
-end)
-
-RegisterNetEvent('qb-weedshop:deliveries:PickUpWeed', function()
+RegisterNetEvent('sayer-weedshop:deliveries:DeliverWeed', function(amount)
+    number = tonumber(amount)
+    delitem = Config.DeliveryItems[math.random(1,#Config.DeliveryItems)]
     if not onPickup then
-    TriggerEvent('animations:client:EmoteCommandStart', {"type"})
-    QBCore.Functions.Progressbar('falar_empregada', 'Getting Weed Order...', 5000, false, true, {
-        disableMovement = true,
-        disableCarMovement = true,
-        disableMouse = false,
-        disableCombat = true,
-    }, {}, {}, {}, function()
-    TriggerEvent('animations:client:EmoteCommandStart', {"c"})
-    QBCore.Functions.Notify('You need to go to pick up some Wet Weed!', 'primary', 7500)
-    
-    Wait(Config.DeliveryWait * 1000)
+        if number < Config.MaxDeliveries then
+            TriggerEvent('animations:client:EmoteCommandStart', {"type"})
+                QBCore.Functions.Progressbar('del_start', 'Getting Delivery...', 5000, false, true, 
+                {disableMovement = true,disableCarMovement = true,disableMouse = false,disableCombat = true,}, {}, {}, {}, function()
+                TriggerEvent('animations:client:EmoteCommandStart', {"c"})
+                QBCore.Functions.Notify('You Started a delivery! It should appear in your emails soon!', 'primary', 7500)
+                Wait(Config.DeliveryWait * 1000)
+                if Config.Phone == 'qb' then
+                    TriggerServerEvent('qb-phone:server:sendNewMail', {sender = 'Automated Assistance',subject = 'Delivery of '..delitem..'...',message = 'Delivery has been accepted by company. please deliver the '..delitem..' to the customer.',})
+                elseif Config.Phone == 'qs' then
+                    TriggerServerEvent('qs-smartphone:server:sendNewMail', {sender = 'Automated Assistance',subject = 'Delivery of '..delitem..'...',message = 'Delivery has been accepted by company. please deliver the '..delitem..' to the customer.',button = {}})
+                elseif Config.Phone == 'gk' then
+                    TriggerServerEvent('gksphone:NewMail', {sender = 'Automated Assistance',subject = 'Delivery of '..delitem..'...',message = 'Delivery has been accepted by company. please deliver the '..delitem..' to the customer.',})
+                end
+                startdropoff(number, delitem)
+                onPickup = true
+            end)
+        else
+            QBCore.Functions.Notify('You Cannot Do That Many Deliveries', 'error')
+        end
+    else
+        QBCore.Functions.Notify('You are already busy', 'error')
+    end
+end)
 
-    TriggerServerEvent('qb-phone:server:sendNewMail', {
-        sender = 'Mr Mexicans',
-        subject = 'Pick up Wet Weed...',
-        message = 'Yo man, i got your order, i got some wet weed here for you. freshly grown. Come pick it up if you got the cash',
-        })
-        startwetweedpickup()
-    onPickup = true
-    finishedPickup = false
-    end)
+RegisterNetEvent("sayer-weedshop:DeliveryMenu")
+AddEventHandler("sayer-weedshop:DeliveryMenu", function()
+    local delmenu = exports['qb-input']:ShowInput({
+        header = "How Many Deliveries to do?",
+		submitText = "Start Delivery",
+        inputs = {
+            {text = "Amount(#)",name = "amount", type = "number", isRequired = true },
+        }
+    })
+    if delmenu ~= nil then
+        if delmenu.amount == nil then return end
+        TriggerEvent("sayer-weedshop:deliveries:DeliverWeed", delmenu.amount)
+    end
+end)
+
+function KnockDoor(amount, delitem)
+    TriggerEvent('animations:client:EmoteCommandStart', {"knock"})
+    QBCore.Functions.Progressbar('falar_empregada', 'Knocking Door...', 5000, false, true, 
+        {disableMovement = true,disableCarMovement = true,disableMouse = false,disableCombat = true,}, {}, {}, {}, function()
+        QBCore.Functions.Notify('Delivery Successful', 'primary', 7500)
+        TriggerServerEvent('sayer-weedshop:server:KnockDoor', delitem)
+        DropOffDone = DropOffDone+1
+        delitem = Config.DeliveryItems[math.random(1,#Config.DeliveryItems)]
+        if Config.Phone == 'qb' then
+            TriggerServerEvent('qb-phone:server:sendNewMail', {sender = 'Automated Assistance',subject = 'Delivery of '..delitem..'...',message = 'Delivery has been accepted by company. please deliver a '..delitem..' to the customer.',})
+        elseif Config.Phone == 'qs' then
+            TriggerServerEvent('qs-smartphone:server:sendNewMail', {sender = 'Automated Assistance',subject = 'Delivery of '..delitem..'...',message = 'Delivery has been accepted by company. please deliver a '..delitem..' to the customer.',button = {}})
+        elseif Config.Phone == 'gk' then
+            TriggerServerEvent('gksphone:NewMail', {sender = 'Automated Assistance',subject = 'Delivery of '..delitem..'...',message = 'Delivery has been accepted by company. please deliver a '..delitem..' to the customer.',})
+        end
+        startdropoff(amount, delitem)
+        end)
+    end
+
+function startdropoff(number,delitem)
+    if DropOffDone < number then
+        local prob = Config.DropOffPoints[math.random(1, #Config.DropOffPoints)]
+            exports['qb-target']:AddBoxZone("delivery_zone", prob, 2, 2, {name="delivery_zone",heading=0,debugpoly = false,}, {
+                options = {{action = function() KnockDoor(number, delitem) end,icon = "far fa-box",label = "Knock Door",item = delitem,},},
+                distance = 2.5
+            })
+        SetNewWaypoint(prob)
+        QBCore.Functions.Notify('Customer House GPS Set!', 'success')
+    else
+        QBCore.Functions.Notify('You Have Done All Deliveries, Return to shop', 'error')
+        DropOffDone = 0
+        onPickup = false
+    end
 end
+
+RegisterNetEvent("sayer-weedshop:deliveries:PickUpWeedMenu")
+AddEventHandler("sayer-weedshop:deliveries:PickUpWeedMenu", function()
+    local wwmenu = exports['qb-input']:ShowInput({
+        header = "How Much Wet Weed You Need?",
+		submitText = "Order Weed!",
+        inputs = {
+            {text = "Amount(#)",name = "amount", type = "number", isRequired = true },
+        }
+    })
+    if wwmenu ~= nil then
+        if wwmenu.amount == nil then return end
+        TriggerEvent("sayer-weedshop:deliveries:PickUpWeed", wwmenu.amount)
+    end
 end)
 
-RegisterNetEvent('qb-weedshop:deliveries:PickUpWeed2', function()
-    if not finishedPickup and onPickup then
-    TriggerEvent('animations:client:EmoteCommandStart', {"knock"})
-    QBCore.Functions.Progressbar('falar_empregada', 'Picking Up Some Wet Bud...', 5000, false, true, {
-        disableMovement = true,
-        disableCarMovement = true,
-        disableMouse = false,
-        disableCombat = true,
-    }, {}, {}, {}, function()
-    TriggerEvent('animations:client:EmoteCommandStart', {"c"})
-    TriggerServerEvent('qb-weedshop:server:pickupfinished')
-    QBCore.Functions.Notify('You got some wet bud!', 'primary', 7500)
+RegisterNetEvent('sayer-weedshop:deliveries:PickUpWeed', function(wwamount)
+    if not onPickup then
+        TriggerEvent('animations:client:EmoteCommandStart', {"type"})
+        QBCore.Functions.Progressbar('falar_empregada', 'Getting Weed Order...', 5000, false, true, 
+        {disableMovement = true,disableCarMovement = true,disableMouse = false,disableCombat = true,}, {}, {}, {}, function()
+        TriggerEvent('animations:client:EmoteCommandStart', {"c"})
+        TriggerServerEvent('sayer-weedshop:server:pickupordered', wwamount)
+        QBCore.Functions.Notify('You need to go to pick up some Wet Weed!', 'primary', 7500)
+        Wait(Config.DeliveryWait * 1000)
+        if Config.Phone == 'qb' then
+            TriggerServerEvent('qb-phone:server:sendNewMail', {sender = 'Mr Mexicans',subject = 'Pick up Wet Weed...',message = 'Yo man, i got your order of '..wwamount..' Wet Weed, freshly grown. Come pick it up',})
+        elseif Config.Phone == 'qs' then
+            TriggerServerEvent('qs-smartphone:server:sendNewMail', {sender = 'Mr Mexicans',subject = 'Pick up Wet Weed...',message = 'Yo man, i got your order'..wwamount..' Wet Weed, freshly grown. Come pick it up',})
+        elseif Config.Phone == 'gk' then
+            TriggerServerEvent('gksphone:NewMail', {sender = 'Mr Mexicans',subject = 'Pick up Wet Weed...',message = 'Yo man, i got your order'..wwamount..' Wet Weed, freshly grown. Come pick it up',})
+        end
+        startwetweedpickup(wwamount)
+        onPickup = true
+        finishedPickup = false
+        end)
+    end
+end)
     
-    Wait(200)
+function startwetweedpickup(wwamount)
+    print(wwamount.."startwetweedpickup function")
+    local prob = Config.WetWeedLocation[math.random(1, #Config.WetWeedLocation)]
+    exports['qb-target']:AddBoxZone("wet-pickup", prob, 3, 3, {name="wet-pickup",heading=0,debugpoly = false,}, {
+        options = {{action = function() PickUpWetWeed2(wwamount) end,icon = "far fa-cannabis",label = "Pick Up Wet Weed",},},
+        distance = 2.5
+    })
+    SetNewWaypoint(prob)
+end
 
-    TriggerServerEvent('qb-phone:server:sendNewMail', {
-        sender = 'Mr Mexicans',
-        subject = 'Enjoy it man...',
-        message = 'Always a pleasure doing business with you. come back anytime man',
-        })
-    onPickup = false
-    finishedPickup = true
-end, function()
-    QBCore.Functions.Notify('Cancelled', 'error', 7500)
-    onPickup = false
-    finishedPickup = true
-    end)
- end
-end)
-
-RegisterNetEvent('qb-weedshop:deliveries:KnockDoor', function()
+function PickUpWetWeed2(wwamount)
     TriggerEvent('animations:client:EmoteCommandStart', {"knock"})
-    QBCore.Functions.Progressbar('falar_empregada', 'Knocking Door...', 5000, false, true, {
-        disableMovement = true,
-        disableCarMovement = true,
-        disableMouse = false,
-        disableCombat = true,
-    }, {}, {}, {}, function()
-    QBCore.Functions.Notify('Delivery Successful, return to the shop', 'primary', 7500)
+    QBCore.Functions.Progressbar('falar_empregada', 'Picking Up Some Wet Bud...', 5000, false, true, {disableMovement = true,disableCarMovement = true,disableMouse = false,disableCombat = true,}, {}, {}, {}, function()
+        TriggerEvent('animations:client:EmoteCommandStart', {"c"})
+        print(wwamount.."pickupweed2")
+        TriggerServerEvent('sayer-weedshop:server:PickupFinished', wwamount)
+        QBCore.Functions.Notify('You got some wet bud!', 'primary', 7500)
+        Wait(200)
+        if Config.Phone == 'qb' then
+            TriggerServerEvent('qb-phone:server:sendNewMail', {sender = 'Mr Mexicans',subject = 'Enjoy it man...',message = 'Always a pleasure doing business with you. come back anytime man',})
+        elseif Config.Phone == 'qs' then
+            TriggerServerEvent('qs-smartphone:server:sendNewMail', {sender = 'Mr Mexicans',subject = 'Enjoy it man...',message = 'Always a pleasure doing business with you. come back anytime man',})
+        elseif Config.Phone == 'gk' then
+            TriggerServerEvent('gksphone:NewMail', {sender = 'Mr Mexicans',subject = 'Enjoy it man...',message = 'Always a pleasure doing business with you. come back anytime man',})
+        end
+        onPickup = false
+        finishedPickup = true
+    end, function()
+        QBCore.Functions.Notify('Cancelled', 'error', 7500)
+        onPickup = false
+        finishedPickup = true
+        end)
+    end
 
-    TriggerServerEvent('qb-weedshop:server:KnockDoor')
-    end)
-end)
-
-RegisterNetEvent("qb-weedshop:deliveries:ReceivePayment")
-AddEventHandler("qb-weedshop:deliveries:ReceivePayment", function()
+RegisterNetEvent("sayer-weedshop:deliveries:ReceivePayment")
+AddEventHandler("sayer-weedshop:deliveries:ReceivePayment", function()
     if onDuty then
-    	QBCore.Functions.TriggerCallback('qb-weedshop:server:get:ReceiptChecker', function(HasItems)  
+    	QBCore.Functions.TriggerCallback('sayer-weedshop:server:get:ReceiptChecker', function(HasItems)
     		if HasItems then
-				QBCore.Functions.Progressbar("pickup_sla", "Filing Receipts..", 4000, false, true, {
-					disableMovement = true,
-					disableCarMovement = true,
-					disableMouse = false,
-					disableCombat = true,
-				}, {
-					animDict = "mp_common",
-					anim = "givetake1_a",
-					flags = 8,
-				}, {}, {}, function() -- Done
-					TriggerServerEvent('qb-weedshop:server:ReceivePayment')
+				QBCore.Functions.Progressbar("pickup_sla", "Filing Receipts..", 4000, false, true,
+                {disableMovement = true,disableCarMovement = true,disableMouse = false,disableCombat = true,},
+                {animDict = "mp_common",anim = "givetake1_a",flags = 8,}, {}, {}, function()
+					TriggerServerEvent('sayer-weedshop:server:ReceivePayment')
 				end, function()
 					QBCore.Functions.Notify("Cancelled..", "error")
 				end)
@@ -122,267 +178,7 @@ AddEventHandler("qb-weedshop:deliveries:ReceivePayment", function()
    				QBCore.Functions.Notify("You dont have any receipts", "error")
 			end
 		end)
-	else 
+	else
 		QBCore.Functions.Notify("You must be Clocked into file receipts", "error")
 	end
 end)
-
-function startwetweedpickup()
-    local prob = math.random(1, 1)
-
-    if prob == 1 then
-        SetNewWaypoint(Config.WetWeedLocation)
-        startwetweedpickup1()
-    end
-end
-    
-
-function startwetweedpickup1()
-    exports['qb-target']:AddBoxZone("wet-pickup", Config.WetWeedLocation, 3, 3, {
-        name="wet-pickup",
-        heading=0,
-        debugpoly = false,
-    }, {
-        options = {
-            {
-            event = "qb-weedshop:deliveries:PickUpWeed2",
-            icon = "far fa-cannabis",
-            label = "Pick Up Wet Weed",
-            },
-        },
-        distance = 2.5
-    })
-end
-
-function startdropoff()
-    local prob = Config.DropOffPoints[math.random(1, #Config.DropOffPoints)]
-        exports['qb-target']:AddBoxZone("chill-pills", prob, 2, 2, {
-            name="chill-pills",
-            heading=0,
-            debugpoly = false,
-        }, {
-            options = {
-                {
-                event = "qb-weedshop:deliveries:KnockDoor",
-                icon = "far fa-box",
-                label = "Knock Door",
-                item = "chill-pill",
-                },
-         },
-            distance = 2.5
-        })
-        SetNewWaypoint(prob)
-    end
-
---     if prob == 1 then
---         SetNewWaypoint(Config.DropOffPoint1)
---         startdropoff1()
---     elseif prob == 2 then
---         SetNewWaypoint(Config.DropOffPoint2)
---         startdropoff2()
---     elseif prob == 3 then
---         SetNewWaypoint(Config.DropOffPoint3)
---         startdropoff3()
---     elseif prob == 4 then
---         SetNewWaypoint(Config.DropOffPoint4)
---         startdropoff4()
---     elseif prob == 5 then
---         SetNewWaypoint(Config.DropOffPoint5)
---         startdropoff5()
---     elseif prob == 6 then
---         SetNewWaypoint(Config.DropOffPoint6)
---         startdropoff6()
---     elseif prob == 7 then
---         SetNewWaypoint(Config.DropOffPoint7)
---         startdropoff7()
---     elseif prob == 8 then
---         SetNewWaypoint(Config.DropOffPoint8)
---         startdropoff8()
---     elseif prob == 9 then
---         SetNewWaypoint(Config.DropOffPoint9)
---         startdropoff9()
---     elseif prob == 10 then
---         SetNewWaypoint(Config.DropOffPoint10)
---         startdropoff10()
---     end
--- end
-
--- function startdropoff1()
---     exports['qb-target']:AddBoxZone("chill-pills", Config.DropOffPoint1, 2, 2, {
---         name="chill-pills",
---         heading=0,
---         debugpoly = false,
---     }, {
---         options = {
---             {
---             event = "qb-weedshop:deliveries:KnockDoor",
---             icon = "far fa-box",
---             label = "Knock Door",
---             item = "chill-pill",
---             },
---         },
---         distance = 2.5
---     })
--- end
-
--- function startdropoff2()
---     exports['qb-target']:AddBoxZone("chill-pills", Config.DropOffPoint2, 2, 2, {
---         name="chill-pills",
---         heading=0,
---         debugpoly = false,
---     }, {
---         options = {
---             {
---             event = "qb-weedshop:deliveries:KnockDoor",
---             icon = "far fa-box",
---             label = "Knock Door",
---             item = "chill-pill",
---             },
---         },
---         distance = 2.5
---     })
--- end
-
--- function startdropoff3()
---     exports['qb-target']:AddBoxZone("chill-pills", Config.DropOffPoint3, 2, 2, {
---         name="chill-pills",
---         heading=0,
---         debugpoly = false,
---     }, {
---         options = {
---             {
---             event = "qb-weedshop:deliveries:KnockDoor",
---             icon = "far fa-box",
---             label = "Knock Door",
---             item = "chill-pill",
---             },
---         },
---         distance = 2.5
---     })
--- end
-
--- function startdropoff4()
---     exports['qb-target']:AddBoxZone("chill-pills", Config.DropOffPoint4, 2, 2, {
---         name="chill-pills",
---         heading=0,
---         debugpoly = false,
---     }, {
---         options = {
---             {
---             event = "qb-weedshop:deliveries:KnockDoor",
---             icon = "far fa-box",
---             label = "Knock Door",
---             item = "chill-pill",
---             },
---         },
---         distance = 2.5
---     })
--- end
-
--- function startdropoff5()
---     exports['qb-target']:AddBoxZone("chill-pills", Config.DropOffPoint5, 2, 2, {
---         name="chill-pills",
---         heading=0,
---         debugpoly = false,
---     }, {
---         options = {
---             {
---             event = "qb-weedshop:deliveries:KnockDoor",
---             icon = "far fa-box",
---             label = "Knock Door",
---             item = "chill-pill",
---             },
---         },
---         distance = 2.5
---     })
--- end
-
--- function startdropoff6()
---     exports['qb-target']:AddBoxZone("chill-pills", Config.DropOffPoint6, 2, 2, {
---         name="chill-pills",
---         heading=0,
---         debugpoly = false,
---     }, {
---         options = {
---             {
---             event = "qb-weedshop:deliveries:KnockDoor",
---             icon = "far fa-box",
---             label = "Knock Door",
---             item = "chill-pill",
---             },
---         },
---         distance = 2.5
---     })
--- end
-
--- function startdropoff7()
---     exports['qb-target']:AddBoxZone("chill-pills", Config.DropOffPoint7, 2, 2, {
---         name="chill-pills",
---         heading=0,
---         debugpoly = false,
---     }, {
---         options = {
---             {
---             event = "qb-weedshop:deliveries:KnockDoor",
---             icon = "far fa-box",
---             label = "Knock Door",
---             item = "chill-pill",
---             },
---         },
---         distance = 2.5
---     })
--- end
-
--- function startdropoff8()
---     exports['qb-target']:AddBoxZone("chill-pills", Config.DropOffPoint8, 2, 2, {
---         name="chill-pills",
---         heading=0,
---         debugpoly = false,
---     }, {
---         options = {
---             {
---             event = "qb-weedshop:deliveries:KnockDoor",
---             icon = "far fa-box",
---             label = "Knock Door",
---             item = "chill-pill",
---             },
---         },
---         distance = 2.5
---     })
--- end
-
--- function startdropoff9()
---     exports['qb-target']:AddBoxZone("chill-pills", Config.DropOffPoint9, 2, 2, {
---         name="chill-pills",
---         heading=0,
---         debugpoly = false,
---     }, {
---         options = {
---             {
---             event = "qb-weedshop:deliveries:KnockDoor",
---             icon = "far fa-box",
---             label = "Knock Door",
---             item = "chill-pill",
---             },
---         },
---         distance = 2.5
---     })
--- end
-
--- function startdropoff10()
---     exports['qb-target']:AddBoxZone("chill-pills", Config.DropOffPoint10, 2, 2, {
---         name="chill-pills",
---         heading=0,
---         debugpoly = false,
---     }, {
---         options = {
---             {
---             event = "qb-weedshop:deliveries:KnockDoor",
---             icon = "far fa-box",
---             label = "Knock Door",
---             item = "chill-pill",
---             },
---         },
---         distance = 2.5
---     })
--- end
