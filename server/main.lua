@@ -1,8 +1,8 @@
 local QBCore = exports['qb-core']:GetCoreObject()
 
 
-RegisterServerEvent("qb-weedshop:bill:player")
-AddEventHandler("qb-weedshop:bill:player", function(playerId, amount)
+RegisterServerEvent("sayer-weedshop:bill:player")
+AddEventHandler("sayer-weedshop:bill:player", function(playerId, amount)
         local biller = QBCore.Functions.GetPlayer(source)
         local billed = QBCore.Functions.GetPlayer(tonumber(playerId))
         local amount = tonumber(amount)
@@ -35,6 +35,10 @@ end)
 
 ----//////useables/////------
 
+-- for k, v in pairs(Config.JointEffects) do --WIP
+--     QBCore.Functions.CreateUseableItem(k, function(source, item) TriggerClientEvent('sayer-weedshop:UseJoint', source, item.name) end)
+-- end
+
 QBCore.Functions.CreateUseableItem("weed-grinder", function(source, item)
     local Player = QBCore.Functions.GetPlayer(source)
     TriggerClientEvent("qb-menu:GrindWeed", source, item.name)
@@ -42,7 +46,7 @@ end)
 
 QBCore.Functions.CreateUseableItem("weed-gift-set", function(source, item)
     local Player = QBCore.Functions.GetPlayer(source)
-    TriggerClientEvent("qb-weedshop:usegiftset", source, item.name)
+    TriggerEvent("sayer-weedshop:server:addgiftboxitems", source, item.name)
     Player.Functions.RemoveItem('weed-gift-set', 1)
 end)
 
@@ -50,7 +54,7 @@ QBCore.Functions.CreateUseableItem("dream-joint", function(source, item)
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
 	if Player.Functions.RemoveItem(item.name, 1, item.slot) then
-        TriggerClientEvent("qb-weedshop:use-dream-joint", src, item.name)
+        TriggerClientEvent("sayer-weedshop:use-dream-joint", src, item.name)
     end
 end)
 
@@ -58,7 +62,7 @@ QBCore.Functions.CreateUseableItem("hazy-joint", function(source, item)
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
 	if Player.Functions.RemoveItem(item.name, 1, item.slot) then
-        TriggerClientEvent("qb-weedshop:use-hazy-joint", src, item.name)
+        TriggerClientEvent("sayer-weedshop:use-hazy-joint", src, item.name)
     end
 end)
 
@@ -66,7 +70,7 @@ QBCore.Functions.CreateUseableItem("crush-joint", function(source, item)
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
 	if Player.Functions.RemoveItem(item.name, 1, item.slot) then
-        TriggerClientEvent("qb-weedshop:use-crush-joint", src, item.name)
+        TriggerClientEvent("sayer-weedshop:use-crush-joint", src, item.name)
     end
 end)
 
@@ -74,7 +78,7 @@ QBCore.Functions.CreateUseableItem("bloomer-joint", function(source, item)
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
 	if Player.Functions.RemoveItem(item.name, 1, item.slot) then
-        TriggerClientEvent("qb-weedshop:use-bloomer-joint", src, item.name)
+        TriggerClientEvent("sayer-weedshop:use-bloomer-joint", src, item.name)
     end
 end)
 
@@ -82,7 +86,7 @@ QBCore.Functions.CreateUseableItem("weed-drink", function(source, item)
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
 	if Player.Functions.RemoveItem(item.name, 1, item.slot) then
-        TriggerClientEvent("qb-weedshop:Can", src, item.name)
+        TriggerClientEvent("sayer-weedshop:Can", src, item.name)
     end
 end)
 
@@ -90,6 +94,6 @@ QBCore.Functions.CreateUseableItem("weed-brownie", function(source, item)
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
 	if Player.Functions.RemoveItem(item.name, 1, item.slot) then
-        TriggerClientEvent("qb-weedshop:Egobar", src, item.name)
+        TriggerClientEvent("sayer-weedshop:Egobar", src, item.name)
     end
 end)

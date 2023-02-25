@@ -1,6 +1,6 @@
 local QBCore = exports['qb-core']:GetCoreObject()
 
-QBCore.Functions.CreateCallback('qb-weedshop:server:get:ingredientjoint', function(source, cb)
+QBCore.Functions.CreateCallback('sayer-weedshop:server:get:ingredientjoint', function(source, cb)
     local src = source
     local Ply = QBCore.Functions.GetPlayer(src)
     local lettuce = Ply.Functions.GetItemByName("streetweed")
@@ -12,7 +12,7 @@ QBCore.Functions.CreateCallback('qb-weedshop:server:get:ingredientjoint', functi
     end
 end)
 
-QBCore.Functions.CreateCallback('qb-weedshop:server:get:ingredientdream', function(source, cb)
+QBCore.Functions.CreateCallback('sayer-weedshop:server:get:ingredientdream', function(source, cb)
     local src = source
     local Ply = QBCore.Functions.GetPlayer(src)
     local lettuce = Ply.Functions.GetItemByName("dream-weed")
@@ -24,7 +24,7 @@ QBCore.Functions.CreateCallback('qb-weedshop:server:get:ingredientdream', functi
     end
 end)
 
-QBCore.Functions.CreateCallback('qb-weedshop:server:get:ingredienthazy', function(source, cb)
+QBCore.Functions.CreateCallback('sayer-weedshop:server:get:ingredienthazy', function(source, cb)
     local src = source
     local Ply = QBCore.Functions.GetPlayer(src)
     local lettuce = Ply.Functions.GetItemByName("hazy-weed")
@@ -36,7 +36,7 @@ QBCore.Functions.CreateCallback('qb-weedshop:server:get:ingredienthazy', functio
     end
 end)
 
-QBCore.Functions.CreateCallback('qb-weedshop:server:get:ingredientcrush', function(source, cb)
+QBCore.Functions.CreateCallback('sayer-weedshop:server:get:ingredientcrush', function(source, cb)
     local src = source
     local Ply = QBCore.Functions.GetPlayer(src)
     local lettuce = Ply.Functions.GetItemByName("crush-weed")
@@ -48,7 +48,7 @@ QBCore.Functions.CreateCallback('qb-weedshop:server:get:ingredientcrush', functi
     end
 end)
 
-QBCore.Functions.CreateCallback('qb-weedshop:server:get:ingredientbloomer', function(source, cb)
+QBCore.Functions.CreateCallback('sayer-weedshop:server:get:ingredientbloomer', function(source, cb)
     local src = source
     local Ply = QBCore.Functions.GetPlayer(src)
     local lettuce = Ply.Functions.GetItemByName("bloomer-weed")
@@ -60,7 +60,7 @@ QBCore.Functions.CreateCallback('qb-weedshop:server:get:ingredientbloomer', func
     end
 end)
 
-QBCore.Functions.CreateCallback('qb-weedshop:server:get:ingredientweed-drink', function(source, cb)
+QBCore.Functions.CreateCallback('sayer-weedshop:server:get:ingredientweed-drink', function(source, cb)
     local src = source
     local Ply = QBCore.Functions.GetPlayer(src)
     local bun = Ply.Functions.GetItemByName("aluminumcan")
@@ -73,7 +73,7 @@ QBCore.Functions.CreateCallback('qb-weedshop:server:get:ingredientweed-drink', f
     end
 end)
 
-QBCore.Functions.CreateCallback('qb-weedshop:server:get:ingredientgiftset', function(source, cb)
+QBCore.Functions.CreateCallback('sayer-weedshop:server:get:ingredientgiftset', function(source, cb)
     local src = source
     local Ply = QBCore.Functions.GetPlayer(src)
     local fries = Ply.Functions.GetItemByName("joint")
@@ -89,7 +89,7 @@ QBCore.Functions.CreateCallback('qb-weedshop:server:get:ingredientgiftset', func
     end
 end)
 
-QBCore.Functions.CreateCallback('qb-weedshop:server:get:ingredientweedbrownie', function(source, cb)
+QBCore.Functions.CreateCallback('sayer-weedshop:server:get:ingredientweedbrownie', function(source, cb)
     local src = source
     local Ply = QBCore.Functions.GetPlayer(src)
     local fries = Ply.Functions.GetItemByName("brownie-mix")

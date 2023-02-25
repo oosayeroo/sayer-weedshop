@@ -1,6 +1,6 @@
 local QBCore = exports['qb-core']:GetCoreObject()
 
-RegisterNetEvent('qb-weedshop:server:addgiftboxitems', function()
+RegisterNetEvent('sayer-weedshop:server:addgiftboxitems', function(source)
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
     Player.Functions.AddItem('joint', 1)
@@ -8,39 +8,17 @@ RegisterNetEvent('qb-weedshop:server:addgiftboxitems', function()
     Player.Functions.AddItem('hazy-joint', 1)
     Player.Functions.AddItem('crush-joint', 1)
     Player.Functions.AddItem('bloomer-joint', 1)
+    local randchance = math.random(1,100)
+    if randchance <= Config.RandomGiftChance then
+        local RandomGift = Config.GiftBoxRewards[math.random(1, #Config.GiftBoxRewards)]
+        Player.Functions.AddItem(RandomGift, Config.RandomGiftAmount)
+        TriggerClientEvent('QBCore:Notify', source, 'You Recieved Items', 'success')
+    else
+        TriggerClientEvent('QBCore:Notify', source, 'Unlucky! No Extra Item', 'error')
+    end
 end)
 
-RegisterNetEvent('qb-weedshop:server:addrandomgift1', function()
-    local src = source
-    local Player = QBCore.Functions.GetPlayer(src)
-    Player.Functions.AddItem('casinochips', 1)
-end)
-
-RegisterNetEvent('qb-weedshop:server:addrandomgift2', function()
-    local src = source
-    local Player = QBCore.Functions.GetPlayer(src)
-    Player.Functions.AddItem('lockpick', 1)
-end)
-
-RegisterNetEvent('qb-weedshop:server:addrandomgift3', function()
-    local src = source
-    local Player = QBCore.Functions.GetPlayer(src)
-    Player.Functions.AddItem('empty_weed_bag', 1)
-end)
-
-RegisterNetEvent('qb-weedshop:server:addrandomgift4', function()
-    local src = source
-    local Player = QBCore.Functions.GetPlayer(src)
-    Player.Functions.AddItem('joint', 1)
-end)
-
-RegisterNetEvent('qb-weedshop:server:addrandomgift5', function()
-    local src = source
-    local Player = QBCore.Functions.GetPlayer(src)
-    Player.Functions.AddItem('weed_nutrition', 1)
-end)
-
-RegisterNetEvent('qb-weedshop:server:creategiftbox', function()
+RegisterNetEvent('sayer-weedshop:server:creategiftbox', function()
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
     Player.Functions.RemoveItem('joint', 1)
@@ -52,7 +30,7 @@ RegisterNetEvent('qb-weedshop:server:creategiftbox', function()
     Player.Functions.AddItem('weed-gift-set', 1)
 end)
 
-RegisterNetEvent('qb-weedshop:server:makingjoint', function()
+RegisterNetEvent('sayer-weedshop:server:makingjoint', function()
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
     Player.Functions.RemoveItem('streetweed', 1)
@@ -60,7 +38,7 @@ RegisterNetEvent('qb-weedshop:server:makingjoint', function()
     Player.Functions.AddItem('joint', 1)
 end)
 
-RegisterNetEvent('qb-weedshop:server:makingdreamjoint', function()
+RegisterNetEvent('sayer-weedshop:server:makingdreamjoint', function()
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
     Player.Functions.RemoveItem('dream-weed', 1)
@@ -68,7 +46,7 @@ RegisterNetEvent('qb-weedshop:server:makingdreamjoint', function()
     Player.Functions.AddItem('dream-joint', 1)
 end)
 
-RegisterNetEvent('qb-weedshop:server:makinghazyjoint', function()
+RegisterNetEvent('sayer-weedshop:server:makinghazyjoint', function()
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
     Player.Functions.RemoveItem('hazy-weed', 1)
@@ -76,7 +54,7 @@ RegisterNetEvent('qb-weedshop:server:makinghazyjoint', function()
     Player.Functions.AddItem('hazy-joint', 1)
 end)
 
-RegisterNetEvent('qb-weedshop:server:makingcrushjoint', function()
+RegisterNetEvent('sayer-weedshop:server:makingcrushjoint', function()
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
     Player.Functions.RemoveItem('crush-weed', 1)
@@ -84,7 +62,7 @@ RegisterNetEvent('qb-weedshop:server:makingcrushjoint', function()
     Player.Functions.AddItem('crush-joint', 1)
 end)
 
-RegisterNetEvent('qb-weedshop:server:makingbloomerjoint', function()
+RegisterNetEvent('sayer-weedshop:server:makingbloomerjoint', function()
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
     Player.Functions.RemoveItem('bloomer-weed', 1)
@@ -92,7 +70,7 @@ RegisterNetEvent('qb-weedshop:server:makingbloomerjoint', function()
     Player.Functions.AddItem('bloomer-joint', 1)
 end)
 
-RegisterNetEvent('qb-weedshop:server:makingbrownie', function()
+RegisterNetEvent('sayer-weedshop:server:makingbrownie', function()
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
     Player.Functions.RemoveItem('brownie-mix', 1)
@@ -100,7 +78,7 @@ RegisterNetEvent('qb-weedshop:server:makingbrownie', function()
     Player.Functions.AddItem('weed-brownie', Config.BrownieMixAmount)
 end)
 
-RegisterNetEvent('qb-weedshop:server:makingweeddrink', function()
+RegisterNetEvent('sayer-weedshop:server:makingweeddrink', function()
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
     Player.Functions.RemoveItem('drink-mix', 1)
@@ -109,83 +87,83 @@ RegisterNetEvent('qb-weedshop:server:makingweeddrink', function()
     Player.Functions.AddItem('weed-drink', Config.WeedDrinkAmount)
 end)
 
-RegisterNetEvent('qb-weedshop:server:grindstreet', function()
+RegisterNetEvent('sayer-weedshop:server:grindstreet', function()
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
     Player.Functions.RemoveItem('weedbud', 1)
     Player.Functions.AddItem('streetweed', Config.GrindingAmount)
 end)
 
-RegisterNetEvent('qb-weedshop:server:grinddream', function()
+RegisterNetEvent('sayer-weedshop:server:grinddream', function()
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
     Player.Functions.RemoveItem('dream-bud', 1)
     Player.Functions.AddItem('dream-weed', Config.GrindingAmount)
 end)
 
-RegisterNetEvent('qb-weedshop:server:grindhazy', function()
+RegisterNetEvent('sayer-weedshop:server:grindhazy', function()
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
     Player.Functions.RemoveItem('hazy-bud', 1)
     Player.Functions.AddItem('hazy-weed', Config.GrindingAmount)
 end)
 
-RegisterNetEvent('qb-weedshop:server:grindcrush', function()
+RegisterNetEvent('sayer-weedshop:server:grindcrush', function()
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
     Player.Functions.RemoveItem('crush-bud', 1)
     Player.Functions.AddItem('crush-weed', Config.GrindingAmount)
 end)
 
-RegisterNetEvent('qb-weedshop:server:grindbloomer', function()
+RegisterNetEvent('sayer-weedshop:server:grindbloomer', function()
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
     Player.Functions.RemoveItem('bloomer-bud', 1)
     Player.Functions.AddItem('bloomer-weed', Config.GrindingAmount)
 end)
 
-RegisterNetEvent('qb-weedshop:server:drystreet', function()
+RegisterNetEvent('sayer-weedshop:server:drystreet', function()
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
     Player.Functions.RemoveItem('wet_weed', 1)
     Player.Functions.AddItem('weedbud', Config.DryingAmount)
 end)
 
-RegisterNetEvent('qb-weedshop:server:drydream', function()
+RegisterNetEvent('sayer-weedshop:server:drydream', function()
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
     Player.Functions.RemoveItem('wet_weed', 1)
     Player.Functions.AddItem('dream-bud', Config.DryingAmount)
 end)
 
-RegisterNetEvent('qb-weedshop:server:dryhazy', function()
+RegisterNetEvent('sayer-weedshop:server:dryhazy', function()
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
     Player.Functions.RemoveItem('wet_weed', 1)
     Player.Functions.AddItem('hazy-bud', Config.DryingAmount)
 end)
 
-RegisterNetEvent('qb-weedshop:server:drycrush', function()
+RegisterNetEvent('sayer-weedshop:server:drycrush', function()
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
     Player.Functions.RemoveItem('wet_weed', 1)
     Player.Functions.AddItem('crush-bud', Config.DryingAmount)
 end)
 
-RegisterNetEvent('qb-weedshop:server:drybloomer', function()
+RegisterNetEvent('sayer-weedshop:server:drybloomer', function()
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
     Player.Functions.RemoveItem('wet_weed', 1)
     Player.Functions.AddItem('bloomer-bud', Config.DryingAmount)
 end)
 
-RegisterNetEvent('qb-weedshop:GrinderBroke', function()
+RegisterNetEvent('sayer-weedshop:GrinderBroke', function()
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
     Player.Functions.RemoveItem('weed-grinder', 1)
 end)
 
-RegisterNetEvent('qb-weedshop:InfusionBroke', function()
+RegisterNetEvent('sayer-weedshop:InfusionBroke', function()
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
     Player.Functions.RemoveItem('infusion-kit', 1)
