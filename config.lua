@@ -15,8 +15,8 @@ Config.SocietyName = 'weedshop' --society name in database of qb-management
 
 Config.WeedGaragePedModel = "g_m_importexport_01"  --ped model
 Config.WeedVehicles = { 
-    --Label = how you see the name in menu/ 
-    --Model = spawncode of vehicle/ 
+    --Label = how you see the name in menu
+    --Model = spawncode of vehicle 
     --Livery = number that corresponds to the livery you want it to have. if vehicle has no livery then put 0
     {Label = "Paradise", Model = 'paradise', Livery = 1},
     {Label = "Burrito", Model = 'burrito', Livery = 2},
