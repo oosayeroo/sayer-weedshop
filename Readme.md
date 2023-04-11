@@ -1,13 +1,17 @@
-Updated 25/2/23
+Updated 11/04/23 - Version 5.0.0 Includes = 
+- Use Multiple MLO at the same time
+- Create custom effects for your items with a large range of options to add
+- Deliver multiple item quantities
+- Delivery code improvements/ better practise
+- Crafting code simplyfied and improved
+- New config options
+- Replaced the garage system with an optional jim-jobgarage support
 
 Discord - https://discord.gg/3WYz3zaqG5
 
 # A WeedShop Job for QBCore Framework
+- Player Run Weedshop Supporting multiple MLO at once. Craft and sell your own joints, bongs, 
 
- -- First of all, i would like to thank DrB1ackBeard for his amazing burgershot script which helped me understand alot as im learning still and this took me a few days to finish.
--- Thank you to Bamboozled for the MLO Gret Work There
- -- Major rework of burgershot job to work as a player run weed shop using legion weed clinic MLO
- -- Will Work fine alongside qb-burgershot. 
 
 ## Please note
 
@@ -34,6 +38,7 @@ qb-menu - https://github.com/qbcore-framework/qb-menu
 - BerkieB for his qb-target.
 - Andyauk for helping me make this as great as it is now. 
 - Mexicans for his idea about collecting wet weed
+- My Discord Community for some amazing suggestions that have been implemented
 
 ## Insert into @qb-core/shared/items.lua 
 
@@ -67,6 +72,7 @@ QBShared.Items = {
 	['customer-receipt'] 		 	 = {['name'] = 'customer-receipt', 		  	 	['label'] = "Customer Receipt", 	   	['weight'] = 200, 	   	['type'] = 'item',   	['image'] = 'customer-receipt.png',    	['unique'] = false, 	['useable'] = true, 	['shouldClose'] = true,    ['combinable'] = nil,   ['description'] = 'A receipt from selling something'},
     ['weed-grinder'] 			    	 = {['name'] = 'weed-grinder', 			        	['label'] = 'Grinder', 		    	['weight'] = 500, 		['type'] = 'item', 		["image"] = "weed-grinder.png",           	["unique"] = true, 	["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "Grind weed up."},
 	['infusion-kit'] 			   	 = {['name'] = 'infusion-kit', 			    	['label'] = 'Infusion Kit', 		   	['weight'] = 1000, 		['type'] = 'item', 		["image"] = "infusion-kit.png",        	["unique"] = true, 	    ["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "Used with wet weed to create different strands."},
+	['bong'] 						 = {['name'] = 'bong', 							['label'] = 'Bong', 					['weight'] = 1500, 		['type'] = 'item', 		['image'] = 'bong.png', 				['unique'] = true, 		['useable'] = true, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'I choose green team!'},
 	
 }
 
@@ -74,30 +80,57 @@ QBShared.Items = {
 
 ## Insert Contents of @weedshop/Images into @qb-inventory/HTML/Images
 
-
-## Insert into @qb-core/shared/jobs.lua 
-```
-QBShared.Jobs = {
-    ["weedshop"] = {
-		label = "WeedShop Employee",
-		defaultDuty = true,
-		grades = {
-            ['0'] = {
-                name = "Trainee",
-                payment = 50
-            },
-			['1'] = {
-                name = "Employee",
-                payment = 75
-            },
-			['2'] = {
-                name = "Owner",
-                isboss = true,
-                payment = 100
-            },
+# New Custom Effects Examples
+- With the new custom effects system you can create lots of new effects for any item you have in your server
+options marked with a ["!"] are important and must be included as a TRUE/FALSE(others are optional and can be put as false or not included at all)
+- example of custom item
+["ItemName"] = { --item code to be used
+        ItemName = 'dream-joint', --item code to be used...again  ["!"]
+        Emote = 'joint', --emote that is used for that item
+        RemoveItem = true, --whether to remove the item when used ["!"]
+        RequireItem = 'lighter', -- whether you need another item to use the base item (can be false or put the item you want to be required )
+        RemoveRequired = false, -- whether or not to remove the above ["RequireItem"] from players inventory
+        WeedSmell = true, -- applies the qbcore evidence event with the argument of ["WeedSmell]
+        StressRemove = math.random(5,10), -- the amount of ["Stress"] to remove the player
+        AddArmour = math.random(5,10), -- the amount of ["Armour"] to give to player
+		AddHunger = math.random(1,5), -- the amount of ["Hunger"] to give to player
+		AddThirst = math.random(4,9), -- the amount of ["Thirst"] to give to player
+        Effect = { 
+            Enable = true, --whether to enable the Effect or not ["!"]
+            IncreaseStamina = true, --increases stamina for short period (more customisation for this option coming soon) ["!"]
+            CanCauseRagdoll = false, -- gives a random chance, while effect is applied, to make player ragdoll
+            ScreenEffect = 'acid', -- the effect that is placed on players screen
+            EffectDuration = 10, -- in seconds how long the entire effect lasts before returning to normal state ["!"]
         },
-	},
-}		
+    },
+
+# Garage System replaced by jim-jobgarage found here - https://discord.gg/kA6rGzwtrX
+- if you do not have or want to use jims script you can replace the garage section with false like shown below
+
+- with jim-jobgarage = 
+``` 
+
+ Garage = {{ --requires jim-jobgarage
+            PedModel = 'g_m_importexport_01',
+            Vehicle = {
+                ["burrito"] = {
+                    CustomName = "Burrito", --name in menu
+                    colors = { 136, 137 }, -- colours -- found here https://altv.stuyk.com/docs/articles/tables/vehicle-colors.html
+                    grade = 0, --job grade
+                    performance = { 2, 3, 3, 2, 4, true }, 
+                    trunkItems = { --items that spawn in the trunk
+                        { name = "lockpick", amount = 1, info = {}, type = "item", slot = 1, }, --test
+                    },
+                },
+            },
+            PedPosition = vector4(372.18, -827.04, 29.29, 90.12),
+            SpawnVehicle = vector4(368.15, -827.12, 29.29, 182.61),
+        },},
+
+		```
+- without jim-jobgarage = 
 ```
 
+ Garage = false,
 
+ ```
