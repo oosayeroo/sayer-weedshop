@@ -14,6 +14,7 @@ local wwamount = 0
 RegisterNetEvent('sayer-weedshop:deliveries:DeliverWeed', function(amount)
     number = tonumber(amount)
     delitem = Config.DeliveryItems[math.random(1,#Config.DeliveryItems)]
+    delitemamount = math.random(1,3)
     if not onPickup then
         if number < Config.MaxDeliveries then
             TriggerEvent('animations:client:EmoteCommandStart', {"type"})
@@ -23,14 +24,15 @@ RegisterNetEvent('sayer-weedshop:deliveries:DeliverWeed', function(amount)
                 QBCore.Functions.Notify('You Started a delivery! It should appear in your emails soon!', 'primary', 7500)
                 Wait(Config.DeliveryWait * 1000)
                 if Config.Phone == 'qb' then
-                    TriggerServerEvent('qb-phone:server:sendNewMail', {sender = 'Automated Assistance',subject = 'Delivery of '..delitem..'...',message = 'Delivery has been accepted by company. please deliver the '..delitem..' to the customer.',})
+                    TriggerServerEvent('qb-phone:server:sendNewMail', {sender = 'Delivery',subject = 'Delivery of  '..delitem..'...',message = 'Delivery has been accepted by company. please deliver the x'..delitemamount..' '..delitem..' to the customer.',})
                 elseif Config.Phone == 'qs' then
-                    TriggerServerEvent('qs-smartphone:server:sendNewMail', {sender = 'Automated Assistance',subject = 'Delivery of '..delitem..'...',message = 'Delivery has been accepted by company. please deliver the '..delitem..' to the customer.',button = {}})
+                    TriggerServerEvent('qs-smartphone:server:sendNewMail', {sender = 'Delivery',subject = 'Delivery of '..delitem..'...',message = 'Delivery has been accepted by company. please deliver the x'..delitemamount..' '..delitem..' to the customer.',button = {}})
                 elseif Config.Phone == 'gk' then
-                    TriggerServerEvent('gksphone:NewMail', {sender = 'Automated Assistance',subject = 'Delivery of '..delitem..'...',message = 'Delivery has been accepted by company. please deliver the '..delitem..' to the customer.',})
+                    TriggerServerEvent('gksphone:NewMail', {sender = 'Delivery',subject = 'Delivery of '..delitem..'...',message = 'Delivery has been accepted by company. please deliver the x'..delitemamount..' '..delitem..' to the customer.',})
                 end
-                startdropoff(number, delitem)
+                startdropoff(number, delitem, delitemamount)
                 onPickup = true
+                if Config.DebugCode then print("onPickup = "..onPickup.." ") end
             end)
         else
             QBCore.Functions.Notify('You Cannot Do That Many Deliveries', 'error')
@@ -52,35 +54,41 @@ AddEventHandler("sayer-weedshop:DeliveryMenu", function()
     if delmenu ~= nil then
         if delmenu.amount == nil then return end
         TriggerEvent("sayer-weedshop:deliveries:DeliverWeed", delmenu.amount)
+        if config.DebugCode then print(delmenu.amount) end
     end
 end)
 
-function KnockDoor(amount, delitem)
-    TriggerEvent('animations:client:EmoteCommandStart', {"knock"})
-    QBCore.Functions.Progressbar('falar_empregada', 'Knocking Door...', 5000, false, true, 
-        {disableMovement = true,disableCarMovement = true,disableMouse = false,disableCombat = true,}, {}, {}, {}, function()
-        QBCore.Functions.Notify('Delivery Successful', 'primary', 7500)
-        TriggerServerEvent('sayer-weedshop:server:KnockDoor', delitem)
-        DropOffDone = DropOffDone+1
-        delitem = Config.DeliveryItems[math.random(1,#Config.DeliveryItems)]
-        if Config.Phone == 'qb' then
-            TriggerServerEvent('qb-phone:server:sendNewMail', {sender = 'Automated Assistance',subject = 'Delivery of '..delitem..'...',message = 'Delivery has been accepted by company. please deliver a '..delitem..' to the customer.',})
-        elseif Config.Phone == 'qs' then
-            TriggerServerEvent('qs-smartphone:server:sendNewMail', {sender = 'Automated Assistance',subject = 'Delivery of '..delitem..'...',message = 'Delivery has been accepted by company. please deliver a '..delitem..' to the customer.',button = {}})
-        elseif Config.Phone == 'gk' then
-            TriggerServerEvent('gksphone:NewMail', {sender = 'Automated Assistance',subject = 'Delivery of '..delitem..'...',message = 'Delivery has been accepted by company. please deliver a '..delitem..' to the customer.',})
-        end
-        startdropoff(amount, delitem)
+function KnockDoor(amount, delitem, delitemamount)
+    if QBCore.Functions.HasItem(delitem, delitemamount) then
+        TriggerEvent('animations:client:EmoteCommandStart', {"knock"})
+        QBCore.Functions.Progressbar('falar_empregada', 'Knocking Door...', 5000, false, true, 
+            {disableMovement = true,disableCarMovement = true,disableMouse = false,disableCombat = true,}, {}, {}, {}, function()
+            QBCore.Functions.Notify('Delivery Successful', 'primary', 7500)
+            TriggerServerEvent('sayer-weedshop:server:KnockDoor', delitem, delitemamount)
+            DropOffDone = DropOffDone+1
+            delitem = Config.DeliveryItems[math.random(1,#Config.DeliveryItems)]
+            delitemamount = math.random(1,3)
+        startdropoff(amount, delitem, delitemamount)
         end)
+    else
+        QBCore.Functions.Notify('You Dont have the right items', 'error', 5000)
     end
+end
 
-function startdropoff(number,delitem)
+function startdropoff(number,delitem, delitemamount)
     if DropOffDone < number then
         local prob = Config.DropOffPoints[math.random(1, #Config.DropOffPoints)]
-            exports['qb-target']:AddBoxZone("delivery_zone", prob, 2, 2, {name="delivery_zone",heading=0,debugpoly = false,}, {
-                options = {{action = function() KnockDoor(number, delitem) end,icon = "far fa-box",label = "Knock Door",item = delitem,},},
-                distance = 2.5
-            })
+        if Config.Phone == 'qb' then
+            TriggerServerEvent('qb-phone:server:sendNewMail', {sender = 'Delivery',subject = 'Delivery of '..delitemamount..' '..delitem..'...',message = 'Delivery has been accepted by company. please deliver x'..delitemamount..' '..delitem..' to the customer.',})
+        elseif Config.Phone == 'qs' then
+            TriggerServerEvent('qs-smartphone:server:sendNewMail', {sender = 'Delivery',subject = 'Delivery of '..delitemamount..' '..delitem..'...',message = 'Delivery has been accepted by company. please deliver x'..delitemamount..' '..delitem..' to the customer.',button = {}})
+        elseif Config.Phone == 'gk' then
+            TriggerServerEvent('gksphone:NewMail', {sender = 'Delivery',subject = 'Delivery of '..delitemamount..' '..delitem..'...',message = 'Delivery has been accepted by company. please deliver x'..delitemamount..' '..delitem..' to the customer.',})
+        end
+        exports['qb-target']:AddBoxZone("delivery_zone", prob, 2, 2, {name="delivery_zone",heading=0,debugpoly = false,}, {
+            options = {{action = function() KnockDoor(number, delitem, delitemamount) end,icon = "far fa-box",label = "Knock Door",item = delitem,},},
+            distance = 2.5
+        })
         SetNewWaypoint(prob)
         QBCore.Functions.Notify('Customer House GPS Set!', 'success')
     else
@@ -127,9 +135,26 @@ RegisterNetEvent('sayer-weedshop:deliveries:PickUpWeed', function(wwamount)
         end)
     end
 end)
-    
+
+RegisterNetEvent('sayer-weedshop:DeliveryCancel', function()
+    if onPickup then
+        finishedPickup = true
+        onPickup = false
+        DropOffDone = 0
+        amount = 0
+        number = 0
+        delitem = ''
+        wwamount = 0
+        exports['qb-target']:RemoveZone("wet-pickup")
+        exports['qb-target']:RemoveZone("delivery_zone")
+        QBCore.Functions.Notify('Deliveries Successfully Cancelled', 'success', 5000)
+    else
+        QBCore.Functions.Notify('You Are Not On Delivery', 'error', 5000)
+    end
+end)
+
 function startwetweedpickup(wwamount)
-    print(wwamount.."startwetweedpickup function")
+    if Config.DebugCode then print(wwamount.."startwetweedpickup function") end
     local prob = Config.WetWeedLocation[math.random(1, #Config.WetWeedLocation)]
     exports['qb-target']:AddBoxZone("wet-pickup", prob, 3, 3, {name="wet-pickup",heading=0,debugpoly = false,}, {
         options = {{action = function() PickUpWetWeed2(wwamount) end,icon = "far fa-cannabis",label = "Pick Up Wet Weed",},},
@@ -142,7 +167,7 @@ function PickUpWetWeed2(wwamount)
     TriggerEvent('animations:client:EmoteCommandStart', {"knock"})
     QBCore.Functions.Progressbar('falar_empregada', 'Picking Up Some Wet Bud...', 5000, false, true, {disableMovement = true,disableCarMovement = true,disableMouse = false,disableCombat = true,}, {}, {}, {}, function()
         TriggerEvent('animations:client:EmoteCommandStart', {"c"})
-        print(wwamount.."pickupweed2")
+        if Config.DebugCode then print(wwamount.."pickupweed2") end
         TriggerServerEvent('sayer-weedshop:server:PickupFinished', wwamount)
         QBCore.Functions.Notify('You got some wet bud!', 'primary', 7500)
         Wait(200)
@@ -167,10 +192,11 @@ AddEventHandler("sayer-weedshop:deliveries:ReceivePayment", function()
     if onDuty then
     	QBCore.Functions.TriggerCallback('sayer-weedshop:server:get:ReceiptChecker', function(HasItems)
     		if HasItems then
+                local job = QBCore.Functions.GetPlayerData().job.name
 				QBCore.Functions.Progressbar("pickup_sla", "Filing Receipts..", 4000, false, true,
                 {disableMovement = true,disableCarMovement = true,disableMouse = false,disableCombat = true,},
                 {animDict = "mp_common",anim = "givetake1_a",flags = 8,}, {}, {}, function()
-					TriggerServerEvent('sayer-weedshop:server:ReceivePayment')
+					TriggerServerEvent('sayer-weedshop:server:ReceivePayment', job)
 				end, function()
 					QBCore.Functions.Notify("Cancelled..", "error")
 				end)
