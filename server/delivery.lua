@@ -17,12 +17,13 @@ RegisterNetEvent('sayer-weedshop:server:pickupordered', function(wwamount)
     local amount = wwamount
     local price = Config.SingleWetWeedCost
     local result = amount*price
+    local society = Player.job.name
 
     if Config.PaySociety then
-        local balance = exports['qb-management']:GetAccount(Config.SocietyName)
-        print(balance)
+        local balance = exports['qb-management']:GetAccount(society)
+        if Config.DebugCode then print(balance) end
         if balance >= result then
-            exports['qb-management']:RemoveMoney(Config.SocietyName, result)
+            exports['qb-management']:RemoveMoney(society, result)
         else
             TriggerClientEvent('QBCore:Notify', src, "You dont have $"..result.." in your business account")
         end
@@ -43,14 +44,13 @@ RegisterNetEvent('sayer-weedshop:server:PickupFinished', function(wwamount)
     TriggerClientEvent('QBCore:Notify', src, "You Picked up "..wwamount.." Wet Weed")
 end)
 
-RegisterNetEvent('sayer-weedshop:server:KnockDoor', function(delitem)
+RegisterNetEvent('sayer-weedshop:server:KnockDoor', function(delitem, delitemamount)
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
     local item2 = 'customer-receipt'
-    local quantity = 1
 
-    Player.Functions.RemoveItem(delitem, 1)
-    Player.Functions.AddItem(item2, quantity)
+    Player.Functions.RemoveItem(delitem, delitemamount)
+    Player.Functions.AddItem(item2, delitemamount)
 end)
 
 QBCore.Functions.CreateCallback('sayer-weedshop:server:get:ReceiptChecker', function(source, cb)
@@ -64,10 +64,11 @@ QBCore.Functions.CreateCallback('sayer-weedshop:server:get:ReceiptChecker', func
     end
 end)
 
-RegisterNetEvent('sayer-weedshop:server:ReceivePayment', function()
+RegisterNetEvent('sayer-weedshop:server:ReceivePayment', function(job)
     local src = source
     local price = 0
     local Player = QBCore.Functions.GetPlayer(src)
+    local society = job
     
     local xItem = Player.Functions.GetItemsByName(ReceiptItem)
     if xItem ~= nil then
@@ -78,7 +79,7 @@ RegisterNetEvent('sayer-weedshop:server:ReceivePayment', function()
                     Player.Functions.RemoveItem(Player.PlayerData.items[k].name, Player.PlayerData.items[k].amount, k)
 
                     if Config.PaySociety then
-                        exports['qb-management']:AddMoney(Config.SocietyName, price)
+                        exports['qb-management']:AddMoney(society, price)
                         TriggerClientEvent('QBCore:Notify', src, "You filed all receipts for $"..price.." Cash is in Society Fund")
                     else
                         Player.Functions.AddMoney("cash", price)
