@@ -106,7 +106,7 @@ options marked with a ["!"] are important and must be included as a TRUE/FALSE(o
         },
     },
     
-    ```
+```
 
 # Garage System replaced by jim-jobgarage found here - https://discord.gg/kA6rGzwtrX
 - if you do not have or want to use jims script you can replace the garage section with false like shown below
@@ -131,10 +131,10 @@ options marked with a ["!"] are important and must be included as a TRUE/FALSE(o
             SpawnVehicle = vector4(368.15, -827.12, 29.29, 182.61),
         },},
 
-		```
-- without jim-jobgarage = 
 ```
+- without jim-jobgarage = 
 
- Garage = false,
+```
+Garage = false,
 
- ```
+```
