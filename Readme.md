@@ -84,6 +84,8 @@ QBShared.Items = {
 - With the new custom effects system you can create lots of new effects for any item you have in your server
 options marked with a ["!"] are important and must be included as a TRUE/FALSE(others are optional and can be put as false or not included at all)
 - example of custom item
+```
+
 ["ItemName"] = { --item code to be used
         ItemName = 'dream-joint', --item code to be used...again  ["!"]
         Emote = 'joint', --emote that is used for that item
@@ -103,6 +105,8 @@ options marked with a ["!"] are important and must be included as a TRUE/FALSE(o
             EffectDuration = 10, -- in seconds how long the entire effect lasts before returning to normal state ["!"]
         },
     },
+    
+    ```
 
 # Garage System replaced by jim-jobgarage found here - https://discord.gg/kA6rGzwtrX
 - if you do not have or want to use jims script you can replace the garage section with false like shown below
