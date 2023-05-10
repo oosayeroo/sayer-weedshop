@@ -41,7 +41,7 @@ CreateThread(function()
                 for d,j in pairs(v.Counter) do
                     Target["weedshopCounter"..k..d] =
 	                exports['qb-target']:AddBoxZone("weedshopCounter"..k..d, j.coords, j.L, j.W, {name = "weedshopCounter"..k..d,heading = j.H,debugPoly = Config.DebugWeedPoly,minZ=j.Minz,maxZ=j.Maxz,}, {
-	                	options = {{event = "sayer-weedshop:Counter",icon = "fas fa-cannabis",label = "Tray 1",},},
+	                	options = {{action = function() OpenWeedshopCounter(j.ID) end,icon = "fas fa-cannabis",label = "Access Counter",},},
 	                	distance = j.D
 	                })
                 end
@@ -95,7 +95,7 @@ CreateThread(function()
                 for d,j in pairs(v.Storage) do
                     Target["weedshopStorage "..k..d] =
                     exports['qb-target']:AddBoxZone("weedshopStorage "..k..d, j.coords.xyz, j.L, j.W, {name="weedshopStorage "..k..d,heading=j.H,debugPoly=Config.DebugWeedPoly,minZ=j.Minz,maxZ=j.Maxz,}, {
-                        options = {{event = "sayer-weedshop:Storage",icon = "fas fa-cannabis",label = "Storage",job = v.Job,},},
+                        options = {{action = function() OpenWeedshopStorage(j.ID) end,icon = "fas fa-cannabis",label = "Storage",job = v.Job,},},
                         distance = j.D
                     })
                 end

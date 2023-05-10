@@ -27,27 +27,25 @@ AddEventHandler("sayer-weedshop:DutyB", function()
     TriggerServerEvent("QBCore:ToggleDuty")
 end)
 
-RegisterNetEvent("sayer-weedshop:Counter", function()
+function OpenWeedshopCounter(ID)
     QBCore.Functions.GetPlayerData(function(PlayerData)
-        PlayerJob = PlayerData.job.name
-        TriggerEvent("inventory:client:SetCurrentStash", "weedcounter"..PlayerJob)
-        TriggerServerEvent("inventory:server:OpenInventory", "stash", "weedcounter"..PlayerJob, {
+        TriggerEvent("inventory:client:SetCurrentStash", "SWC_"..ID)
+        TriggerServerEvent("inventory:server:OpenInventory", "stash", "SWC_"..ID, {
         maxweight = Config.JobCounterWeight*1000,
         slots = Config.JobCounterSlots,
         })
     end)
-end)
+end
 
-RegisterNetEvent("sayer-weedshop:Storage", function()
+function OpenWeedshopStorage(ID)
     QBCore.Functions.GetPlayerData(function(PlayerData)
-        PlayerJob = PlayerData.job.name
-        TriggerEvent("inventory:client:SetCurrentStash", "weedstorage"..PlayerJob)
-        TriggerServerEvent("inventory:server:OpenInventory", "stash", "weedstorage"..PlayerJob, {
+        TriggerEvent("inventory:client:SetCurrentStash", "SWC_"..ID)
+        TriggerServerEvent("inventory:server:OpenInventory", "stash", "SWC_"..ID, {
         maxweight = Config.JobStorageWeight*1000,
         slots = Config.JobStorageSlots,
         })
     end)
-end)
+end
 
 RegisterNetEvent("sayer-weedshop:shop")
 AddEventHandler("sayer-weedshop:shop", function()
