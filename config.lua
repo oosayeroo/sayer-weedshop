@@ -17,13 +17,13 @@ Config.MLOLocations = { -- NOW SUPPORTS MULTIPLE LOCATIONS AT ONCE
         },
         --locations
         Duty = {{coords = vector3(375.65, -824.95, 29.3),       L = 0.3, W = 1.2, H = 177.88,   Minz = 29.6, Maxz = 30.5, D = 1.5,},},
-        Counter = {{coords = vector3(377.26, -827.42, 29.38),   L = 0.3, W = 0.5, H = 180,      Minz = 29.3, Maxz = 29.7, D = 1.5,},},
+        Counter = {{ID = "BBuds_Tray_1",coords = vector3(377.26, -827.42, 29.38),   L = 0.3, W = 0.5, H = 180,      Minz = 29.3, Maxz = 29.7, D = 1.5,},},
         DryPlot = {{coords = vector3(380.5, -812.59, 28.43),    L = 2.8, W = 4.5, H = 180,      Minz = 28.0, Maxz = 30.0, D = 1.5,},},
         GrindPlot = {{coords = vector3(382.49, -817.43, 28.3),  L = 1.0, W = 1.8, H = 0,        Minz = 28.0, Maxz = 30.0, D = 1.5,},},
         Crafting = {{coords = vector3(374.23, -816.06, 29.35),  L = 1.0, W = 1.0, H = 0,        Minz = 28.0, Maxz = 29.5, D = 1.5,},},
         Register = {{coords = vector3(380.24, -827.33, 29.29),  L = 0.4, W = 0.3, H = 130,      Minz = 29.3, Maxz = 29.7, D = 1.5,},},
         ShopMenu = {{coords = vector3(375.55, -827.33, 29.29),  L = 0.4, W = 0.3, H = 180,      Minz = 29.3, Maxz = 29.7, D = 1.5,},},
-        Storage = {{coords = vector3(383.71, -819.8, 29.29),    L = 0.5, W = 2.0, H = 90,       Minz = 28.0, Maxz = 30.0, D = 1.5,},},
+        Storage = {{ID = "BBuds_Store_1",coords = vector3(383.71, -819.8, 29.29),    L = 0.5, W = 2.0, H = 90,       Minz = 28.0, Maxz = 30.0, D = 1.5,},},
         Garage = {{ --requires jim-jobgarage
             PedModel = 'g_m_importexport_01',
             Vehicle = {
@@ -48,13 +48,13 @@ Config.MLOLocations = { -- NOW SUPPORTS MULTIPLE LOCATIONS AT ONCE
         },
         --locations
         Duty = false,
-        Counter = {{coords = vector3(368.13, -1268.03, 32.59),      L = 2.4, W = 0.6, H = 50,   Minz = 32.19, Maxz = 32.59, D = 1.5,},},
+        Counter = {{ID = "Blaze_Tray_1",coords = vector3(368.13, -1268.03, 32.59),      L = 2.4, W = 0.6, H = 50,   Minz = 32.19, Maxz = 32.59, D = 1.5,},},
         DryPlot = {{coords = vector3(366.29, -1252.52, 32.59),      L = 1.0, W = 1.0, H = 324,  Minz = 32.79, Maxz = 34.19, D = 1.5,},},
         GrindPlot = {{coords = vector3(364.42, -1255.05, 32.59),    L = 1.0, W = 1.0, H = 50,   Minz = 32.19, Maxz = 32.79, D = 2.0,},},
         Crafting = {{coords = vector3(365.14, -1254.18, 32.59),     L = 1.0, W = 1.0, H = 50,   Minz = 32.19, Maxz = 32.99, D = 2.0,},},
         Register = {{coords = vector3(370.15, -1269.71, 32.59),     L = 1.0, W = 1.0, H = 36,   Minz = 32.54, Maxz = 32.94, D = 1.5,},},
         ShopMenu = {{coords = vector3(362.19, -1258.49, 32.59),     L = 2.6, W = 0.4, H = 320,  Minz = 32.39, Maxz = 33.19, D = 1.5,},},
-        Storage = {{coords = vector3(356.51, -1245.48, 32.59),      L = 2.8, W = 1.0, H = 50,   Minz = 31.59, Maxz = 33.79, D = 1.5,},},
+        Storage = {{ID = "Blazeit_Store_1",coords = vector3(356.51, -1245.48, 32.59),      L = 2.8, W = 1.0, H = 50,   Minz = 31.59, Maxz = 33.79, D = 1.5,},},
         Garage = {{
             PedModel = 'g_m_importexport_01',
             Vehicle = {
@@ -79,7 +79,7 @@ Config.MLOLocations = { -- NOW SUPPORTS MULTIPLE LOCATIONS AT ONCE
         },
         --locations
         Duty = false,
-        Counter = {{coords = vector3(188.51, -242.25, 54.07),   L = 1.2, W = 0.4, H = 340,  Minz = 53.87, Maxz = 54.47, D = 1.5,},},
+        Counter = {{ID = "Widow_Tray_1",coords = vector3(188.51, -242.25, 54.07),   L = 1.2, W = 0.4, H = 340,  Minz = 53.87, Maxz = 54.47, D = 1.5,},},
         DryPlot = {{coords = vector3(165.54, -245.82, 50.06),   L = 9.2, W = 5.6, H = 250,  Minz = 49.26, Maxz = 51.46, D = 1.5,},},
         GrindPlot = {{coords = vector3(165.37, -235.74, 50.06), L = 0.8, W = 2.2, H = 340,  Minz = 49.66, Maxz = 50.26, D = 2.0,},},
         Crafting = {{coords = vector3(185.45, -242.21, 54.07),  L = 0.6, W = 3.0, H = 70,   Minz = 54.07, Maxz = 54.47, D = 2.0,},},
@@ -89,8 +89,8 @@ Config.MLOLocations = { -- NOW SUPPORTS MULTIPLE LOCATIONS AT ONCE
             {coords = vector3(180.63, -252.74, 54.07), L = 0.8, W = 1.0, H = 340, Minz = 53.67, Maxz = 54.67, D = 1.5,},
         },
         Storage = {
-            {coords = vector3(175.52, -239.82, 50.06), L = 0.8, W = 2.4, H = 340, Minz = 49.26, Maxz = 51.46, D = 1.5,},
-            {coords = vector3(193.27, -234.44, 54.07), L = 2.8, W = 1.0, H = 340, Minz = 53.67, Maxz = 54.87, D = 1.5,},
+            {ID = "Widow_Store_1",coords = vector3(175.52, -239.82, 50.06), L = 0.8, W = 2.4, H = 340, Minz = 49.26, Maxz = 51.46, D = 1.5,},
+            {ID = "Widow_Store_2",coords = vector3(193.27, -234.44, 54.07), L = 2.8, W = 1.0, H = 340, Minz = 53.67, Maxz = 54.87, D = 1.5,},
         },
         Garage = {{
             PedModel = 'g_m_importexport_01',
