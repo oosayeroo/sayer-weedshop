@@ -168,7 +168,6 @@ RegisterNetEvent('qb-menu:WeedMenu', function(data)
         {header = "| Products |",isMenuHeader = true, },
         {header = "• Duty",             txt = "Clock In/Out",params = {event = "sayer-weedshop:DutyB"}},
         {header = "• Order Items",      txt = "Order New Ingredients!",params = {event = "sayer-weedshop:shop"}},
-        {header = "• Open Storage",     txt = "See what you have in storage",params = {event = "sayer-weedshop:Storage"}},
         {header = "• Order Wet Weed",   txt = "Current Price is $"..Config.SingleWetWeedCost.." Per...",params = {event = "sayer-weedshop:deliveries:PickUpWeedMenu"}},
         {header = "• Accept Delivery",  txt = "Send delivery to personal email",params = {event = "sayer-weedshop:DeliveryMenu"}},
         {header = "• Cancel Delivery",  txt = "Cancel Your Current Deliveries",params = {event = "sayer-weedshop:DeliveryCancel"}},

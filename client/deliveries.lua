@@ -123,11 +123,11 @@ RegisterNetEvent('sayer-weedshop:deliveries:PickUpWeed', function(wwamount)
         QBCore.Functions.Notify('You need to go to pick up some Wet Weed!', 'primary', 7500)
         Wait(Config.DeliveryWait * 1000)
         if Config.Phone == 'qb' then
-            TriggerServerEvent('qb-phone:server:sendNewMail', {sender = 'Mr Mexicans',subject = 'Pick up Wet Weed...',message = 'Yo man, i got your order of '..wwamount..' Wet Weed, freshly grown. Come pick it up',})
+            TriggerServerEvent('qb-phone:server:sendNewMail', {sender = 'Mr Mexicans',subject = 'Pick up Wet Weed...',message = 'Yo man, i got your order of '..wwamount..'x Wet Weed, freshly grown. Come pick it up',})
         elseif Config.Phone == 'qs' then
-            TriggerServerEvent('qs-smartphone:server:sendNewMail', {sender = 'Mr Mexicans',subject = 'Pick up Wet Weed...',message = 'Yo man, i got your order'..wwamount..' Wet Weed, freshly grown. Come pick it up',})
+            TriggerServerEvent('qs-smartphone:server:sendNewMail', {sender = 'Mr Mexicans',subject = 'Pick up Wet Weed...',message = 'Yo man, i got your order'..wwamount..'x Wet Weed, freshly grown. Come pick it up',})
         elseif Config.Phone == 'gk' then
-            TriggerServerEvent('gksphone:NewMail', {sender = 'Mr Mexicans',subject = 'Pick up Wet Weed...',message = 'Yo man, i got your order'..wwamount..' Wet Weed, freshly grown. Come pick it up',})
+            TriggerServerEvent('gksphone:NewMail', {sender = 'Mr Mexicans',subject = 'Pick up Wet Weed...',message = 'Yo man, i got your order'..wwamount..'x Wet Weed, freshly grown. Come pick it up',})
         end
         startwetweedpickup(wwamount)
         onPickup = true
@@ -178,14 +178,19 @@ function PickUpWetWeed2(wwamount)
         elseif Config.Phone == 'gk' then
             TriggerServerEvent('gksphone:NewMail', {sender = 'Mr Mexicans',subject = 'Enjoy it man...',message = 'Always a pleasure doing business with you. come back anytime man',})
         end
+        DestroyWetZone()
         onPickup = false
         finishedPickup = true
     end, function()
         QBCore.Functions.Notify('Cancelled', 'error', 7500)
         onPickup = false
         finishedPickup = true
-        end)
-    end
+    end)
+end
+
+function DestroyWetZone()
+    exports['qb-target']:RemoveZone("wet-pickup")
+end
 
 RegisterNetEvent("sayer-weedshop:deliveries:ReceivePayment")
 AddEventHandler("sayer-weedshop:deliveries:ReceivePayment", function()
