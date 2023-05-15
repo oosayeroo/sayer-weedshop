@@ -116,6 +116,9 @@ Config.JobStorageSlots = 40 --amount of slots in job storage
 Config.JobCounterWeight = 20 
 Config.JobCounterSlots = 5
 
+Config.AllowAllJointRolling = true --allows anybody to roll joints by using the rolling papers and having the weed in pockets
+Config.RollingPaperItem = 'rolling_paper'
+
 Config.CraftingTime = 5 --in seconds (5 = 5 seconds)
 --Breakable Equipment
 Config.GrinderCanBreak = true --whether or not grinder can break after grinding
