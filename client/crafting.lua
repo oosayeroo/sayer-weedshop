@@ -193,10 +193,19 @@ RegisterNetEvent("sayer-weedshop:GrindWeed", function(args)
     	   GrindWeed(args.taken, args.given)
 		   if Config.DebugCode then print(" Grind: Taken = "..args.taken..", Given = "..args.given.." ") end
     	else
-    	    QBCore.Functions.Notify("You don't have the right stuff..", "error")
+    	    QBCore.Functions.Notify("You don't have any "..QBCore.Shared.Items[args.taken].label.."...", "error")
     	end
 	else
         QBCore.Functions.Notify('You Need a Grinder', 'error')
+    end
+end)
+
+RegisterNetEvent("sayer-weedshop:RollJoint", function(args)
+    if QBCore.Functions.HasItem(args.taken) then
+       RollJoint(args.taken, args.given)
+	   if Config.DebugCode then print(" Grind: Taken = "..args.taken..", Given = "..args.given.." ") end
+    else
+        QBCore.Functions.Notify("You don't have any "..QBCore.Shared.Items[args.taken].label.."...", "error")
     end
 end)
 
@@ -219,6 +228,23 @@ function GrindWeed(taken, given)
     	        QBCore.Functions.Notify('Your Grinder Broke', 'error')
     	    end
     	end
+	else
+        QBCore.Functions.Notify('You Are Busy', 'error')
+    end
+end
+
+function RollJoint(taken, given)
+	if not isbusy then
+		isbusy = true
+		QBCore.Functions.Progressbar("pickup", "Rolling..", Config.CraftingTime * 1000, false, true, 
+		{disableMovement = true,disableCarMovement = true,disableMouse = false,disableCombat = true,},
+		{animDict = "amb@prop_human_bbq@male@base",anim = "base",flags = 8,})
+		Citizen.Wait(4000)
+		TriggerServerEvent('sayer-weedshop:server:FinishJoint', taken, given)
+		TriggerServerEvent('sayer-weedshop:RemoveItem', Config.RollingPaperItem, 1)
+		QBCore.Functions.Notify("Finished Rolling", "success") --used same event as grind weed as no need for another
+		StopAnimTask(PlayerPedId(), "amb@prop_human_bbq@male@base", "base", 1.0)
+		isbusy = false
 	else
         QBCore.Functions.Notify('You Are Busy', 'error')
     end

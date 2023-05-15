@@ -151,6 +151,18 @@ RegisterNetEvent('qb-menu:GrindWeed', function(data)
     })
 end)
 
+RegisterNetEvent('sayer-weedshop:RollJointsMenu', function(data)
+    exports['qb-menu']:openMenu({
+        {header = "| Roll Joints |",isMenuHeader = true, },
+        {header = "• Street Joint",  txt = "Requires Street Weed",  params = {event = "sayer-weedshop:RollJoint", args = {taken = "streetweed",     given = "joint"}}},
+        {header = "• Dream Joint",   txt = "Requires Dream Weed",  params = {event = "sayer-weedshop:RollJoint", args = {taken = "dream-weed",   given = "dream-joint"}}},
+        {header = "• Hazy Joint",    txt = "Requires Hazy Weed",  params = {event = "sayer-weedshop:RollJoint", args = {taken = "hazy-weed",    given = "hazy-joint"}}},
+        {header = "• Crush Joint",   txt = "Requires Crush Weed",  params = {event = "sayer-weedshop:RollJoint", args = {taken = "crush-weed",   given = "crush-joint"}}},
+        {header = "• Bloomer Joint", txt = "Requires Bloomer Weed",  params = {event = "sayer-weedshop:RollJoint", args = {taken = "bloomer-weed", given = "bloomer-joint"}}},
+        {id = 7,header = "Close (ESC)",isMenuHeader = true, },
+    })
+end)
+
 RegisterNetEvent('qb-menu:DryWeed', function(data)
     exports['qb-menu']:openMenu({
         {header = "| Dry Weed |",isMenuHeader = true, },
