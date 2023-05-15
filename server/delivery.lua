@@ -17,7 +17,7 @@ RegisterNetEvent('sayer-weedshop:server:pickupordered', function(wwamount)
     local amount = wwamount
     local price = Config.SingleWetWeedCost
     local result = amount*price
-    local society = QBCore.Functions.GetPlayer(src).job.name
+    local society = Player.PlayerData.job.name
 
     if Config.PaySociety then
         local balance = exports['qb-management']:GetAccount(society)

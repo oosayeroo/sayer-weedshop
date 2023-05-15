@@ -4,7 +4,7 @@ QBCore.Functions.CreateCallback('sayer-weedshop:server:get:ingredientjoint', fun
     local src = source
     local Ply = QBCore.Functions.GetPlayer(src)
     local streetweed = Ply.Functions.GetItemByName("streetweed")
-    local paper = Ply.Functions.GetItemByName("rolling_paper")
+    local paper = Ply.Functions.GetItemByName(Config.RollingPaperItem)
     if streetweed ~= nil and paper ~= nil then
         cb(true)
     else
@@ -28,7 +28,7 @@ QBCore.Functions.CreateCallback('sayer-weedshop:server:get:ingredientdream', fun
     local src = source
     local Ply = QBCore.Functions.GetPlayer(src)
     local dream = Ply.Functions.GetItemByName("dream-weed")
-    local paper = Ply.Functions.GetItemByName("rolling_paper")
+    local paper = Ply.Functions.GetItemByName(Config.RollingPaperItem)
     if dream ~= nil and paper ~= nil then
         cb(true)
     else
@@ -40,7 +40,7 @@ QBCore.Functions.CreateCallback('sayer-weedshop:server:get:ingredienthazy', func
     local src = source
     local Ply = QBCore.Functions.GetPlayer(src)
     local hazy = Ply.Functions.GetItemByName("hazy-weed")
-    local paper = Ply.Functions.GetItemByName("rolling_paper")
+    local paper = Ply.Functions.GetItemByName(Config.RollingPaperItem)
     if hazy ~= nil and paper ~= nil then
         cb(true)
     else
@@ -52,7 +52,7 @@ QBCore.Functions.CreateCallback('sayer-weedshop:server:get:ingredientcrush', fun
     local src = source
     local Ply = QBCore.Functions.GetPlayer(src)
     local crush = Ply.Functions.GetItemByName("crush-weed")
-    local paper = Ply.Functions.GetItemByName("rolling_paper")
+    local paper = Ply.Functions.GetItemByName(Config.RollingPaperItem)
     if crush ~= nil and paper ~= nil then
         cb(true)
     else
@@ -64,7 +64,7 @@ QBCore.Functions.CreateCallback('sayer-weedshop:server:get:ingredientbloomer', f
     local src = source
     local Ply = QBCore.Functions.GetPlayer(src)
     local bloomer = Ply.Functions.GetItemByName("bloomer-weed")
-    local paper = Ply.Functions.GetItemByName("rolling_paper")
+    local paper = Ply.Functions.GetItemByName(Config.RollingPaperItem)
     if bloomer ~= nil and paper ~= nil then
         cb(true)
     else

@@ -47,3 +47,10 @@ QBCore.Functions.CreateUseableItem("weed-gift-set", function(source, item)
     TriggerEvent("sayer-weedshop:server:addgiftboxitems", source, item.name)
     Player.Functions.RemoveItem('weed-gift-set', 1)
 end)
+
+QBCore.Functions.CreateUseableItem(Config.RollingPaperItem, function(source, item)
+    local Player = QBCore.Functions.GetPlayer(source)
+    if Config.AllowAllJointRolling then
+        TriggerClientEvent("sayer-weedshop:RollJointsMenu", source, item.name)
+    end
+end)

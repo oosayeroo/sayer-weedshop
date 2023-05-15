@@ -20,10 +20,11 @@ RegisterNetEvent('sayer-weedshop:server:addgiftboxitems', function(source)
     end
 end)
 
-RegisterNetEvent('sayer-weedshop:RemoveItem', function(item)
+RegisterNetEvent('sayer-weedshop:RemoveItem', function(item, amount)
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
-    Player.Functions.RemoveItem(item, 1)
+    if not amount then amount = 1 end
+    Player.Functions.RemoveItem(item, amount)
     TriggerClientEvent('inventory:client:ItemBox', src, QBCore.Shared.Items[item], "remove")
 end)
 
@@ -43,7 +44,7 @@ RegisterNetEvent('sayer-weedshop:server:makingjoint', function()
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
     Player.Functions.RemoveItem('streetweed', 1)
-    Player.Functions.RemoveItem('rolling_paper', 1)
+    Player.Functions.RemoveItem(Config.RollingPaperItem, 1)
     Player.Functions.AddItem('joint', 1)
 end)
 
@@ -59,7 +60,7 @@ RegisterNetEvent('sayer-weedshop:server:makingdreamjoint', function()
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
     Player.Functions.RemoveItem('dream-weed', 1)
-    Player.Functions.RemoveItem('rolling_paper', 1)
+    Player.Functions.RemoveItem(Config.RollingPaperItem, 1)
     Player.Functions.AddItem('dream-joint', 1)
 end)
 
@@ -67,7 +68,7 @@ RegisterNetEvent('sayer-weedshop:server:makinghazyjoint', function()
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
     Player.Functions.RemoveItem('hazy-weed', 1)
-    Player.Functions.RemoveItem('rolling_paper', 1)
+    Player.Functions.RemoveItem(Config.RollingPaperItem, 1)
     Player.Functions.AddItem('hazy-joint', 1)
 end)
 
@@ -75,7 +76,7 @@ RegisterNetEvent('sayer-weedshop:server:makingcrushjoint', function()
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
     Player.Functions.RemoveItem('crush-weed', 1)
-    Player.Functions.RemoveItem('rolling_paper', 1)
+    Player.Functions.RemoveItem(Config.RollingPaperItem, 1)
     Player.Functions.AddItem('crush-joint', 1)
 end)
 
@@ -83,7 +84,7 @@ RegisterNetEvent('sayer-weedshop:server:makingbloomerjoint', function()
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
     Player.Functions.RemoveItem('bloomer-weed', 1)
-    Player.Functions.RemoveItem('rolling_paper', 1)
+    Player.Functions.RemoveItem(Config.RollingPaperItem, 1)
     Player.Functions.AddItem('bloomer-joint', 1)
 end)
 
@@ -102,6 +103,14 @@ RegisterNetEvent('sayer-weedshop:server:makingweeddrink', function()
     Player.Functions.RemoveItem('streetweed', 1)
     Player.Functions.RemoveItem('aluminumcan', 1)
     Player.Functions.AddItem('weed-drink', Config.WeedDrinkAmount)
+end)
+
+RegisterNetEvent('sayer-weedshop:server:FinishJoint', function(taken, given)
+    local src = source
+    local Player = QBCore.Functions.GetPlayer(src)
+    Player.Functions.RemoveItem(taken, 1)
+    Player.Functions.AddItem(given, 1)
+    TriggerClientEvent('inventory:client:ItemBox', src, QBCore.Shared.Items[given], "add", amount)
 end)
 
 RegisterNetEvent('sayer-weedshop:server:GrindWeed', function(taken, given)
