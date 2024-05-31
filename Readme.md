@@ -39,7 +39,7 @@ qb-menu - https://github.com/qbcore-framework/qb-menu
 
 ## Insert into @qb-core/shared/items.lua 
 
-```
+```lua
 QBShared.Items = {
 -- Weed Shop
 ['streetweed'] 			    	 = {['name'] = 'streetweed', 			    	['label'] = 'Street Weed', 		    	['weight'] = 500, 		['type'] = 'item', 		["image"] = "weed_baggy.png",       	["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "To make into Joints."},
@@ -75,13 +75,56 @@ QBShared.Items = {
 
 ```
 
+## Using the default jobs with qb-core/shared/jobs.lua
+
+- copy this into your shared/jobs.lua
+
+```lua
+bestbuds = {
+	label = 'Best Buds',
+	defaultDuty = true,
+	offDutyPay = false,
+	grades = {
+		['0'] = { name = 'Recruit', payment = 50 },
+		['1'] = { name = 'Novice', payment = 75 },
+		['2'] = { name = 'Experienced', payment = 100 },
+		['3'] = { name = 'Advanced', payment = 125 },
+		['4'] = { name = 'Manager', isboss = true, payment = 150 },
+	},
+},
+blazeit = {
+	label = 'Blaze It',
+	defaultDuty = true,
+	offDutyPay = false,
+	grades = {
+		['0'] = { name = 'Recruit', payment = 50 },
+		['1'] = { name = 'Novice', payment = 75 },
+		['2'] = { name = 'Experienced', payment = 100 },
+		['3'] = { name = 'Advanced', payment = 125 },
+		['4'] = { name = 'Manager', isboss = true, payment = 150 },
+	},
+},
+widow = {
+	label = 'White Widow',
+	defaultDuty = true,
+	offDutyPay = false,
+	grades = {
+		['0'] = { name = 'Recruit', payment = 50 },
+		['1'] = { name = 'Novice', payment = 75 },
+		['2'] = { name = 'Experienced', payment = 100 },
+		['3'] = { name = 'Advanced', payment = 125 },
+		['4'] = { name = 'Manager', isboss = true, payment = 150 },
+	},
+},
+```
+
 ## Insert Contents of @weedshop/Images into @qb-inventory/HTML/Images
 
 # New Custom Effects Examples
 - With the new custom effects system you can create lots of new effects for any item you have in your server
 options marked with a ["!"] are important and must be included as a TRUE/FALSE(others are optional and can be put as false or not included at all)
 - example of custom item
-```
+```lua
 
 ["ItemName"] = { --item code to be used
         ItemName = 'dream-joint', --item code to be used...again  ["!"]
@@ -109,7 +152,7 @@ options marked with a ["!"] are important and must be included as a TRUE/FALSE(o
 - if you do not have or want to use jims script you can replace the garage section with false like shown below
 
 - with jim-jobgarage = 
-``` 
+```lua
 
  Garage = {{ --requires jim-jobgarage
             PedModel = 'g_m_importexport_01',
